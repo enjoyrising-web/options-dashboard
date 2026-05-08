@@ -177,6 +177,21 @@ tr.clickable { cursor: pointer; }
 .loading { text-align: center; padding: 3rem; color: var(--muted); }
 .spin { display: inline-block; width: 20px; height: 20px; border: 2px solid var(--border); border-top-color: var(--navy); border-radius: 50%; animation: spin .7s linear infinite; margin-right: 8px; vertical-align: middle; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* 昨日收盘价输入框 */
+.lc-input {
+  width: 80px; text-align: right; font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: 3px 6px; background: var(--bg); color: var(--ink);
+  outline: none; transition: border-color .15s;
+}
+.lc-input:focus { border-color: var(--navy); background: #fff; }
+.lc-input.red   { color: var(--red);   border-color: #f5c6c2; background: var(--red-bg); }
+.lc-input.green { color: var(--green); border-color: #b8e4cc; background: var(--green-bg); }
+/* 隐藏数字输入的上下箭头 */
+.lc-input::-webkit-inner-spin-button,
+.lc-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 </style>
 </head>
 <body>
@@ -237,9 +252,13 @@ tr.clickable { cursor: pointer; }
           <th onclick="sort('underlying')">标的 ↕</th>
           <th onclick="sort('product')">产品编号 ↕</th>
           <th>类型</th>
-          <th onclick="sort('obs')">观察日期 ↕</th>
+          <th onclick="sort('obs')">下单日期 ↕</th>
           <th>状态</th>
+          <th class="tr" onclick="sort('strike')">成交价 ↕</th>
+          <th class="tr" onclick="sort('knockout')">敲出价 ↕</th>
           <th class="tr" onclick="sort('knockin')">敲入价 ↕</th>
+          <th class="tr">昨日收盘价</th>
+          <th class="tr" onclick="sort('daily')">每天股数 ↕</th>
           <th class="tr" onclick="sort('uns')">未接股数 ↕</th>
           <th class="tr" onclick="sort('profitHKD')">总盈利 HKD ↕</th>
           <th>接股进度</th>
@@ -289,6 +308,19 @@ tr.clickable { cursor: pointer; }
 // ── State ────────────────────────────────────────────────────
 let DATA = [], fxUSD = 7.8277, fxJPY = 0.049;
 let filterStatus = 'all', sortCol = 'underlying', sortAsc = true;
+// 昨日收盘价（本地保存，刷新后保留）
+let lastClose = JSON.parse(localStorage.getItem('lastClose') || '{}');
+
+function setLastClose(product, val, inputEl) {
+  lastClose[product] = val;
+  localStorage.setItem('lastClose', JSON.stringify(lastClose));
+  // 颜色判断
+  const p = DATA.find(d => d.product === product);
+  if (p && val) {
+    const v = parseFloat(val);
+    inputEl.className = 'lc-input ' + (p.knockin && v < p.knockin ? 'red' : p.knockout && v > p.knockout ? 'green' : '');
+  }
+}
 
 // ── Load data ────────────────────────────────────────────────
 async function loadData() {
@@ -381,7 +413,7 @@ function sort(col) {
 // ── Overview table ────────────────────────────────────────────
 function renderOverview() {
   const d = filtered();
-  if (!d.length) { document.getElementById('ov-body').innerHTML = `<tr><td colspan="9" class="empty">暂无数据</td></tr>`; return; }
+  if (!d.length) { document.getElementById('ov-body').innerHTML = `<tr><td colspan="13" class="empty">暂无数据</td></tr>`; return; }
   document.getElementById('ov-body').innerHTML = d.map(p => {
     const idx = DATA.indexOf(p);
     const pnl = p.profitHKD;
@@ -389,16 +421,28 @@ function renderOverview() {
     const pc = prog(p);
     const bar = pc!=null ? `<div class="prog-wrap"><div class="prog-bar"><div class="prog-fill ${pc<30?'low':''}" style="width:${pc}%"></div></div><span class="prog-lbl">${pc}%</span></div>` : '-';
     const typeTag = p.type==='反累计期权' ? `<span class="tag tag-r">反累计</span>` : `<span class="tag">累计</span>`;
-    return `<tr class="clickable" onclick="openDrawer(${idx})">
-      <td>${p.underlying}</td>
-      <td><strong>${p.product}</strong></td>
-      <td>${typeTag}</td>
-      <td style="color:var(--muted)">${p.obs||'—'}</td>
-      <td><span class="badge ${bclass(p.status)}">${p.status}</span></td>
-      <td class="tr">${p.knockin ? fmt(p.knockin,4) : '—'}</td>
-      <td class="tr">${p.uns>0?fmt(p.uns):p.uns===0&&p.status==='敲出'?'<span class="muted">清零</span>':'—'}</td>
-      <td class="tr">${pStr}</td>
-      <td>${bar}</td>
+    // 昨日收盘价：可编辑输入框，存在 lastClose 对象中
+    const lc = lastClose[p.product] || '';
+    const lcColor = lc && p.knockin && parseFloat(lc) < p.knockin ? 'red' :
+                    lc && p.knockout && parseFloat(lc) > p.knockout ? 'green' : '';
+    return `<tr class="clickable">
+      <td onclick="openDrawer(${idx})">${p.underlying}</td>
+      <td onclick="openDrawer(${idx})"><strong>${p.product}</strong></td>
+      <td onclick="openDrawer(${idx})">${typeTag}</td>
+      <td onclick="openDrawer(${idx})" style="color:var(--muted)">${p.obs||'—'}</td>
+      <td onclick="openDrawer(${idx})"><span class="badge ${bclass(p.status)}">${p.status}</span></td>
+      <td class="tr" onclick="openDrawer(${idx})">${p.strike ? fmt(p.strike,4) : '—'}</td>
+      <td class="tr" onclick="openDrawer(${idx})">${p.knockout ? fmt(p.knockout,4) : '—'}</td>
+      <td class="tr" onclick="openDrawer(${idx})">${p.knockin ? fmt(p.knockin,4) : '—'}</td>
+      <td class="tr"><input class="lc-input ${lcColor}" type="number" step="any"
+        value="${lc}" placeholder="—"
+        onclick="event.stopPropagation()"
+        onchange="setLastClose('${p.product.replace(/'/g,"\\'")}', this.value, this)"
+        title="输入昨日收盘价，低于敲入价显示红色，高于敲出价显示绿色"></td>
+      <td class="tr" onclick="openDrawer(${idx})">${p.daily ? fmt(p.daily) : '—'}</td>
+      <td class="tr" onclick="openDrawer(${idx})">${p.uns>0?fmt(p.uns):p.uns===0&&p.status==='敲出'?'<span class="muted">清零</span>':'—'}</td>
+      <td class="tr" onclick="openDrawer(${idx})">${pStr}</td>
+      <td onclick="openDrawer(${idx})">${bar}</td>
     </tr>`;
   }).join('');
 }
@@ -468,7 +512,7 @@ function openDrawer(idx) {
     <div class="drawer-title">${p.product}</div>
     <div class="drawer-sub">${p.underlying} · ${p.type}</div>
     <hr>
-    ${[[' 状态','badge'],['观察日期',p.obs||'—'],['成交价',p.strike?fmt(p.strike,4):'—'],['敲入价',p.knockin?fmt(p.knockin,4):'—'],
+    ${[[' 状态','badge'],['下单日期',p.obs||'—'],['成交价',p.strike?fmt(p.strike,4):'—'],['敲入价',p.knockin?fmt(p.knockin,4):'—'],
        ['敲出价',p.knockout?fmt(p.knockout,4):'—'],['折扣率',p.discount?(p.discount*100).toFixed(2)+'%':'—'],
        ['每天接股',p.daily?fmt(p.daily)+' 股':'—'],['最多接股',p.maxShares?fmt(p.maxShares):'—'],
        ['未接股数',p.uns!=null?fmt(p.uns):'—'],['币种',p.ccy]].map(([l,v])=>
