@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期权投资看板</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&display=swap');
+
+:root {
+  --ink: #1a1a1a; --muted: #6b6b6b; --faint: #aaa; --border: #e8e6e0;
+  --bg: #f5f5f2; --surface: #fff;
+  --navy: #1a2a4a; --navy2: #253a63;
+  --green: #1a7a4a; --green-bg: #edf7f1;
+  --red: #c0392b; --red-bg: #fdf0ee;
+  --amber: #92620a; --amber-bg: #fdf5e6;
+  --blue: #185fa5; --blue-bg: #eef3fb;
+  --purple: #7a2fa8; --purple-bg: #f5edfb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans SC', sans-serif; background: var(--bg); color: var(--ink); font-size: 14px; }
+.num { font-family: 'IBM Plex Mono', monospace; }
+
+/* ── HEADER ── */
+.header {
+  background: var(--navy); color: #fff;
+  padding: 20px 24px 16px; position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.header-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.header h1 { font-size: 18px; font-weight: 600; }
+.header-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.fx-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 12px;
+  background: rgba(255,255,255,0.07); border-radius: 8px; padding: 8px 14px; font-size: 12px; }
+.fx-bar label { color: rgba(255,255,255,0.6); }
+.fx-bar input { width: 72px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 5px; padding: 3px 7px; color: #fff; font-size: 12px; font-family: 'IBM Plex Mono', monospace; }
+.fx-bar button { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 5px; color: #fff; padding: 4px 12px; cursor: pointer; font-size: 12px; }
+.fx-bar button:hover { background: rgba(255,255,255,0.25); }
+.fx-updated { color: rgba(255,255,255,0.4); font-size: 11px; margin-left: auto; }
+
+/* ── KPI ROW ── */
+.kpi-wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 16px 20px; }
+.kpi { background: var(--surface); border-radius: 10px; padding: 14px 16px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+.kpi-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 5px; }
+.kpi-val { font-size: 22px; font-weight: 600; font-family: 'IBM Plex Mono', monospace; }
+.kpi-sub { font-size: 11px; color: var(--faint); margin-top: 3px; }
+
+/* ── TABS ── */
+.tabs { display: flex; border-bottom: 1px solid var(--border); padding: 0 20px; background: var(--surface); }
+.tab { font-size: 13px; padding: 10px 18px; cursor: pointer; border-bottom: 2px solid transparent;
+  color: var(--muted); margin-bottom: -1px; transition: all .15s; }
+.tab.active { color: var(--ink); border-bottom-color: var(--navy); font-weight: 500; }
+.tab:hover:not(.active) { color: var(--ink); }
+.panel { display: none; } .panel.active { display: block; }
+
+/* ── TOOLBAR ── */
+.toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding: 12px 20px; }
+.toolbar input, .toolbar select {
+  font-size: 12px; padding: 7px 10px; border: 1px solid var(--border);
+  border-radius: 6px; background: var(--surface); color: var(--ink);
+  font-family: 'Noto Sans SC', sans-serif;
+}
+.toolbar input { width: 180px; }
+.pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.pill { font-size: 12px; padding: 5px 14px; border-radius: 20px; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border); color: var(--muted); transition: all .1s; }
+.pill:hover { border-color: var(--navy); color: var(--navy); }
+.pill.on { background: var(--navy); border-color: var(--navy); color: #fff; }
+
+/* ── TABLE ── */
+.tbl-wrap { overflow-x: auto; padding: 0 20px 20px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 700px; }
+th { text-align: left; padding: 8px 10px; color: var(--muted); font-weight: 500; font-size: 11px;
+  text-transform: uppercase; letter-spacing: .03em; border-bottom: 1px solid var(--border);
+  white-space: nowrap; cursor: pointer; user-select: none; }
+th:hover { color: var(--ink); }
+td { padding: 9px 10px; border-bottom: 1px solid #f5f5f2; vertical-align: middle; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--bg); }
+tr.clickable { cursor: pointer; }
+.tr { text-align: right; font-family: 'IBM Plex Mono', monospace; }
+
+/* badges */
+.badge { display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: 20px; font-weight: 500; }
+.bko   { background: var(--green-bg);  color: var(--green); }
+.bact  { background: var(--amber-bg);  color: var(--amber); }
+.bend  { background: #f0f0ee;           color: #888; }
+.bfwd  { background: var(--purple-bg); color: var(--purple); }
+.tag   { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 4px;
+  background: var(--bg); color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
+.tag-r { background: var(--purple-bg); color: var(--purple); }
+
+/* colors */
+.green { color: var(--green); } .red { color: var(--red); } .muted { color: var(--muted); }
+
+/* progress */
+.prog-wrap { display: flex; align-items: center; gap: 6px; }
+.prog-bar  { width: 60px; height: 5px; background: #eee; border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.prog-fill { height: 100%; border-radius: 3px; background: var(--green); }
+.prog-fill.low { background: var(--red); }
+.prog-lbl  { font-size: 11px; color: var(--muted); }
+
+/* ── DETAIL DRAWER ── */
+.drawer-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 200; }
+.drawer-bg.open { display: block; }
+.drawer { position: fixed; right: 0; top: 0; bottom: 0; width: 340px; background: var(--surface);
+  box-shadow: -4px 0 24px rgba(0,0,0,0.1); z-index: 201; overflow-y: auto;
+  transform: translateX(100%); transition: transform .25s ease; padding: 24px; }
+.drawer.open { transform: none; }
+.drawer-close { float: right; font-size: 22px; cursor: pointer; color: var(--muted); background: none; border: none; line-height: 1; }
+.drawer-title { font-size: 18px; font-weight: 600; margin-bottom: 2px; }
+.drawer-sub   { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+.drawer hr { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+.dl-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0;
+  border-bottom: 1px solid #fafaf8; font-size: 13px; }
+.dl-row:last-child { border-bottom: none; }
+.dl-label { color: var(--muted); }
+.dl-val { font-weight: 500; font-family: 'IBM Plex Mono', monospace; }
+.profit-big { font-size: 36px; font-weight: 700; font-family: 'IBM Plex Mono', monospace; margin: 8px 0 4px; }
+.profit-orig { font-size: 12px; color: var(--muted); }
+.prog-lg { margin-top: 14px; }
+.prog-lg-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.prog-lg-bar   { height: 8px; background: #f0eeea; border-radius: 4px; overflow: hidden; }
+.prog-lg-fill  { height: 100%; border-radius: 4px; background: var(--green); transition: width .3s; }
+.prog-lg-fill.low { background: var(--red); }
+
+/* ── STATS PANEL ── */
+.stats-wrap { padding: 16px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.stat-card { background: var(--surface); border-radius: 10px; padding: 18px 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+.stat-card h3 { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 14px; font-weight: 500; }
+.bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.bar-name { width: 80px; font-size: 12px; color: var(--muted); flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-track { flex: 1; height: 8px; background: #f0eeea; border-radius: 4px; overflow: hidden; }
+.bar-fill-pos { height: 100%; border-radius: 4px; background: var(--green); }
+.bar-fill-neg { height: 100%; border-radius: 4px; background: var(--red); }
+.bar-val  { width: 90px; font-size: 11px; font-family: 'IBM Plex Mono', monospace; text-align: right; }
+.rank-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #fafaf8; }
+.rank-row:last-child { border-bottom: none; }
+.rank-no { width: 22px; height: 22px; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--muted); flex-shrink: 0; }
+.rank-info { flex: 1; min-width: 0; }
+.rank-prod { font-size: 13px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rank-under { font-size: 11px; color: var(--muted); }
+.rank-val { font-size: 13px; font-weight: 600; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+
+/* ── FCN TABLE ── */
+.fcn-wrap { padding: 0 20px 20px; }
+
+/* ── CARD GRID (active) ── */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; padding: 16px 20px; }
+.card { background: var(--surface); border-radius: 10px; padding: 14px 16px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05); cursor: pointer; transition: box-shadow .1s; }
+.card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.card-title { font-size: 13px; font-weight: 600; }
+.card-under { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.card-pnl { font-size: 20px; font-weight: 700; font-family: 'IBM Plex Mono', monospace; margin: 6px 0; }
+.card-meta { font-size: 11px; color: var(--muted); line-height: 1.7; }
+.card-prog { margin-top: 10px; }
+.cp-label { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-bottom: 4px; }
+
+/* responsive */
+@media (max-width: 768px) {
+  .kpi-wrap { grid-template-columns: repeat(2, 1fr); }
+  .stats-wrap { grid-template-columns: 1fr; }
+  .drawer { width: 100%; }
+  .header h1 { font-size: 15px; }
+}
+@media (max-width: 480px) {
+  .kpi-wrap { grid-template-columns: repeat(2, 1fr); padding: 12px; }
+  .toolbar { padding: 10px 12px; }
+  .tbl-wrap { padding: 0 12px 16px; }
+}
+.empty { text-align: center; padding: 3rem; color: var(--muted); font-size: 13px; }
+.loading { text-align: center; padding: 3rem; color: var(--muted); }
+.spin { display: inline-block; width: 20px; height: 20px; border: 2px solid var(--border); border-top-color: var(--navy); border-radius: 50%; animation: spin .7s linear infinite; margin-right: 8px; vertical-align: middle; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>期权投资看板</h1>
+      <div class="header-sub" id="updated-at">数据加载中...</div>
+    </div>
+  </div>
+  <div class="fx-bar">
+    <label>USD/HKD</label>
+    <input id="fx-usd" type="number" step="0.001" value="7.8277">
+    <label>JPY/HKD</label>
+    <input id="fx-jpy" type="number" step="0.0001" value="0.049">
+    <button onclick="applyFX()">更新汇率</button>
+    <span class="fx-updated" id="fx-updated">—</span>
+  </div>
+</div>
+
+<!-- KPI -->
+<div class="kpi-wrap" id="kpis">
+  <div class="kpi"><div class="kpi-label">加载中</div><div class="kpi-val">—</div></div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" data-tab="overview" onclick="switchTab(this)">产品总览</div>
+  <div class="tab" data-tab="active"   onclick="switchTab(this)">存续订单</div>
+  <div class="tab" data-tab="stats"    onclick="switchTab(this)">统计分析</div>
+  <div class="tab" data-tab="fcn"      onclick="switchTab(this)">FCN台账</div>
+</div>
+
+<!-- OVERVIEW PANEL -->
+<div class="panel active" id="panel-overview">
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="搜索标的 / 产品..." oninput="renderAll()">
+    <select id="ccy-sel" onchange="renderAll()">
+      <option value="">全部币种</option>
+      <option value="HKD">HKD</option>
+      <option value="USD">USD</option>
+      <option value="JPY">JPY</option>
+    </select>
+    <div class="pills" id="filter-pills">
+      <span class="pill on" data-f="all"    onclick="setPill(this)">全部</span>
+      <span class="pill"    data-f="存续中"  onclick="setPill(this)">存续中</span>
+      <span class="pill"    data-f="敲出"   onclick="setPill(this)">已敲出</span>
+      <span class="pill"    data-f="累计期权"  onclick="setPill(this)">累计</span>
+      <span class="pill"    data-f="反累计期权" onclick="setPill(this)">反累计</span>
+    </div>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sort('underlying')">标的 ↕</th>
+          <th onclick="sort('product')">产品编号 ↕</th>
+          <th>类型</th>
+          <th onclick="sort('obs')">观察日期 ↕</th>
+          <th>状态</th>
+          <th class="tr" onclick="sort('knockin')">敲入价 ↕</th>
+          <th class="tr" onclick="sort('uns')">未接股数 ↕</th>
+          <th class="tr" onclick="sort('profitHKD')">总盈利 HKD ↕</th>
+          <th>接股进度</th>
+        </tr>
+      </thead>
+      <tbody id="ov-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ACTIVE PANEL -->
+<div class="panel" id="panel-active">
+  <div id="active-cards" class="card-grid"></div>
+</div>
+
+<!-- STATS PANEL -->
+<div class="panel" id="panel-stats">
+  <div class="stats-wrap" id="stats-content"></div>
+</div>
+
+<!-- FCN PANEL -->
+<div class="panel" id="panel-fcn">
+  <div class="fcn-wrap">
+    <table>
+      <thead><tr>
+        <th>下单日</th><th>标的</th><th>入场价</th><th>金额</th>
+        <th>币种</th><th>期限</th><th>交割日</th><th>比价日</th><th>备注</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>2025.10.28</td><td>9988HK 阿里巴巴</td><td class="num">170.5</td><td>150万 HKD</td><td><span class="tag">USD</span></td><td>3M</td><td>2025.11.11</td><td>2026.02.11</td><td>每月收息</td></tr>
+        <tr><td>2026.01.20</td><td>GOOGLE.OQ 谷歌</td><td class="num">321.355</td><td>30万 USD</td><td><span class="tag">USD</span></td><td>3M</td><td>2026.02.03</td><td>2026.05.04</td><td></td></tr>
+        <tr><td>2026.02.13</td><td>9988HK 阿里巴巴</td><td class="num">155.6</td><td>125万 HKD</td><td><span class="tag">USD</span></td><td>3M</td><td>2026.02.27</td><td>2026.05.27</td><td></td></tr>
+        <tr><td>2026.03.05</td><td>3800HK 协鑫科技</td><td class="num">1.07</td><td>200万 HKD</td><td><span class="tag">HKD</span></td><td>3M</td><td>2026.06.24</td><td>—</td><td>每月收息 · 2026-4-22 收息HKD 26,766.67</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- DRAWER -->
+<div class="drawer-bg" id="drawer-bg" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">×</button>
+  <div id="drawer-body"></div>
+</div>
+
+<script>
+// ── State ────────────────────────────────────────────────────
+let DATA = [], fxUSD = 7.8277, fxJPY = 0.049;
+let filterStatus = 'all', sortCol = 'underlying', sortAsc = true;
+
+// ── Load data ────────────────────────────────────────────────
+async function loadData() {
+  try {
+    // Cache-bust so Vercel always serves latest
+    const res = await fetch('./data/products.json?v=' + Date.now());
+    const json = await res.json();
+    DATA = json.products || [];
+    if (json.fx) { fxUSD = json.fx.USDHKD || 7.8277; fxJPY = json.fx.JPYHKD || 0.049; }
+    document.getElementById('fx-usd').value = fxUSD;
+    document.getElementById('fx-jpy').value = fxJPY;
+    const d = json.updatedAt || '';
+    document.getElementById('updated-at').textContent = '数据截至 ' + d + ' · 点击行查看详情';
+    renderAll();
+  } catch(e) {
+    document.getElementById('kpis').innerHTML = '<div class="kpi"><div class="kpi-label">加载失败</div><div class="kpi-val red">ERR</div></div>';
+  }
+}
+
+// ── Utils ────────────────────────────────────────────────────
+const fmt = (n, d=0) => n == null ? '—' : Number(n).toLocaleString('zh', {minimumFractionDigits:d, maximumFractionDigits:d});
+const fmtBig = n => { if(n==null) return '—'; const a=Math.abs(n),s=n<0?'-':''; return a>=1e8?s+(a/1e8).toFixed(2)+'亿':a>=1e4?s+(a/1e4).toFixed(1)+'万':s+fmt(a); };
+const prog = p => p.maxShares>0 ? Math.round((1-(p.uns||0)/p.maxShares)*100) : null;
+const bclass = s => s==='敲出'?'bko':s==='存续中'?'bact':s==='结束'?'bend':'bfwd';
+const toOrig = p => p.profitHKD==null?null: p.ccy==='USD'?p.profitHKD/fxUSD: p.ccy==='JPY'?p.profitHKD/fxJPY: p.profitHKD;
+
+// ── FX ───────────────────────────────────────────────────────
+function applyFX() {
+  fxUSD = parseFloat(document.getElementById('fx-usd').value) || 7.8277;
+  fxJPY = parseFloat(document.getElementById('fx-jpy').value) || 0.049;
+  const now = new Date().toLocaleDateString('zh',{month:'short',day:'numeric'});
+  document.getElementById('fx-updated').textContent = '汇率更新：' + now;
+  renderAll();
+}
+
+// ── KPIs ─────────────────────────────────────────────────────
+function renderKPIs() {
+  const total = DATA.reduce((s,p) => s+(p.profitHKD||0), 0);
+  const active = DATA.filter(p => p.status==='存续中');
+  const ko     = DATA.filter(p => p.status==='敲出');
+  const uns    = active.reduce((s,p) => s+(p.uns||0), 0);
+  document.getElementById('kpis').innerHTML = `
+    <div class="kpi"><div class="kpi-label">累计总利润</div>
+      <div class="kpi-val ${total>=0?'green':'red'}">${total>=0?'+':''}${fmtBig(total)} HKD</div>
+      <div class="kpi-sub">已实现 + 浮盈合计</div></div>
+    <div class="kpi"><div class="kpi-label">产品总数</div>
+      <div class="kpi-val">${DATA.length}</div>
+      <div class="kpi-sub">存续 ${active.length} · 敲出 ${ko.length}</div></div>
+    <div class="kpi"><div class="kpi-label">存续订单</div>
+      <div class="kpi-val muted">${active.length}</div>
+      <div class="kpi-sub">含反累计 ${active.filter(p=>p.type==='反累计期权').length} 个</div></div>
+    <div class="kpi"><div class="kpi-label">总未接股数</div>
+      <div class="kpi-val muted">${fmt(uns)}</div>
+      <div class="kpi-sub">存续订单合计</div></div>
+  `;
+}
+
+// ── Filter & Sort ─────────────────────────────────────────────
+function filtered() {
+  let d = [...DATA];
+  const q = (document.getElementById('search')?.value||'').toLowerCase();
+  const ccy = document.getElementById('ccy-sel')?.value||'';
+  if (q)   d = d.filter(p => p.underlying.includes(q)||p.product.toLowerCase().includes(q));
+  if (ccy) d = d.filter(p => p.ccy === ccy);
+  if (filterStatus==='存续中')    d = d.filter(p => p.status==='存续中');
+  else if (filterStatus==='敲出') d = d.filter(p => p.status==='敲出');
+  else if (filterStatus==='累计期权')   d = d.filter(p => p.type==='累计期权');
+  else if (filterStatus==='反累计期权') d = d.filter(p => p.type==='反累计期权');
+  d.sort((a,b) => {
+    const va=a[sortCol]??'', vb=b[sortCol]??'';
+    if(typeof va==='number'&&typeof vb==='number') return sortAsc?va-vb:vb-va;
+    return sortAsc ? String(va).localeCompare(String(vb),undefined,{numeric:true})
+                   : String(vb).localeCompare(String(va),undefined,{numeric:true});
+  });
+  return d;
+}
+
+function setPill(el) {
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
+  el.classList.add('on');
+  filterStatus = el.dataset.f;
+  renderAll();
+}
+
+function sort(col) {
+  if (sortCol===col) sortAsc=!sortAsc; else { sortCol=col; sortAsc=true; }
+  renderAll();
+}
+
+// ── Overview table ────────────────────────────────────────────
+function renderOverview() {
+  const d = filtered();
+  if (!d.length) { document.getElementById('ov-body').innerHTML = `<tr><td colspan="9" class="empty">暂无数据</td></tr>`; return; }
+  document.getElementById('ov-body').innerHTML = d.map(p => {
+    const idx = DATA.indexOf(p);
+    const pnl = p.profitHKD;
+    const pStr = pnl!=null ? `<span class="${pnl>=0?'green':'red'}">${pnl>=0?'+':''}${fmt(pnl)}</span>` : `<span class="muted">—</span>`;
+    const pc = prog(p);
+    const bar = pc!=null ? `<div class="prog-wrap"><div class="prog-bar"><div class="prog-fill ${pc<30?'low':''}" style="width:${pc}%"></div></div><span class="prog-lbl">${pc}%</span></div>` : '-';
+    const typeTag = p.type==='反累计期权' ? `<span class="tag tag-r">反累计</span>` : `<span class="tag">累计</span>`;
+    return `<tr class="clickable" onclick="openDrawer(${idx})">
+      <td>${p.underlying}</td>
+      <td><strong>${p.product}</strong></td>
+      <td>${typeTag}</td>
+      <td style="color:var(--muted)">${p.obs||'—'}</td>
+      <td><span class="badge ${bclass(p.status)}">${p.status}</span></td>
+      <td class="tr">${p.knockin ? fmt(p.knockin,4) : '—'}</td>
+      <td class="tr">${p.uns>0?fmt(p.uns):p.uns===0&&p.status==='敲出'?'<span class="muted">清零</span>':'—'}</td>
+      <td class="tr">${pStr}</td>
+      <td>${bar}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Active cards ──────────────────────────────────────────────
+function renderActive() {
+  const active = DATA.filter(p => p.status==='存续中');
+  document.getElementById('active-cards').innerHTML = active.map(p => {
+    const idx = DATA.indexOf(p);
+    const pnl = p.profitHKD;
+    const pc = prog(p);
+    return `<div class="card" onclick="openDrawer(${idx})">
+      <div class="card-top">
+        <div><div class="card-title">${p.product}</div><div class="card-under">${p.underlying}</div></div>
+        <span class="badge ${bclass(p.status)}">${p.status}</span>
+      </div>
+      <div class="card-pnl ${pnl==null?'muted':pnl>=0?'green':'red'}">${pnl!=null?(pnl>=0?'+':'')+fmt(pnl):'待结算'}</div>
+      <div class="card-meta">
+        ${p.obs}<br>
+        ${p.knockin?`敲入 ${fmt(p.knockin,4)}<br>`:''}
+        ${p.uns!=null?`未接 ${fmt(p.uns)}${p.maxShares?` / ${fmt(p.maxShares)}`:''}<br>`:''}
+        ${p.daily?`每天 ${fmt(p.daily)} 股`:''}
+      </div>
+      ${pc!=null?`<div class="card-prog"><div class="cp-label"><span>接股进度</span><span>${pc}%</span></div><div class="prog-bar" style="width:100%;height:5px"><div class="prog-fill ${pc<30?'low':''}" style="width:${pc}%"></div></div></div>`:''}
+    </div>`;
+  }).join('') || '<div class="empty">暂无存续订单</div>';
+}
+
+// ── Stats panel ───────────────────────────────────────────────
+function renderStats() {
+  const byU = {};
+  DATA.forEach(p => { byU[p.underlying] = (byU[p.underlying]||0) + (p.profitHKD||0); });
+  const uList = Object.entries(byU).sort((a,b)=>b[1]-a[1]);
+  const maxAbs = Math.max(...uList.map(([,v])=>Math.abs(v)), 1);
+
+  const topWin  = [...DATA].filter(p=>p.profitHKD>0).sort((a,b)=>b.profitHKD-a.profitHKD).slice(0,5);
+  const topLoss = [...DATA].filter(p=>p.profitHKD<0).sort((a,b)=>a.profitHKD-b.profitHKD).slice(0,5);
+
+  document.getElementById('stats-content').innerHTML = `
+    <div class="stat-card" style="grid-column:1/-1">
+      <h3>按标的盈亏汇总（HKD）</h3>
+      ${uList.map(([name,v])=>`
+        <div class="bar-row">
+          <span class="bar-name" title="${name}">${name}</span>
+          <div class="bar-track"><div class="${v>=0?'bar-fill-pos':'bar-fill-neg'}" style="width:${Math.round(Math.abs(v)/maxAbs*100)}%"></div></div>
+          <span class="bar-val ${v>=0?'green':'red'}">${(v>=0?'+':'')+fmtBig(v)}</span>
+        </div>`).join('')}
+    </div>
+    <div class="stat-card">
+      <h3>盈利 Top 5</h3>
+      ${topWin.map((p,i)=>`<div class="rank-row"><div class="rank-no">${i+1}</div><div class="rank-info"><div class="rank-prod">${p.product}</div><div class="rank-under">${p.underlying}</div></div><span class="rank-val green">+${fmt(p.profitHKD)}</span></div>`).join('')||'<div class="empty">—</div>'}
+    </div>
+    <div class="stat-card">
+      <h3>亏损 Top 5</h3>
+      ${topLoss.map((p,i)=>`<div class="rank-row"><div class="rank-no" style="background:#fdf0ee;color:#c0392b">${i+1}</div><div class="rank-info"><div class="rank-prod">${p.product}</div><div class="rank-under">${p.underlying}</div></div><span class="rank-val red">${fmt(p.profitHKD)}</span></div>`).join('')||'<div class="empty">暂无亏损</div>'}
+    </div>
+  `;
+}
+
+// ── Drawer ────────────────────────────────────────────────────
+function openDrawer(idx) {
+  const p = DATA[idx]; if (!p) return;
+  const pnl  = p.profitHKD;
+  const orig = toOrig(p);
+  const pc   = prog(p);
+  document.getElementById('drawer-body').innerHTML = `
+    <div class="drawer-title">${p.product}</div>
+    <div class="drawer-sub">${p.underlying} · ${p.type}</div>
+    <hr>
+    ${[[' 状态','badge'],['观察日期',p.obs||'—'],['成交价',p.strike?fmt(p.strike,4):'—'],['敲入价',p.knockin?fmt(p.knockin,4):'—'],
+       ['敲出价',p.knockout?fmt(p.knockout,4):'—'],['折扣率',p.discount?(p.discount*100).toFixed(2)+'%':'—'],
+       ['每天接股',p.daily?fmt(p.daily)+' 股':'—'],['最多接股',p.maxShares?fmt(p.maxShares):'—'],
+       ['未接股数',p.uns!=null?fmt(p.uns):'—'],['币种',p.ccy]].map(([l,v])=>
+      l===' 状态'?`<div class="dl-row"><span class="dl-label">状态</span><span class="badge ${bclass(p.status)}">${p.status}</span></div>`:
+      `<div class="dl-row"><span class="dl-label">${l}</span><span class="dl-val">${v}</span></div>`).join('')}
+    <hr>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em">总盈利</div>
+    <div class="profit-big ${pnl==null?'muted':pnl>=0?'green':'red'}">${pnl!=null?(pnl>=0?'+':'')+fmt(pnl):'待结算'}</div>
+    ${pnl!=null?`<span style="font-size:13px;color:var(--muted)">HKD</span>`:''}
+    ${orig!=null&&p.ccy!=='HKD'?`<div class="profit-orig">原币：${fmt(orig,0)} ${p.ccy}（汇率 ${p.ccy==='USD'?fxUSD.toFixed(4):fxJPY.toFixed(4)}）</div>`:''}
+    ${pc!=null?`<div class="prog-lg"><div class="prog-lg-label"><span>接股进度</span><span>${pc}%</span></div><div class="prog-lg-bar"><div class="prog-lg-fill ${pc<30?'low':''}" style="width:${pc}%"></div></div></div>`:''}
+  `;
+  document.getElementById('drawer-bg').classList.add('open');
+  document.getElementById('drawer').classList.add('open');
+}
+
+function closeDrawer() {
+  document.getElementById('drawer-bg').classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
+}
+
+// ── Tabs ──────────────────────────────────────────────────────
+function switchTab(el) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('panel-'+el.dataset.tab).classList.add('active');
+}
+
+// ── Render all ────────────────────────────────────────────────
+function renderAll() {
+  renderKPIs();
+  renderOverview();
+  renderActive();
+  renderStats();
+}
+
+loadData();
+</script>
+</body>
+</html>
