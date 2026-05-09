@@ -359,18 +359,24 @@ const toOrig = p => p.profitHKD==null?null: p.ccy==='USD'?p.profitHKD/fxUSD: p.c
 // ── FX ───────────────────────────────────────────────────────
 // ── 自动查询昨日收盘价 (via Yahoo Finance) ──────────────────
 async function fetchPrice(ticker, ccy) {
-  try {
-    // Use Yahoo Finance API via allorigins proxy
-    const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=2d`)}`;
-    const res = await fetch(url, {signal: AbortSignal.timeout(8000)});
-    const json = await res.json();
-    const closes = json?.chart?.result?.[0]?.indicators?.quote?.[0]?.close;
-    if (closes && closes.length >= 1) {
-      // Get last available close
-      const close = closes.filter(v=>v!=null).slice(-1)[0];
-      return close ? Math.round(close * 10000) / 10000 : null;
-    }
-  } catch(e) { return null; }
+  // Try multiple CORS proxies for Yahoo Finance
+  const yahooUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=5d`;
+  const proxies = [
+    `https://corsproxy.io/?${encodeURIComponent(yahooUrl)}`,
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(yahooUrl)}`,
+  ];
+  for (const url of proxies) {
+    try {
+      const res = await fetch(url, {signal: AbortSignal.timeout(10000)});
+      if (!res.ok) continue;
+      const json = await res.json();
+      const closes = json?.chart?.result?.[0]?.indicators?.quote?.[0]?.close;
+      if (closes && closes.length >= 1) {
+        const close = closes.filter(v=>v!=null).slice(-1)[0];
+        if (close) return Math.round(close * 10000) / 10000;
+      }
+    } catch(e) { continue; }
+  }
   return null;
 }
 
@@ -478,6 +484,9 @@ function renderOverview() {
     const pStr = pnl!=null ? `<span class="${pnl>=0?'green':'red'}">${pnl>=0?'+':''}${fmt(pnl)}</span>` : `<span class="muted">—</span>`;
     const pc = prog(p);
     const unsStr = p.uns>0 ? fmt(p.uns) : (p.uns===0 && p.status==='敲出' ? '<span class="muted">清零</span>' : '—');
+    // 库存：同一标的只在第一行显示，避免重复
+    const prevSameUnderlying = d.slice(0, d.indexOf(p)).some(pp => pp.underlying === p.underlying && pp.inventory != null && pp.inventory > 0);
+    const showInventory = p.inventory != null && p.inventory > 0 && !prevSameUnderlying;
     const bar = pc!=null ? `<div class="prog-wrap"><div class="prog-bar"><div class="prog-fill ${pc<30?'low':''}" style="width:${pc}%"></div></div><span class="prog-lbl">${pc}%</span></div>` : '-';
     const typeTag = p.type==='反累计期权' ? `<span class="tag tag-r">反累计</span>` : `<span class="tag">累计</span>`;
     // 昨日收盘价：可编辑输入框，存在 lastClose 对象中
@@ -501,7 +510,7 @@ function renderOverview() {
       <td class="tr" onclick="openDrawer(${idx})">${p.knockin ? fmt(p.knockin,4) : '—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${p.daily ? fmt(p.daily) : '—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${unsStr}</td>
-      <td class="tr" onclick="openDrawer(${idx})">${p.inventory!=null&&p.inventory>0?fmt(p.inventory):'—'}</td>
+      <td class="tr" onclick="openDrawer(${idx})">${showInventory?fmt(p.inventory):'—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${pStr}</td>
       <td onclick="openDrawer(${idx})">${bar}</td>
     </tr>`;
