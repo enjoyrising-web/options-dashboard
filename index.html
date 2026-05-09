@@ -192,6 +192,14 @@ tr.clickable { cursor: pointer; }
 /* 隐藏数字输入的上下箭头 */
 .lc-input::-webkit-inner-spin-button,
 .lc-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.fetch-btn {
+  font-size: 11px; padding: 1px 5px; margin-left: 4px;
+  border: 1px solid var(--border); border-radius: 4px;
+  background: rgba(255,255,255,0.15); color: inherit;
+  cursor: pointer; vertical-align: middle;
+}
+.fetch-btn:hover { background: var(--navy2); color: #fff; }
+.fetch-btn:disabled { opacity: 0.5; cursor: wait; }
 </style>
 </head>
 <body>
@@ -254,12 +262,13 @@ tr.clickable { cursor: pointer; }
           <th>类型</th>
           <th onclick="sort('obs')">下单日期 ↕</th>
           <th>状态</th>
+          <th class="tr">昨日收盘 <button class="fetch-btn" onclick="fetchAllPrices(event)" title="自动查询存续订单收盘价">↻</button></th>
           <th class="tr" onclick="sort('strike')">成交价 ↕</th>
           <th class="tr" onclick="sort('knockout')">敲出价 ↕</th>
           <th class="tr" onclick="sort('knockin')">敲入价 ↕</th>
-          <th class="tr">昨日收盘价</th>
           <th class="tr" onclick="sort('daily')">每天股数 ↕</th>
           <th class="tr" onclick="sort('uns')">未接股数 ↕</th>
+          <th class="tr" onclick="sort('inventory')">库存数量 ↕</th>
           <th class="tr" onclick="sort('profitHKD')">总盈利 HKD ↕</th>
           <th>接股进度</th>
         </tr>
@@ -348,6 +357,55 @@ const bclass = s => s==='敲出'?'bko':s==='存续中'?'bact':s==='结束'?'bend
 const toOrig = p => p.profitHKD==null?null: p.ccy==='USD'?p.profitHKD/fxUSD: p.ccy==='JPY'?p.profitHKD/fxJPY: p.profitHKD;
 
 // ── FX ───────────────────────────────────────────────────────
+// ── 自动查询昨日收盘价 (via Yahoo Finance) ──────────────────
+async function fetchPrice(ticker, ccy) {
+  try {
+    // Use Yahoo Finance API via allorigins proxy
+    const url = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=2d`)}`;
+    const res = await fetch(url, {signal: AbortSignal.timeout(8000)});
+    const json = await res.json();
+    const closes = json?.chart?.result?.[0]?.indicators?.quote?.[0]?.close;
+    if (closes && closes.length >= 1) {
+      // Get last available close
+      const close = closes.filter(v=>v!=null).slice(-1)[0];
+      return close ? Math.round(close * 10000) / 10000 : null;
+    }
+  } catch(e) { return null; }
+  return null;
+}
+
+async function fetchAllPrices(evt) {
+  evt.stopPropagation();
+  const btn = evt.target;
+  btn.textContent = '⏳'; btn.disabled = true;
+  
+  // Get unique tickers from active products
+  const activeProd = DATA.filter(p => p.status === '存续中' && p.ticker);
+  const tickers = [...new Set(activeProd.map(p => p.ticker))];
+  
+  let fetched = 0;
+  for (const ticker of tickers) {
+    const p = activeProd.find(pp => pp.ticker === ticker);
+    const price = await fetchPrice(ticker, p?.ccy);
+    if (price) {
+      // Find all products with this ticker
+      DATA.filter(pp => pp.ticker === ticker).forEach(pp => {
+        lastClose[pp.product] = price;
+      });
+      fetched++;
+    }
+    await new Promise(r => setTimeout(r, 300)); // rate limit
+  }
+  
+  localStorage.setItem('lastClose', JSON.stringify(lastClose));
+  renderOverview();
+  btn.textContent = '↻'; btn.disabled = false;
+  
+  // Update timestamp
+  const now = new Date().toLocaleString('zh', {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+  document.getElementById('fx-updated').textContent = `收盘价更新：${now}（${fetched}/${tickers.length}只）`;
+}
+
 function applyFX() {
   fxUSD = parseFloat(document.getElementById('fx-usd').value) || 7.8277;
   fxJPY = parseFloat(document.getElementById('fx-jpy').value) || 0.049;
@@ -413,7 +471,7 @@ function sort(col) {
 // ── Overview table ────────────────────────────────────────────
 function renderOverview() {
   const d = filtered();
-  if (!d.length) { document.getElementById('ov-body').innerHTML = `<tr><td colspan="13" class="empty">暂无数据</td></tr>`; return; }
+  if (!d.length) { document.getElementById('ov-body').innerHTML = `<tr><td colspan="14" class="empty">暂无数据</td></tr>`; return; }
   document.getElementById('ov-body').innerHTML = d.map(p => {
     const idx = DATA.indexOf(p);
     const pnl = p.profitHKD;
@@ -431,16 +489,18 @@ function renderOverview() {
       <td onclick="openDrawer(${idx})">${typeTag}</td>
       <td onclick="openDrawer(${idx})" style="color:var(--muted)">${p.obs||'—'}</td>
       <td onclick="openDrawer(${idx})"><span class="badge ${bclass(p.status)}">${p.status}</span></td>
+      <td class="tr"><input class="lc-input ${lcColor}" type="number" step="any"
+        id="lc-${p.product.replace(/[^a-zA-Z0-9]/g,'_')}"
+        value="${lc}" placeholder="—"
+        onclick="event.stopPropagation()"
+        onchange="setLastClose('${p.product.replace(/'/g,&quot;\'&quot;)}', this.value, this)"
+        title="低于敲入→红 高于敲出→绿"></td>
       <td class="tr" onclick="openDrawer(${idx})">${p.strike ? fmt(p.strike,4) : '—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${p.knockout ? fmt(p.knockout,4) : '—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${p.knockin ? fmt(p.knockin,4) : '—'}</td>
-      <td class="tr"><input class="lc-input ${lcColor}" type="number" step="any"
-        value="${lc}" placeholder="—"
-        onclick="event.stopPropagation()"
-        onchange="setLastClose('${p.product.replace(/'/g,"\\'")}', this.value, this)"
-        title="输入昨日收盘价，低于敲入价显示红色，高于敲出价显示绿色"></td>
       <td class="tr" onclick="openDrawer(${idx})">${p.daily ? fmt(p.daily) : '—'}</td>
-      <td class="tr" onclick="openDrawer(${idx})">${p.uns>0?fmt(p.uns):p.uns===0&&p.status==='敲出'?'<span class="muted">清零</span>':'—'}</td>
+      <td class="tr" onclick="openDrawer(${idx})">${p.uns>0?fmt(p.uns):p.uns===0&&p.status==='敲出'?'<span class=\"muted\">清零</span>':'—'}</td>
+      <td class="tr" onclick="openDrawer(${idx})">${p.inventory!=null&&p.inventory>0?fmt(p.inventory):'—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${pStr}</td>
       <td onclick="openDrawer(${idx})">${bar}</td>
     </tr>`;
@@ -515,7 +575,7 @@ function openDrawer(idx) {
     ${[[' 状态','badge'],['下单日期',p.obs||'—'],['成交价',p.strike?fmt(p.strike,4):'—'],['敲入价',p.knockin?fmt(p.knockin,4):'—'],
        ['敲出价',p.knockout?fmt(p.knockout,4):'—'],['折扣率',p.discount?(p.discount*100).toFixed(2)+'%':'—'],
        ['每天接股',p.daily?fmt(p.daily)+' 股':'—'],['最多接股',p.maxShares?fmt(p.maxShares):'—'],
-       ['未接股数',p.uns!=null?fmt(p.uns):'—'],['币种',p.ccy]].map(([l,v])=>
+       ['未接股数',p.uns!=null?fmt(p.uns):'—'],['库存数量',p.inventory!=null?fmt(p.inventory):'—'],['币种',p.ccy]].map(([l,v])=>
       l===' 状态'?`<div class="dl-row"><span class="dl-label">状态</span><span class="badge ${bclass(p.status)}">${p.status}</span></div>`:
       `<div class="dl-row"><span class="dl-label">${l}</span><span class="dl-val">${v}</span></div>`).join('')}
     <hr>
