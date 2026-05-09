@@ -493,7 +493,7 @@ function renderOverview() {
         id="lc-${p.product.replace(/[^a-zA-Z0-9]/g,'_')}"
         value="${lc}" placeholder="—"
         onclick="event.stopPropagation()"
-        onchange="setLastClose('${p.product.replace(/'/g,&quot;\'&quot;)}', this.value, this)"
+        onchange="setLastClose('${p.product.replace(/[^a-zA-Z0-9]/g,\'_\')}', this.value, this)"
         title="低于敲入→红 高于敲出→绿"></td>
       <td class="tr" onclick="openDrawer(${idx})">${p.strike ? fmt(p.strike,4) : '—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${p.knockout ? fmt(p.knockout,4) : '—'}</td>
