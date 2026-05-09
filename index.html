@@ -477,6 +477,7 @@ function renderOverview() {
     const pnl = p.profitHKD;
     const pStr = pnl!=null ? `<span class="${pnl>=0?'green':'red'}">${pnl>=0?'+':''}${fmt(pnl)}</span>` : `<span class="muted">—</span>`;
     const pc = prog(p);
+    const unsStr = p.uns>0 ? fmt(p.uns) : (p.uns===0 && p.status==='敲出' ? '<span class="muted">清零</span>' : '—');
     const bar = pc!=null ? `<div class="prog-wrap"><div class="prog-bar"><div class="prog-fill ${pc<30?'low':''}" style="width:${pc}%"></div></div><span class="prog-lbl">${pc}%</span></div>` : '-';
     const typeTag = p.type==='反累计期权' ? `<span class="tag tag-r">反累计</span>` : `<span class="tag">累计</span>`;
     // 昨日收盘价：可编辑输入框，存在 lastClose 对象中
@@ -490,16 +491,16 @@ function renderOverview() {
       <td onclick="openDrawer(${idx})" style="color:var(--muted)">${p.obs||'—'}</td>
       <td onclick="openDrawer(${idx})"><span class="badge ${bclass(p.status)}">${p.status}</span></td>
       <td class="tr"><input class="lc-input ${lcColor}" type="number" step="any"
-        id="lc-${p.product.replace(/[^a-zA-Z0-9]/g,'_')}"
+        data-prod="${p.product}"
         value="${lc}" placeholder="—"
         onclick="event.stopPropagation()"
-        onchange="setLastClose('${p.product.replace(/[^a-zA-Z0-9]/g,\'_\')}', this.value, this)"
+        onchange="setLastClose(this.dataset.prod, this.value, this)"
         title="低于敲入→红 高于敲出→绿"></td>
       <td class="tr" onclick="openDrawer(${idx})">${p.strike ? fmt(p.strike,4) : '—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${p.knockout ? fmt(p.knockout,4) : '—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${p.knockin ? fmt(p.knockin,4) : '—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${p.daily ? fmt(p.daily) : '—'}</td>
-      <td class="tr" onclick="openDrawer(${idx})">${p.uns>0?fmt(p.uns):p.uns===0&&p.status==='敲出'?'<span class=\"muted\">清零</span>':'—'}</td>
+      <td class="tr" onclick="openDrawer(${idx})">${unsStr}</td>
       <td class="tr" onclick="openDrawer(${idx})">${p.inventory!=null&&p.inventory>0?fmt(p.inventory):'—'}</td>
       <td class="tr" onclick="openDrawer(${idx})">${pStr}</td>
       <td onclick="openDrawer(${idx})">${bar}</td>
