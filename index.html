@@ -284,7 +284,7 @@ tr.clickable{cursor:pointer}
   <div class="tbl-wrap">
     <table>
       <thead><tr>
-        <th>下单日</th><th>标的</th><th>金额</th><th>币种</th><th>期限</th>
+        <th>状态</th><th>下单日</th><th>标的</th><th>金额</th><th>币种</th><th>期限</th>
         <th>交割日</th><th>比价日</th><th>到期日</th>
         <th class="tr">行使价%</th><th class="tr">行使价</th>
         <th class="tr">票息%pa</th><th>频率</th>
@@ -683,7 +683,7 @@ function renderStats(){
 function renderFCN(){
   document.getElementById('fcn-total-val').textContent=fmt(FCN_DATA.totalInterest,0);
   document.getElementById('fcn-body').innerHTML=(FCN_DATA.rows||[]).map(r=>`<tr>
-    <td>${r.date}</td><td>${r.name}</td><td>${r.amount}</td><td><span class="tag">${r.ccy}</span></td>
+    <td>${r.status==='敲出'?'<span class=\"badge bko\">敲出</span>':r.status==='存续中'?'<span class=\"badge bact\">存续中</span>':'<span class=\"badge bend\">—</span>'}</td><td>${r.date}</td><td>${r.name}</td><td>${r.amount}</td><td><span class="tag">${r.ccy}</span></td>
     <td>${r.tenor}</td><td>${r.issueDate}</td><td>${r.valuationDate}</td><td>${r.maturityDate}</td>
     <td class="tr">${r.strikePct!=null?r.strikePct+'%':'—'}</td>
     <td class="tr">${r.strikePx?fmt(r.strikePx,4):'—'}</td>
