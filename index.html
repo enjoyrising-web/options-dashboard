@@ -425,65 +425,68 @@ function setLastClose(product, val, el){
 
 // ── KPIs ──────────────────────────────────────────────────────
 function renderKPIs(){
-  // Use official total from overview 合计 row; fallback to sum of individual orders
-  const total = window._officialTotal || DATA.reduce((s,p)=>s+(toHKD(p)||0),0);
-  const active=DATA.filter(p=>p.status==='存续中');
-  const ko=DATA.filter(p=>p.status==='敲出');
-  const uns=active.reduce((s,p)=>s+(p.uns||0),0);
-  // Total float PnL
-  let totalFloat=0;
-  Object.values(INV).forEach(inv=>{
-    if(!inv.qty)return;
-    // find close price from product
-    const ticker=Object.keys(INV).find(k=>INV[k]===inv);
-    const p=DATA.find(d=>d.ticker&&d.ticker.toLowerCase().includes(ticker.toLowerCase().slice(0,4)));
-    if(p&&p.close){
-      const avgCost=inv.lots.reduce((s,l)=>s+l.price*l.qty,0)/inv.qty;
-      let fp=(p.close-avgCost)*inv.qty;
-      if(p.ccy==='USD')fp*=fxUSD;
-      if(p.ccy==='JPY')fp*=fxJPY;
-      totalFloat+=fp;
-    }
-  });
-  // Compute total float pnl across all inventory
-  let totalFloatHKD=0;
+  // ── 已实现利润 = 期权利润 + FCN收息 + 派息 ─────────────
+  const optionProfit = window._officialTotal || DATA.reduce((s,p)=>s+(toHKD(p)||0),0);
+  const fcnInterest  = FCN_DATA.totalInterest || 0;
+  const divTotal     = (window._dividends||[]).reduce((s,d)=>s+(d.amount||0),0);
+  const realized     = optionProfit + fcnInterest + divTotal;
+
+  // ── 浮动盈亏 = 库存市值 - 库存成本 ──────────────────────
+  let totalFloatHKD = 0;
   Object.entries(INV).forEach(([ticker,inv])=>{
     if(!inv.qty||!inv.lots.length) return;
-    const mp=DATA.find(d=>d.ticker&&d.ticker.toUpperCase()===ticker.toUpperCase());
-    const close=mp?.close||null; if(!close) return;
-    const avgCost=inv.lots.reduce((s,l)=>s+l.price*l.qty,0)/inv.qty;
-    let fp=(close-avgCost)*inv.qty;
-    const ccy=mp?.ccy||'HKD';
-    if(ccy==='USD')fp*=fxUSD; else if(ccy==='JPY')fp*=fxJPY;
-    totalFloatHKD+=fp;
+    const mp = DATA.find(d=>d.ticker&&d.ticker.toUpperCase()===ticker.toUpperCase());
+    const close = mp?.close||null; if(!close) return;
+    const avgCost = inv.lots.reduce((s,l)=>s+l.price*l.qty,0)/inv.qty;
+    let fp = (close-avgCost)*inv.qty;
+    const ccy = mp?.ccy||'HKD';
+    if(ccy==='USD') fp*=fxUSD; else if(ccy==='JPY') fp*=fxJPY;
+    totalFloatHKD += fp;
   });
-  // Dividends total (already in HKD for HKD stocks; USD divs need conversion)
-  const divTotal=(window._dividends||[]).reduce((s,d)=>s+(d.amount||0),0);
+
+  // ── 总收益 = 已实现 + 浮动 ───────────────────────────────
+  const totalReturn = realized + totalFloatHKD;
+
+  // ── 辅助统计 ─────────────────────────────────────────────
+  const active = DATA.filter(p=>p.status==='存续中');
+  const ko     = DATA.filter(p=>p.status==='敲出'||p.status==='结束'||(p.status&&p.status.includes('敲出')));
+  const uns    = active.reduce((s,p)=>s+(p.uns||0),0);
+
   document.getElementById('kpis').innerHTML=`
-    <div class="kpi"><div class="kpi-label">期权订单累计利润</div>
-      <div class="kpi-val ${total>=0?'green':'red'}">${total>=0?'+':''}${fmtBig(total)} HKD</div>
-      <div class="kpi-sub">含历史订单合计 ${DATA.length} 笔</div></div>
-    <div class="kpi"><div class="kpi-label">产品总数</div>
-      <div class="kpi-val">${DATA.length}</div>
-      <div class="kpi-sub">存续 ${active.length} · 敲出 ${ko.length}</div></div>
-    <div class="kpi"><div class="kpi-label">存续订单</div>
-      <div class="kpi-val muted">${active.length}</div>
-      <div class="kpi-sub">含反累计 ${active.filter(p=>p.type==='反累计期权').length} 个</div></div>
-    <div class="kpi"><div class="kpi-label">总未接股数</div>
-      <div class="kpi-val muted">${fmt(uns)}</div>
-      <div class="kpi-sub">存续订单合计</div></div>
-    <div class="kpi"><div class="kpi-label">库存浮动盈亏</div>
+    <div class="kpi">
+      <div class="kpi-label">总收益</div>
+      <div class="kpi-val ${totalReturn>=0?'green':'red'}">${totalReturn>=0?'+':''}${fmtBig(totalReturn)} HKD</div>
+      <div class="kpi-sub">已实现 + 浮动盈亏</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">已实现利润</div>
+      <div class="kpi-val ${realized>=0?'green':'red'}">${realized>=0?'+':''}${fmtBig(realized)} HKD</div>
+      <div class="kpi-sub">
+        期权 ${fmtBig(optionProfit)} · FCN ${fmtBig(fcnInterest)} · 派息 ${fmtBig(divTotal)}
+      </div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">浮动盈亏</div>
       <div class="kpi-val ${totalFloatHKD>=0?'green':'red'}">${totalFloatHKD>=0?'+':''}${fmtBig(totalFloatHKD)} HKD</div>
-      <div class="kpi-sub">按昨日收盘计算</div></div>
-    <div class="kpi"><div class="kpi-label">FCN已收息</div>
-      <div class="kpi-val" style="color:var(--teal)">${fmtBig(FCN_DATA.totalInterest)} HKD</div>
-      <div class="kpi-sub">${FCN_DATA.rows.length} 笔FCN合计</div></div>
-    <div class="kpi"><div class="kpi-label">持仓派息</div>
-      <div class="kpi-val" style="color:var(--blue)">${fmtBig(divTotal)}</div>
-      <div class="kpi-sub">${(window._dividends||[]).length} 笔记录</div></div>
+      <div class="kpi-sub">按昨日收盘计算</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">产品数量</div>
+      <div class="kpi-val">${DATA.length}</div>
+      <div class="kpi-sub">存续 ${active.length} · 敲出/结束 ${ko.length}</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">总未接股数</div>
+      <div class="kpi-val muted">${fmt(uns)}</div>
+      <div class="kpi-sub">存续订单合计</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">FCN已收息</div>
+      <div class="kpi-val" style="color:var(--teal)">${fmtBig(fcnInterest)} HKD</div>
+      <div class="kpi-sub">${FCN_DATA.rows.length} 笔 · 派息 ${fmtBig(divTotal)}</div>
+    </div>
   `;
 }
-
 // ── Filter / Sort ─────────────────────────────────────────────
 function filtered(){
   let d=[...DATA];
