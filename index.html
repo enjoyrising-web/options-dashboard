@@ -259,8 +259,8 @@ tr.clickable{cursor:pointer}
     <table>
       <thead><tr>
         <th>日期</th><th>类型</th><th>计价方式</th>
-        <th class="tr">数量</th><th class="tr">成本价</th><th class="tr">成本金额</th>
-        <th class="tr">昨日收盘</th><th class="tr">市值</th><th class="tr">浮动盈亏</th>
+        <th class="tr">数量</th><th class="tr">单价</th><th class="tr">金额</th>
+        <th class="tr">昨日收盘</th><th class="tr">市值/卖出价</th><th class="tr">浮动/已实现盈亏</th>
         <th>备注</th>
       </tr></thead>
       <tbody id="inv-body"></tbody>
@@ -328,7 +328,7 @@ async function loadData(){
       if(lastClose[p.product]) p._storedClose=parseFloat(lastClose[p.product]);
       p.close = p._storedClose || p.close || null;
     });
-    if(tRes){ const tj=await tRes.json(); TXN=tj||[]; }
+    if(tRes){ const tj=await tRes.json(); TXN=tj||[]; window._allTxns=tj||[]; }
     document.getElementById('updated-at').textContent='数据截至 '+(pJson.updatedAt||'')+'  · 点击行查看详情';
     renderAll();
   }catch(e){
@@ -634,25 +634,51 @@ function renderInventory(ticker){
       <div class="inv-stat-val ${floatPnl==null?'muted':floatPnl>=0?'pnl-positive':'pnl-negative'}">${floatPnl!=null?(floatPnl>=0?'+':'')+fmt(floatPnl*fxRate,0):'—'}</div></div>
   `;
 
-  // Lot rows
-  document.getElementById('inv-body').innerHTML=lots.map(lot=>{
-    const lotClose=close||null;
-    const lotMv=lotClose?lotClose*lot.qty:null;
-    const lotPnl=lotClose?(lotClose-lot.price)*lot.qty:null;
-    const lotPnlHKD=lotPnl?lotPnl*fxRate:null;
-    return `<tr>
+  // All transactions for this ticker (buy + sell + 接股 + 行权卖出)
+  const allTxns = (window._allTxns||[]).filter(t=>t.ticker===activeTicker && t.type!=='派息' && t.type!=='FCN收息');
+  const sellTypes = ['SELL','行权卖出'];
+  const buyTypes  = ['BUY','接股'];
+
+  // Remaining lots (current holdings with float pnl)
+  const lotRows = lots.map(lot=>{
+    const lotMv=close?close*lot.qty:null;
+    const lotPnl=close?(close-lot.price)*lot.qty:null;
+    const lotPnlHKD=lotPnl!=null?lotPnl*fxRate:null;
+    return `<tr style="background:var(--green-bg)">
       <td>${lot.date}</td>
-      <td>${lot.txType}</td>
+      <td style="color:var(--green);font-weight:500">${lot.txType}</td>
       <td><span class="${lot.type==='batch'?'lot-type-batch':'lot-type-fifo'}">${lot.type==='batch'?'批次计价':'FIFO'}</span></td>
       <td class="tr">${fmt(lot.qty)}</td>
       <td class="tr">${fmt(lot.price,4)}</td>
       <td class="tr">${fmt(lot.price*lot.qty,2)}</td>
-      <td class="tr">${lotClose?fmt(lotClose,4):'—'}</td>
+      <td class="tr">${close?fmt(close,4):'—'}</td>
       <td class="tr">${lotMv?fmt(lotMv,2):'—'}</td>
       <td class="tr">${lotPnlHKD!=null?`<span class="${lotPnlHKD>=0?'pnl-positive':'pnl-negative'}">${lotPnlHKD>=0?'+':''}${fmt(lotPnlHKD,0)}</span>`:'—'}</td>
-      <td></td>
+      <td style="font-size:11px;color:var(--muted)">持仓中</td>
     </tr>`;
-  }).join('')||'<tr><td colspan="10" class="empty">无持仓记录</td></tr>';
+  });
+
+  // Sell / 行权卖出 rows (realized)
+  const sellRows = allTxns.filter(t=>sellTypes.includes(t.type)).map(t=>{
+    // Find cost from FIFO - use realized pnl estimate
+    const sellAmt = t.amount ? Math.abs(t.amount) : (t.price||0)*Math.abs(t.qty);
+    return `<tr style="background:var(--red-bg)">
+      <td>${t.date}</td>
+      <td style="color:var(--red);font-weight:500">${t.type}</td>
+      <td><span class="lot-type-fifo">FIFO</span></td>
+      <td class="tr" style="color:var(--red)">${fmt(Math.abs(t.qty))}</td>
+      <td class="tr">${t.price?fmt(t.price,4):'—'}</td>
+      <td class="tr">${fmt(sellAmt,2)}</td>
+      <td class="tr">—</td>
+      <td class="tr">—</td>
+      <td class="tr">—</td>
+      <td style="font-size:11px;color:var(--muted)">${t.note||'已卖出'}</td>
+    </tr>`;
+  });
+
+  const allRows = [...lotRows, ...sellRows];
+  document.getElementById('inv-body').innerHTML = allRows.join('') ||
+    '<tr><td colspan="10" class="empty">无交易记录</td></tr>';
 }
 
 // ── Stats ─────────────────────────────────────────────────────
