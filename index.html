@@ -207,12 +207,15 @@ tr.clickable{cursor:pointer}
       <option value="">全部币种</option>
       <option value="HKD">HKD</option><option value="USD">USD</option><option value="JPY">JPY</option>
     </select>
-    <div class="pills" id="filter-pills">
-      <span class="pill on" data-f="all"     onclick="setPill(this)">全部</span>
-      <span class="pill"    data-f="存续中"   onclick="setPill(this)">存续中</span>
-      <span class="pill"    data-f="敲出"    onclick="setPill(this)">已敲出</span>
-      <span class="pill"    data-f="累计期权"  onclick="setPill(this)">累计</span>
-      <span class="pill"    data-f="反累计期权" onclick="setPill(this)">反累计</span>
+    <div class="pills">
+      <span style="font-size:11px;color:var(--muted);align-self:center">状态</span>
+      <span class="pill on"  data-g="status" data-f="all"   onclick="setPill(this)">全部</span>
+      <span class="pill"     data-g="status" data-f="存续中" onclick="setPill(this)">存续中</span>
+      <span class="pill"     data-g="status" data-f="敲出"  onclick="setPill(this)">已敲出</span>
+      <span style="font-size:11px;color:var(--muted);align-self:center;margin-left:8px">类型</span>
+      <span class="pill on"  data-g="type"   data-f="all"   onclick="setPill(this)">全部</span>
+      <span class="pill"     data-g="type"   data-f="累计"   onclick="setPill(this)">累计</span>
+      <span class="pill"     data-g="type"   data-f="反累计" onclick="setPill(this)">反累计</span>
     </div>
   </div>
   <div class="tbl-wrap">
@@ -300,7 +303,7 @@ tr.clickable{cursor:pointer}
 // ── State ────────────────────────────────────────────────────
 let DATA=[], TXN=[], INV={}, FCN_DATA={rows:[],totalInterest:0};
 let fxUSD=7.8277, fxJPY=0.049;
-let filterStatus='all', sortCol='underlying', sortAsc=true;
+let filterStatus='all', filterType='all', sortCol='underlying', sortAsc=true;
 let lastClose = JSON.parse(localStorage.getItem('lastClose')||'{}');
 let activeTicker = null;
 
@@ -488,10 +491,12 @@ function filtered(){
   const ccy=document.getElementById('ccy-sel')?.value||'';
   if(q) d=d.filter(p=>p.underlying.includes(q)||p.product.toLowerCase().includes(q));
   if(ccy) d=d.filter(p=>p.ccy===ccy);
+  // Status filter
   if(filterStatus==='存续中') d=d.filter(p=>p.status==='存续中');
-  else if(filterStatus==='敲出') d=d.filter(p=>p.status==='敲出');
-  else if(filterStatus==='累计期权') d=d.filter(p=>p.type==='累计期权');
-  else if(filterStatus==='反累计期权') d=d.filter(p=>p.type==='反累计期权');
+  else if(filterStatus==='敲出') d=d.filter(p=>p.status==='敲出'||p.status==='结束'||(p.status&&p.status.includes('敲出')));
+  // Type filter
+  if(filterType==='累计') d=d.filter(p=>!p.type||!p.type.includes('反'));
+  else if(filterType==='反累计') d=d.filter(p=>p.type&&p.type.includes('反'));
   d.sort((a,b)=>{
     let va=a[sortCol]??'', vb=b[sortCol]??'';
     if(typeof va==='number'&&typeof vb==='number') return sortAsc?va-vb:vb-va;
@@ -501,8 +506,13 @@ function filtered(){
 }
 
 function setPill(el){
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
-  el.classList.add('on'); filterStatus=el.dataset.f; renderAll();
+  const grp = el.dataset.g;
+  // Only deactivate pills in same group
+  document.querySelectorAll(`.pill[data-g="${grp}"]`).forEach(p=>p.classList.remove('on'));
+  el.classList.add('on');
+  if(grp==='status') filterStatus=el.dataset.f;
+  else if(grp==='type') filterType=el.dataset.f;
+  renderAll();
 }
 function sort(col){
   if(sortCol===col)sortAsc=!sortAsc; else{sortCol=col;sortAsc=true;} renderAll();
@@ -520,7 +530,7 @@ function renderOverview(){
     const pStr=pnl!=null?`<span class="${pnl>=0?'green':'red'}">${pnl>=0?'+':''}${fmt(pnl)}</span>`:`<span class="muted">—</span>`;
     const pc=prog(p);
     const bar=pc!=null?`<div class="prog-wrap"><div class="prog-bar"><div class="prog-fill ${pc<30?'low':''}" style="width:${pc}%"></div></div><span class="prog-lbl">${pc}%</span></div>`:'-';
-    const typeTag=p.type==='反累计期权'?`<span class="tag tag-r">反累计</span>`:`<span class="tag">累计</span>`;
+    const typeTag=(p.type&&p.type.includes('反'))?`<span class="tag tag-r">反累计</span>`:`<span class="tag">累计</span>`;
     const lc=p.close||'';
     const lcColor=lc&&p.knockin&&parseFloat(lc)<p.knockin?'red':lc&&p.knockout&&parseFloat(lc)>p.knockout?'green':'';
     // Inventory: show once per underlying
