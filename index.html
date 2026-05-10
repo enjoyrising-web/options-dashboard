@@ -314,6 +314,7 @@ async function loadData(){
     const pJson = await pRes.json();
     DATA = pJson.products || [];
     window._dividends = pJson.dividends || [];
+    window._officialTotal = pJson.officialTotalProfit || null;
     FCN_DATA = pJson.fcn || {rows:[],totalInterest:0};
     INV  = pJson.inventory || {};
     if(pJson.fx){ fxUSD=pJson.fx.USDHKD||7.8277; fxJPY=pJson.fx.JPYHKD||0.049; }
@@ -421,7 +422,8 @@ function setLastClose(product, val, el){
 
 // ── KPIs ──────────────────────────────────────────────────────
 function renderKPIs(){
-  const total=DATA.reduce((s,p)=>s+(toHKD(p)||0),0);
+  // Use official total from overview 合计 row; fallback to sum of individual orders
+  const total = window._officialTotal || DATA.reduce((s,p)=>s+(toHKD(p)||0),0);
   const active=DATA.filter(p=>p.status==='存续中');
   const ko=DATA.filter(p=>p.status==='敲出');
   const uns=active.reduce((s,p)=>s+(p.uns||0),0);
@@ -457,7 +459,7 @@ function renderKPIs(){
   document.getElementById('kpis').innerHTML=`
     <div class="kpi"><div class="kpi-label">期权订单累计利润</div>
       <div class="kpi-val ${total>=0?'green':'red'}">${total>=0?'+':''}${fmtBig(total)} HKD</div>
-      <div class="kpi-sub">已实现 ${DATA.filter(p=>p.profitHKD).length} 笔</div></div>
+      <div class="kpi-sub">含历史订单合计 ${DATA.length} 笔</div></div>
     <div class="kpi"><div class="kpi-label">产品总数</div>
       <div class="kpi-val">${DATA.length}</div>
       <div class="kpi-sub">存续 ${active.length} · 敲出 ${ko.length}</div></div>
