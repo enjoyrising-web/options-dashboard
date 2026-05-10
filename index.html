@@ -38,7 +38,7 @@ body{font-family:'Noto Sans SC',sans-serif;background:var(--bg);color:var(--ink)
 .fetch-btn:disabled{opacity:.5;cursor:wait}
 
 /* KPI */
-.kpi-wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:14px 20px}
+.kpi-wrap{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:14px 20px}
 .kpi{background:var(--surface);border-radius:10px;padding:12px 14px;box-shadow:0 1px 6px rgba(0,0,0,.05)}
 .kpi-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
 .kpi-val{font-size:20px;font-weight:600;font-family:'IBM Plex Mono',monospace}
@@ -263,6 +263,8 @@ tr.clickable{cursor:pointer}
       <tbody id="inv-body"></tbody>
     </table>
   </div>
+  <!-- Dividends for this ticker -->
+  <div id="inv-dividends" style="padding:0 20px 20px"></div>
 </div>
 
 <!-- Stats -->
@@ -311,6 +313,7 @@ async function loadData(){
     ]);
     const pJson = await pRes.json();
     DATA = pJson.products || [];
+    window._dividends = pJson.dividends || [];
     FCN_DATA = pJson.fcn || {rows:[],totalInterest:0};
     INV  = pJson.inventory || {};
     if(pJson.fx){ fxUSD=pJson.fx.USDHKD||7.8277; fxJPY=pJson.fx.JPYHKD||0.049; }
@@ -437,10 +440,24 @@ function renderKPIs(){
       totalFloat+=fp;
     }
   });
+  // Compute total float pnl across all inventory
+  let totalFloatHKD=0;
+  Object.entries(INV).forEach(([ticker,inv])=>{
+    if(!inv.qty||!inv.lots.length) return;
+    const mp=DATA.find(d=>d.ticker&&d.ticker.toUpperCase()===ticker.toUpperCase());
+    const close=mp?.close||null; if(!close) return;
+    const avgCost=inv.lots.reduce((s,l)=>s+l.price*l.qty,0)/inv.qty;
+    let fp=(close-avgCost)*inv.qty;
+    const ccy=mp?.ccy||'HKD';
+    if(ccy==='USD')fp*=fxUSD; else if(ccy==='JPY')fp*=fxJPY;
+    totalFloatHKD+=fp;
+  });
+  // Dividends total (already in HKD for HKD stocks; USD divs need conversion)
+  const divTotal=(window._dividends||[]).reduce((s,d)=>s+(d.amount||0),0);
   document.getElementById('kpis').innerHTML=`
-    <div class="kpi"><div class="kpi-label">累计总利润</div>
+    <div class="kpi"><div class="kpi-label">期权订单累计利润</div>
       <div class="kpi-val ${total>=0?'green':'red'}">${total>=0?'+':''}${fmtBig(total)} HKD</div>
-      <div class="kpi-sub">已实现 + 浮盈合计</div></div>
+      <div class="kpi-sub">已实现 ${DATA.filter(p=>p.profitHKD).length} 笔</div></div>
     <div class="kpi"><div class="kpi-label">产品总数</div>
       <div class="kpi-val">${DATA.length}</div>
       <div class="kpi-sub">存续 ${active.length} · 敲出 ${ko.length}</div></div>
@@ -450,9 +467,15 @@ function renderKPIs(){
     <div class="kpi"><div class="kpi-label">总未接股数</div>
       <div class="kpi-val muted">${fmt(uns)}</div>
       <div class="kpi-sub">存续订单合计</div></div>
+    <div class="kpi"><div class="kpi-label">库存浮动盈亏</div>
+      <div class="kpi-val ${totalFloatHKD>=0?'green':'red'}">${totalFloatHKD>=0?'+':''}${fmtBig(totalFloatHKD)} HKD</div>
+      <div class="kpi-sub">按昨日收盘计算</div></div>
     <div class="kpi"><div class="kpi-label">FCN已收息</div>
-      <div class="kpi-val teal">${fmtBig(FCN_DATA.totalInterest)} HKD</div>
+      <div class="kpi-val" style="color:var(--teal)">${fmtBig(FCN_DATA.totalInterest)} HKD</div>
       <div class="kpi-sub">${FCN_DATA.rows.length} 笔FCN合计</div></div>
+    <div class="kpi"><div class="kpi-label">持仓派息</div>
+      <div class="kpi-val" style="color:var(--blue)">${fmtBig(divTotal)}</div>
+      <div class="kpi-sub">${(window._dividends||[]).length} 笔记录</div></div>
   `;
 }
 
@@ -562,6 +585,17 @@ function renderInventory(ticker){
   }
   const inv=INV[activeTicker];
   const lots=inv.lots||[];
+
+  // Show dividends for this ticker
+  const divs = (window._dividends||[]).filter(d=>d.ticker===activeTicker);
+  const divTotal = divs.reduce((s,d)=>s+(d.amount||0),0);
+  const divHtml = divs.length ? `
+    <div style="font-size:12px;color:var(--muted);font-weight:500;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">派息记录（合计 ${fmt(divTotal,2)}）</div>
+    <table style="width:100%;font-size:12px;border-collapse:collapse">
+      <tr style="color:var(--muted);font-size:11px"><th style="text-align:left;padding:5px 0">日期</th><th style="text-align:right">金额</th><th style="text-align:left;padding-left:12px">备注</th></tr>
+      ${divs.map(d=>`<tr><td style="padding:4px 0">${d.date}</td><td style="text-align:right;font-family:'IBM Plex Mono',monospace;color:var(--green)">+${fmt(d.amount,2)}</td><td style="padding-left:12px;color:var(--muted)">${d.note}</td></tr>`).join('')}
+    </table>` : '<div style="font-size:12px;color:var(--muted)">暂无派息记录</div>';
+  document.getElementById('inv-dividends').innerHTML=divHtml;
 
   // Find close price
   const p=DATA.find(d=>d.ticker&&(d.ticker.toLowerCase()===activeTicker.toLowerCase()||

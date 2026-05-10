@@ -31,16 +31,6 @@
   },
   {
     "ticker": "GOOG",
-    "date": "2026-03-13",
-    "type": "派息",
-    "price": null,
-    "qty": 0,
-    "amount": 97.02,
-    "lotType": "FIFO",
-    "note": "660股每股0.21 税30%"
-  },
-  {
-    "ticker": "GOOG",
     "date": "2026-04-21",
     "type": "BUY",
     "price": 338.55,
@@ -248,36 +238,6 @@
     "amount": -189992.13,
     "lotType": "FIFO",
     "note": ""
-  },
-  {
-    "ticker": "TSM",
-    "date": "2025-12-02",
-    "type": "派息",
-    "price": null,
-    "qty": 0,
-    "amount": 373.0,
-    "lotType": "FIFO",
-    "note": ""
-  },
-  {
-    "ticker": "TSM",
-    "date": "2026-01-07",
-    "type": "派息",
-    "price": null,
-    "qty": 0,
-    "amount": 22.62,
-    "lotType": "FIFO",
-    "note": "36股每股分0.79542 税21%"
-  },
-  {
-    "ticker": "TSM",
-    "date": "2026-04-08",
-    "type": "派息",
-    "price": null,
-    "qty": 0,
-    "amount": 912.4,
-    "lotType": "FIFO",
-    "note": "1230股每股分0.938972 税21%"
   },
   {
     "ticker": "0175HK",
@@ -508,5 +468,33 @@
     "amount": -16716.64,
     "lotType": "批次计价以敲入价区分",
     "note": ""
+  },
+  {
+    "ticker": "GOOG",
+    "date": "2026-03-13",
+    "type": "派息",
+    "amount": 97.02,
+    "note": "660股每股0.21 税30%"
+  },
+  {
+    "ticker": "TSM",
+    "date": "2025-12-02",
+    "type": "派息",
+    "amount": 373.0,
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-01-07",
+    "type": "派息",
+    "amount": 22.62,
+    "note": "36股每股分0.79542 税21%"
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-04-08",
+    "type": "派息",
+    "amount": 912.4,
+    "note": "1230股每股分0.938972 税21%"
   }
 ]
