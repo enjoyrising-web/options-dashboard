@@ -1,0 +1,512 @@
+[
+  {
+    "ticker": "GOOG",
+    "date": "2026-03-05",
+    "type": "BUY",
+    "price": 304.74,
+    "qty": 330,
+    "amount": -100728.62,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "GOOG",
+    "date": "2026-03-06",
+    "type": "BUY",
+    "price": 299.83,
+    "qty": 330,
+    "amount": -99105.67,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "GOOG",
+    "date": "2026-03-10",
+    "type": "BUY",
+    "price": 299.41,
+    "qty": 330,
+    "amount": -98966.84,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "GOOG",
+    "date": "2026-03-13",
+    "type": "派息",
+    "price": null,
+    "qty": 0,
+    "amount": 97.02,
+    "lotType": "FIFO",
+    "note": "660股每股0.21 税30%"
+  },
+  {
+    "ticker": "GOOG",
+    "date": "2026-04-21",
+    "type": "BUY",
+    "price": 338.55,
+    "qty": 10,
+    "amount": 3516.3,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "AAPL",
+    "date": "2026-04-21",
+    "type": "BUY",
+    "price": 270.39,
+    "qty": 200,
+    "amount": -54667.45,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "AAPL",
+    "date": "2026-02-28",
+    "type": "BUY",
+    "price": 267.36,
+    "qty": 60,
+    "amount": -16067.83,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "AAPL",
+    "date": "2026-03-05",
+    "type": "BUY",
+    "price": 263.15,
+    "qty": 250,
+    "amount": -65895.06,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "AAPL",
+    "date": "2026-03-05",
+    "type": "BUY",
+    "price": 262.345,
+    "qty": 90,
+    "amount": -23649.65,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "AAPL",
+    "date": "2026-03-10",
+    "type": "BUY",
+    "price": 257.8,
+    "qty": 400,
+    "amount": -103288.6,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "PLTR",
+    "date": "2026-04-20",
+    "type": "接股",
+    "price": 144.51,
+    "qty": 200,
+    "amount": -28854.1,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "PLTR",
+    "date": "2026-04-21",
+    "type": "SELL",
+    "price": 102.629,
+    "qty": -200,
+    "amount": 20525.8,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "9984JT",
+    "date": "2026-04-21",
+    "type": "接股",
+    "price": 3126.61,
+    "qty": 30,
+    "amount": -93798.36,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "MU",
+    "date": "2026-04-23",
+    "type": "接股",
+    "price": 319.214,
+    "qty": 60,
+    "amount": -19152.84,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "MU",
+    "date": "2026-04-25",
+    "type": "SELL",
+    "price": 497.41,
+    "qty": -60,
+    "amount": 29795.13,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-02-27",
+    "type": "接股",
+    "price": 300.4344,
+    "qty": 27,
+    "amount": -8111.73,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-03-13",
+    "type": "接股",
+    "price": 300.4344,
+    "qty": 30,
+    "amount": -9013.03,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-03-27",
+    "type": "接股",
+    "price": 300.4344,
+    "qty": 30,
+    "amount": -9013.03,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-04-10",
+    "type": "接股",
+    "price": 300.4344,
+    "qty": 27,
+    "amount": -8111.73,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-04-24",
+    "type": "接股",
+    "price": 300.4344,
+    "qty": 30,
+    "amount": -9013.03,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-03-05",
+    "type": "BUY",
+    "price": 359.1,
+    "qty": 173,
+    "amount": -62225.87,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-03-05",
+    "type": "BUY",
+    "price": 359.21,
+    "qty": 100,
+    "amount": -35979.73,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-03-10",
+    "type": "BUY",
+    "price": 336.43,
+    "qty": 300,
+    "amount": -101094.02,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-03-10",
+    "type": "BUY",
+    "price": 336.77,
+    "qty": 600,
+    "amount": -202392.37,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-04-15",
+    "type": "BUY",
+    "price": 379.364,
+    "qty": 500,
+    "amount": -189992.13,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2025-12-02",
+    "type": "派息",
+    "price": null,
+    "qty": 0,
+    "amount": 373.0,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-01-07",
+    "type": "派息",
+    "price": null,
+    "qty": 0,
+    "amount": 22.62,
+    "lotType": "FIFO",
+    "note": "36股每股分0.79542 税21%"
+  },
+  {
+    "ticker": "TSM",
+    "date": "2026-04-08",
+    "type": "派息",
+    "price": null,
+    "qty": 0,
+    "amount": 912.4,
+    "lotType": "FIFO",
+    "note": "1230股每股分0.938972 税21%"
+  },
+  {
+    "ticker": "0175HK",
+    "date": "2026-04-23",
+    "type": "接股",
+    "price": 18.5308,
+    "qty": 5000,
+    "amount": -92790.25,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "0175HK",
+    "date": "2026-04-27",
+    "type": "SELL",
+    "price": 22.9,
+    "qty": -5000,
+    "amount": 114176.83,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "3800HK",
+    "date": "2026-04-23",
+    "type": "接股",
+    "price": 0.9588,
+    "qty": 259000,
+    "amount": -248606.06,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "3800HK",
+    "date": "2026-04-23",
+    "type": "接股",
+    "price": 0.981,
+    "qty": 430000,
+    "amount": -422294.34,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "3800HK",
+    "date": "2026-04-16",
+    "type": "接股",
+    "price": 0.8378,
+    "qty": 204000,
+    "amount": -171123.75,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "3800HK",
+    "date": "2026-04-16",
+    "type": "BUY",
+    "price": 0.98,
+    "qty": 1898000,
+    "amount": -1865890.22,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "700HK",
+    "date": "2026-04-29",
+    "type": "接股",
+    "price": 506.516,
+    "qty": 840,
+    "amount": -425947.41,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "700HK",
+    "date": "2026-04-23",
+    "type": "接股",
+    "price": 432.0034,
+    "qty": 300,
+    "amount": -129766.7,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "700HK",
+    "date": "2026-04-24",
+    "type": "BUY",
+    "price": 494.4,
+    "qty": 2000,
+    "amount": -991586.31,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "700HK",
+    "date": "2026-04-27",
+    "type": "BUY",
+    "price": 479.4,
+    "qty": 2100,
+    "amount": -109576.93,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "700HK",
+    "date": "2026-04-22",
+    "type": "BUY",
+    "price": 504.9954,
+    "qty": 4340,
+    "amount": -2202633.65,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "9988HK",
+    "date": "2026-04-24",
+    "type": "接股",
+    "price": 128.7337,
+    "qty": 2310,
+    "amount": -297702.94,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "9988HK",
+    "date": "2026-04-16",
+    "type": "接股",
+    "price": 113.0266,
+    "qty": 595,
+    "amount": -67332.58,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "0981HK",
+    "date": "2026-04-28",
+    "type": "接股",
+    "price": 64.2828,
+    "qty": 1980,
+    "amount": -127428.18,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "3690HK",
+    "date": "2026-04-22",
+    "type": "接股",
+    "price": 100.7499,
+    "qty": 2720,
+    "amount": -274339.48,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "3690HK",
+    "date": "2026-04-28",
+    "type": "接股",
+    "price": 82.9821,
+    "qty": 3040,
+    "amount": -252546.81,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "9863HK",
+    "date": "2026-04-22",
+    "type": "接股",
+    "price": 53.9858,
+    "qty": 1650,
+    "amount": -89174.67,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  },
+  {
+    "ticker": "PDD",
+    "date": "2026-03-04",
+    "type": "BUY",
+    "price": 99.91,
+    "qty": 1000,
+    "amount": -100073.35,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "PDD",
+    "date": "2026-03-05",
+    "type": "BUY",
+    "price": 101.918,
+    "qty": 2000,
+    "amount": -204169.23,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "PDD",
+    "date": "2026-03-06",
+    "type": "BUY",
+    "price": 100.23,
+    "qty": 1000,
+    "amount": -100393.87,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "PDD",
+    "date": "2026-03-14",
+    "type": "BUY",
+    "price": 102.77,
+    "qty": 2000,
+    "amount": -205876.06,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "PDD",
+    "date": "2026-03-20",
+    "type": "BUY",
+    "price": 97.0,
+    "qty": 1000,
+    "amount": -97158.6,
+    "lotType": "FIFO",
+    "note": ""
+  },
+  {
+    "ticker": "INTEL",
+    "date": "2026-04-10",
+    "type": "接股",
+    "price": 41.7916,
+    "qty": 400,
+    "amount": -16716.64,
+    "lotType": "批次计价以敲入价区分",
+    "note": ""
+  }
+]
