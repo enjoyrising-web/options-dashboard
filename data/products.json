@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-09",
+  "updatedAt": "2026-05-11",
   "fx": {
     "USDHKD": 7.83475,
     "JPYHKD": 0.05
@@ -18,9 +18,9 @@
       "daily": 20,
       "maxShares": 9680,
       "uns": 0,
-      "close": 6131.0,
+      "close": 6191.0,
       "profitHKD": 28858.68,
-      "inventory": null,
+      "inventory": 30,
       "ccy": "JPY",
       "ticker": "9984.T"
     },
@@ -37,7 +37,7 @@
       "daily": 50,
       "maxShares": 24200,
       "uns": 0,
-      "close": 6131.0,
+      "close": 6191.0,
       "profitHKD": 107946.52,
       "inventory": null,
       "ccy": "JPY",
@@ -172,7 +172,7 @@
       "uns": 2016000,
       "close": 0.91,
       "profitHKD": 73628.61,
-      "inventory": null,
+      "inventory": 2816000,
       "ccy": "HKD",
       "ticker": "3800.HK"
     },
@@ -343,7 +343,7 @@
       "uns": 12320,
       "close": 84.05,
       "profitHKD": -122143.5,
-      "inventory": null,
+      "inventory": 7200,
       "ccy": "HKD",
       "ticker": "3690.HK"
     },
@@ -400,7 +400,7 @@
       "uns": 23100,
       "close": 47.8,
       "profitHKD": -306988.75,
-      "inventory": null,
+      "inventory": 4350,
       "ccy": "HKD",
       "ticker": "9863.HK"
     },
@@ -495,7 +495,7 @@
       "uns": 329400,
       "close": 7.02,
       "profitHKD": 45176.64,
-      "inventory": null,
+      "inventory": 8100,
       "ccy": "HKD",
       "ticker": "9660.HK"
     },
@@ -571,7 +571,7 @@
       "uns": 22000,
       "close": 139.0,
       "profitHKD": 8167.78,
-      "inventory": null,
+      "inventory": 3255,
       "ccy": "HKD",
       "ticker": "9988.HK"
     },
@@ -704,7 +704,7 @@
       "uns": 5760,
       "close": 471.4,
       "profitHKD": 10802.54,
-      "inventory": null,
+      "inventory": 9490,
       "ccy": "HKD",
       "ticker": "700.HK"
     },
@@ -856,7 +856,7 @@
       "uns": 0,
       "close": 411.68,
       "profitHKD": 99089.68,
-      "inventory": 1797,
+      "inventory": null,
       "ccy": "USD",
       "ticker": "TSM"
     },
@@ -875,7 +875,7 @@
       "uns": 0,
       "close": 411.68,
       "profitHKD": 52677.13,
-      "inventory": 1797,
+      "inventory": null,
       "ccy": "USD",
       "ticker": "TSM"
     },
@@ -894,7 +894,7 @@
       "uns": 0,
       "close": 411.68,
       "profitHKD": null,
-      "inventory": 1797,
+      "inventory": null,
       "ccy": "USD",
       "ticker": "TSM"
     },
@@ -932,7 +932,7 @@
       "uns": 1000,
       "close": 411.68,
       "profitHKD": null,
-      "inventory": 1797,
+      "inventory": null,
       "ccy": "USD",
       "ticker": "TSM"
     },
@@ -951,7 +951,7 @@
       "uns": 960,
       "close": 411.68,
       "profitHKD": null,
-      "inventory": 1797,
+      "inventory": null,
       "ccy": "USD",
       "ticker": "TSM"
     },
@@ -970,7 +970,7 @@
       "uns": 4800,
       "close": 98.78,
       "profitHKD": 0.0,
-      "inventory": 7000,
+      "inventory": null,
       "ccy": "USD",
       "ticker": "PDD"
     },
@@ -1008,7 +1008,7 @@
       "uns": 1000,
       "close": 293.32,
       "profitHKD": 0.0,
-      "inventory": 1020,
+      "inventory": null,
       "ccy": "USD",
       "ticker": "AAPL"
     },
@@ -1065,7 +1065,7 @@
       "uns": 1000,
       "close": 397.05,
       "profitHKD": null,
-      "inventory": 1020,
+      "inventory": null,
       "ccy": "USD",
       "ticker": "GOOG"
     },
@@ -1103,7 +1103,7 @@
       "uns": 960,
       "close": 397.05,
       "profitHKD": null,
-      "inventory": 1020,
+      "inventory": null,
       "ccy": "USD",
       "ticker": "GOOG"
     },
@@ -1274,7 +1274,7 @@
       "uns": null,
       "close": 124.92,
       "profitHKD": null,
-      "inventory": null,
+      "inventory": 400,
       "ccy": "USD",
       "ticker": "INTC"
     },
@@ -2218,7 +2218,7 @@
       "ccy": "JPY",
       "ticker": "6762.T",
       "profitHKD": null,
-      "close": null,
+      "close": 2958.5,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2236,7 +2236,7 @@
       "ccy": "JPY",
       "ticker": "6981.T",
       "profitHKD": null,
-      "close": null,
+      "close": 5948.0,
       "strike": null,
       "knockin": null,
       "knockout": null,
