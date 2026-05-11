@@ -285,7 +285,7 @@
       "maxShares": 5928000,
       "uns": 5928000,
       "close": 0.91,
-      "profitHKD": null,
+      "profitHKD": 26343.5,
       "inventory": null,
       "ccy": "HKD",
       "ticker": "3800.HK"
@@ -692,7 +692,7 @@
     {
       "underlying": "腾讯",
       "type": "累计",
-      "product": "700HK(1)",
+      "product": "700HK(9)",
       "obs": "2026.02.03",
       "status": "存续中",
       "strike": 581.0,
@@ -711,7 +711,7 @@
     {
       "underlying": "腾讯",
       "type": "累计",
-      "product": "700HK(2)",
+      "product": "700HK(10)",
       "obs": "2026.02.13",
       "status": "敲出",
       "strike": 527.0,
@@ -730,7 +730,7 @@
     {
       "underlying": "腾讯",
       "type": "累计",
-      "product": "700HK(3)",
+      "product": "700HK(11)",
       "obs": "2026.04.08",
       "status": "存续中",
       "strike": 504.5,
@@ -749,7 +749,7 @@
     {
       "underlying": "腾讯",
       "type": "累计",
-      "product": "700HK(4)",
+      "product": "700HK(12)",
       "obs": "2026.04.22",
       "status": "存续中",
       "strike": 504.0,
@@ -768,7 +768,7 @@
     {
       "underlying": "腾讯",
       "type": "累计",
-      "product": "700HK(5)",
+      "product": "700HK(13)",
       "obs": "2026.05.06",
       "status": "存续中",
       "strike": 466.8,
@@ -798,7 +798,7 @@
       "maxShares": 4940,
       "uns": 4940,
       "close": 471.4,
-      "profitHKD": null,
+      "profitHKD": 16281.59,
       "inventory": null,
       "ccy": "HKD",
       "ticker": "700.HK"
@@ -893,7 +893,7 @@
       "maxShares": 1500,
       "uns": 0,
       "close": 411.68,
-      "profitHKD": null,
+      "profitHKD": 0,
       "inventory": null,
       "ccy": "USD",
       "ticker": "TSM"
@@ -1064,7 +1064,7 @@
       "maxShares": 1000,
       "uns": 1000,
       "close": 397.05,
-      "profitHKD": null,
+      "profitHKD": 19315.18,
       "inventory": null,
       "ccy": "USD",
       "ticker": "GOOG"
@@ -2922,7 +2922,272 @@
       "ccy": "HKD"
     }
   },
-  "officialTotalProfit": 4188371.62,
-  "individualTotalProfit": 2130419.38,
-  "untrackedHistoricalProfit": 2057952.24
+  "realizedPnlFromTxn": {
+    "TSM": {
+      "orig": 4927.4,
+      "hkd": 38604.93,
+      "ccy": "USD",
+      "trades": [
+        {
+          "date": "2025-12-02",
+          "type": "派息",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": 373.0,
+          "cost_amt": 0,
+          "pnl_orig": 373.0,
+          "pnl_hkd": 2922.36,
+          "ccy": "USD",
+          "note": ""
+        },
+        {
+          "date": "2026-01-07",
+          "type": "派息",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": 22.62,
+          "cost_amt": 0,
+          "pnl_orig": 22.62,
+          "pnl_hkd": 177.22,
+          "ccy": "USD",
+          "note": "36股每股分0.79542 税21%"
+        },
+        {
+          "date": "2026-04-08",
+          "type": "派息",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": 912.4,
+          "cost_amt": 0,
+          "pnl_orig": 912.4,
+          "pnl_hkd": 7148.43,
+          "ccy": "USD",
+          "note": "1230股每股分0.938972 税21%"
+        },
+        {
+          "date": "2026-04-30",
+          "type": "行权卖出",
+          "qty": 20,
+          "sell_px": 481.4033,
+          "cost_px": 300.4344,
+          "sell_amt": 9628.07,
+          "cost_amt": 6008.69,
+          "pnl_orig": 3619.38,
+          "pnl_hkd": 28356.92,
+          "ccy": "USD",
+          "note": ""
+        }
+      ]
+    },
+    "AAPL": {
+      "orig": 885.83,
+      "hkd": 6940.26,
+      "ccy": "USD",
+      "trades": [
+        {
+          "date": "2026-05-05",
+          "type": "行权卖出",
+          "qty": 20,
+          "sell_px": 311.6515,
+          "cost_px": 267.36,
+          "sell_amt": 6233.03,
+          "cost_amt": 5347.2,
+          "pnl_orig": 885.83,
+          "pnl_hkd": 6940.26,
+          "ccy": "USD",
+          "note": ""
+        }
+      ]
+    },
+    "PDD": {
+      "orig": 2707.78,
+      "hkd": 21214.78,
+      "ccy": "USD",
+      "trades": [
+        {
+          "date": "2026-04-30",
+          "type": "行权卖出",
+          "qty": 100,
+          "sell_px": 126.9878,
+          "cost_px": 99.91,
+          "sell_amt": 12698.78,
+          "cost_amt": 9991.0,
+          "pnl_orig": 2707.78,
+          "pnl_hkd": 21214.78,
+          "ccy": "USD",
+          "note": ""
+        }
+      ]
+    },
+    "GOOG": {
+      "orig": 2180.23,
+      "hkd": 17081.59,
+      "ccy": "USD",
+      "trades": [
+        {
+          "date": "2026-03-13",
+          "type": "派息",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": 97.02,
+          "cost_amt": 0,
+          "pnl_orig": 97.02,
+          "pnl_hkd": 760.13,
+          "ccy": "USD",
+          "note": "660股每股0.21 税30%"
+        },
+        {
+          "date": "2026-05-05",
+          "type": "行权卖出",
+          "qty": 20,
+          "sell_px": 408.9007,
+          "cost_px": 304.74,
+          "sell_amt": 8178.01,
+          "cost_amt": 6094.8,
+          "pnl_orig": 2083.21,
+          "pnl_hkd": 16321.46,
+          "ccy": "USD",
+          "note": ""
+        }
+      ]
+    },
+    "3800HK": {
+      "orig": 39852.5,
+      "hkd": 39852.5,
+      "ccy": "HKD",
+      "trades": [
+        {
+          "date": "2026-05-01",
+          "type": "行权卖出",
+          "qty": 95000,
+          "sell_px": 1.2573,
+          "cost_px": 0.8378,
+          "sell_amt": 119443.5,
+          "cost_amt": 79591.0,
+          "pnl_orig": 39852.5,
+          "pnl_hkd": 39852.5,
+          "ccy": "HKD",
+          "note": "3800HK(F-1) 敲出"
+        }
+      ]
+    },
+    "PLTR": {
+      "orig": -8376.2,
+      "hkd": -65625.43,
+      "ccy": "USD",
+      "trades": [
+        {
+          "date": "2026-04-21",
+          "type": "SELL",
+          "qty": 200,
+          "sell_px": 102.629,
+          "cost_px": 144.51,
+          "sell_amt": 20525.8,
+          "cost_amt": 28902.0,
+          "pnl_orig": -8376.2,
+          "pnl_hkd": -65625.43,
+          "ccy": "USD",
+          "note": ""
+        }
+      ]
+    },
+    "700HK": {
+      "orig": 16281.59,
+      "hkd": 16281.59,
+      "ccy": "HKD",
+      "trades": [
+        {
+          "date": "2026-05-01",
+          "type": "行权卖出",
+          "qty": 190,
+          "sell_px": 590.688,
+          "cost_px": 504.9954,
+          "sell_amt": 112230.72,
+          "cost_amt": 95949.13,
+          "pnl_orig": 16281.59,
+          "pnl_hkd": 16281.59,
+          "ccy": "HKD",
+          "note": "700HK(F-1) 敲出"
+        }
+      ]
+    },
+    "MU": {
+      "orig": 10691.76,
+      "hkd": 83767.27,
+      "ccy": "USD",
+      "trades": [
+        {
+          "date": "2026-04-25",
+          "type": "SELL",
+          "qty": 60,
+          "sell_px": 497.41,
+          "cost_px": 319.214,
+          "sell_amt": 29844.6,
+          "cost_amt": 19152.84,
+          "pnl_orig": 10691.76,
+          "pnl_hkd": 83767.27,
+          "ccy": "USD",
+          "note": ""
+        }
+      ]
+    },
+    "0175HK": {
+      "orig": 21846.0,
+      "hkd": 21846.0,
+      "ccy": "HKD",
+      "trades": [
+        {
+          "date": "2026-04-27",
+          "type": "SELL",
+          "qty": 5000,
+          "sell_px": 22.9,
+          "cost_px": 18.5308,
+          "sell_amt": 114500.0,
+          "cost_amt": 92654.0,
+          "pnl_orig": 21846.0,
+          "pnl_hkd": 21846.0,
+          "ccy": "HKD",
+          "note": ""
+        }
+      ]
+    },
+    "0981HK": {
+      "orig": 11275.06,
+      "hkd": 11275.06,
+      "ccy": "HKD",
+      "trades": [
+        {
+          "date": "2026-04-30",
+          "type": "SELL",
+          "qty": 480,
+          "sell_px": 69.75,
+          "cost_px": 64.2828,
+          "sell_amt": 33480.0,
+          "cost_amt": 30855.74,
+          "pnl_orig": 2624.26,
+          "pnl_hkd": 2624.26,
+          "ccy": "HKD",
+          "note": ""
+        },
+        {
+          "date": "2026-04-30",
+          "type": "SELL",
+          "qty": 1500,
+          "sell_px": 70.05,
+          "cost_px": 64.2828,
+          "sell_amt": 105075.0,
+          "cost_amt": 96424.2,
+          "pnl_orig": 8650.8,
+          "pnl_hkd": 8650.8,
+          "ccy": "HKD",
+          "note": ""
+        }
+      ]
+    }
+  },
+  "totalNewPnlHKD": 191238.54
 }

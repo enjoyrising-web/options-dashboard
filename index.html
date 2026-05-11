@@ -317,7 +317,9 @@ async function loadData(){
     const pJson = await pRes.json();
     DATA = pJson.products || [];
     window._dividends = pJson.dividends || [];
-    window._officialTotal = pJson.officialTotalProfit || null;
+    window._newPnl = pJson.totalNewPnlHKD || 0;
+    window._pnlDetail = pJson.realizedPnlFromTxn || {};
+
     FCN_DATA = pJson.fcn || {rows:[],totalInterest:0};
     INV  = pJson.inventory || {};
     if(pJson.fx){ fxUSD=pJson.fx.USDHKD||7.8277; fxJPY=pJson.fx.JPYHKD||0.049; }
