@@ -331,7 +331,8 @@ async function loadData(){
       p.close = p._storedClose || p.close || null;
     });
     if(tRes){ const tj=await tRes.json(); TXN=tj||[]; window._allTxns=tj||[]; }
-    document.getElementById('updated-at').textContent='数据截至 '+(pJson.updatedAt||'')+'  · 点击行查看详情';
+    const priceTime = pJson.priceUpdatedAt ? ' · 收盘价 ' + pJson.priceUpdatedAt : '';
+    document.getElementById('updated-at').textContent='数据截至 '+(pJson.updatedAt||'') + priceTime + '  · 点击行查看详情';
     renderAll();
   }catch(e){
     document.getElementById('kpis').innerHTML='<div class="kpi"><div class="kpi-label">加载失败</div><div class="kpi-val red">ERR</div></div>';
