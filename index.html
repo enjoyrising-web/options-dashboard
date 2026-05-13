@@ -311,7 +311,7 @@ let activeTicker = null;
 async function loadData(){
   try{
     const [pRes, tRes] = await Promise.all([
-      fetch('./data/products.json?v='+Date.now()),
+      fetch('./data/products.json?v='+Date.now(), {cache: 'no-store'}),
       fetch('./data/transactions.json?v='+Date.now()).catch(()=>null)
     ]);
     const pJson = await pRes.json();
