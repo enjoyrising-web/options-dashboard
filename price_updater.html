@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>收盘价更新</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'PingFang SC',sans-serif;background:#f5f5f7;color:#1a1a1a;font-size:16px}
+.header{background:#1a2a4a;color:#fff;padding:16px 20px;position:sticky;top:0;z-index:10}
+.header h1{font-size:18px;font-weight:600}
+.header-sub{font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px}
+.token-bar{background:#fff;padding:14px 16px;border-bottom:1px solid #e8e6e0;display:flex;gap:8px;align-items:center}
+.token-bar input{flex:1;font-size:13px;padding:8px 10px;border:1px solid #ddd;border-radius:8px;font-family:monospace}
+.token-bar button{font-size:13px;padding:8px 14px;border-radius:8px;border:none;background:#1a2a4a;color:#fff;white-space:nowrap}
+.status-bar{padding:10px 16px;font-size:13px;text-align:center;display:none}
+.status-bar.show{display:block}
+.status-bar.ok{background:#edf7f1;color:#1a7a4a}
+.status-bar.err{background:#fdf0ee;color:#c0392b}
+.status-bar.loading{background:#fdf5e6;color:#92620a}
+.section{background:#fff;margin:12px 16px;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.section-title{padding:12px 16px;font-size:12px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #f5f5f5}
+.price-row{display:flex;align-items:center;padding:12px 16px;border-bottom:1px solid #f5f5f5;gap:12px}
+.price-row:last-child{border-bottom:none}
+.price-label{flex:1}
+.price-name{font-size:15px;font-weight:500}
+.price-ticker{font-size:12px;color:#999;margin-top:1px}
+.price-input{width:110px;font-size:16px;padding:8px 10px;border:1px solid #ddd;border-radius:8px;text-align:right;font-family:monospace}
+.price-input:focus{border-color:#1a2a4a;outline:none}
+.price-input.changed{border-color:#1a7a4a;background:#edf7f1}
+.btn-update{display:block;width:calc(100% - 32px);margin:16px;padding:16px;font-size:17px;font-weight:600;background:#1a2a4a;color:#fff;border:none;border-radius:12px;cursor:pointer}
+.btn-update:active{background:#253a63}
+.btn-update:disabled{background:#aaa;cursor:wait}
+.btn-load{display:block;width:calc(100% - 32px);margin:12px 16px 0;padding:12px;font-size:15px;background:#fff;color:#1a2a4a;border:1.5px solid #1a2a4a;border-radius:12px;cursor:pointer}
+.last-updated{text-align:center;font-size:12px;color:#999;padding:8px 16px 20px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📈 收盘价更新</h1>
+  <div class="header-sub" id="last-sync">尚未同步</div>
+</div>
+
+<div class="token-bar">
+  <input type="password" id="token-input" placeholder="GitHub Token" autocomplete="off">
+  <button onclick="saveToken()">保存</button>
+</div>
+
+<div class="status-bar" id="status-bar"></div>
+
+<button class="btn-load" onclick="loadPrices()">⬇ 从 GitHub 读取当前数据</button>
+
+<!-- 港股 -->
+<div class="section" id="sec-hk">
+  <div class="section-title">港股 HKD</div>
+  <div id="rows-hk"></div>
+</div>
+
+<!-- 美股 -->
+<div class="section" id="sec-us">
+  <div class="section-title">美股 USD</div>
+  <div id="rows-us"></div>
+</div>
+
+<!-- 日股 -->
+<div class="section" id="sec-jp">
+  <div class="section-title">日股 JPY</div>
+  <div id="rows-jp"></div>
+</div>
+
+<button class="btn-update" id="btn-update" onclick="pushPrices()">⬆ 更新到看板</button>
+<div class="last-updated" id="last-updated">所有人看到的收盘价将同步更新</div>
+
+<script>
+const OWNER = 'enjoyrising-web';
+const REPO  = 'options-dashboard';
+const FILE  = 'data/products.json';
+
+// 标的定义（只显示存续中需要盯盘的）
+const TICKERS = {
+  hk: [
+    {name:'腾讯',    ticker:'700.HK',  label:'700'},
+    {name:'阿里巴巴', ticker:'9988.HK', label:'9988'},
+    {name:'协鑫科技', ticker:'3800.HK', label:'3800'},
+    {name:'美团',    ticker:'3690.HK', label:'3690'},
+    {name:'地平线',  ticker:'9660.HK', label:'9660'},
+    {name:'中芯国际', ticker:'981.HK',  label:'981'},
+    {name:'零跑',    ticker:'9863.HK', label:'9863'},
+    {name:'网易',    ticker:'9999.HK', label:'9999'},
+    {name:'吉利汽车', ticker:'175.HK',  label:'175'},
+  ],
+  us: [
+    {name:'苹果',   ticker:'AAPL',  label:'AAPL'},
+    {name:'谷歌-C', ticker:'GOOG',  label:'GOOG'},
+    {name:'谷歌-A', ticker:'GOOGL', label:'GOOGL'},
+    {name:'台积电', ticker:'TSM',   label:'TSM'},
+    {name:'AMD',   ticker:'AMD',   label:'AMD'},
+    {name:'英特尔', ticker:'INTC',  label:'INTC'},
+    {name:'拼多多', ticker:'PDD',   label:'PDD'},
+    {name:'苹果2', ticker:'AAPL',  label:'AAPL(2)'},
+    {name:'PLTR',  ticker:'PLTR',  label:'PLTR'},
+    {name:'美光',  ticker:'MU',    label:'MU'},
+  ],
+  jp: [
+    {name:'软银',  ticker:'9984.T', label:'9984'},
+    {name:'村田',  ticker:'6981.T', label:'6981'},
+    {name:'TDK',  ticker:'6762.T', label:'6762'},
+  ],
+};
+
+let productData = null;
+let fileSHA = '';
+
+function getToken(){ return localStorage.getItem('gh_token')||'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'; }
+function saveToken(){
+  const t = document.getElementById('token-input').value.trim();
+  if(t){ localStorage.setItem('gh_token', t); showStatus('Token 已保存', 'ok'); }
+}
+
+function showStatus(msg, type='ok'){
+  const bar = document.getElementById('status-bar');
+  bar.textContent = msg;
+  bar.className = 'status-bar show ' + type;
+  if(type==='ok') setTimeout(()=>bar.classList.remove('show'), 3000);
+}
+
+// Build input rows
+function buildRows(){
+  ['hk','us','jp'].forEach(grp=>{
+    const el = document.getElementById('rows-'+grp);
+    el.innerHTML = TICKERS[grp].map(t=>`
+      <div class="price-row">
+        <div class="price-label">
+          <div class="price-name">${t.name}</div>
+          <div class="price-ticker">${t.label}</div>
+        </div>
+        <input class="price-input" type="number" step="any"
+          id="inp-${t.ticker.replace(/[^a-zA-Z0-9]/g,'_')}"
+          data-ticker="${t.ticker}"
+          placeholder="—"
+          oninput="this.classList.add('changed')">
+      </div>`).join('');
+  });
+}
+
+// Load current prices from GitHub
+async function loadPrices(){
+  const token = getToken();
+  if(!token){ showStatus('请先输入 GitHub Token', 'err'); return; }
+  showStatus('读取中...', 'loading');
+  try{
+    const r = await fetch(
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`,
+      {headers:{'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json'}}
+    );
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const json = await r.json();
+    fileSHA = json.sha;
+    productData = JSON.parse(atob(json.content.replace(/\n/g,'')));
+
+    // Fill in current prices
+    const priceMap = {};
+    productData.products.forEach(p=>{
+      if(p.ticker && p.close) priceMap[p.ticker] = p.close;
+    });
+
+    document.querySelectorAll('.price-input').forEach(inp=>{
+      const t = inp.dataset.ticker;
+      if(priceMap[t]){
+        inp.value = priceMap[t];
+        inp.classList.remove('changed');
+      }
+    });
+
+    const updated = productData.priceUpdatedAt || productData.updatedAt || '—';
+    document.getElementById('last-sync').textContent = '上次更新：' + updated;
+    showStatus('数据加载成功', 'ok');
+  }catch(e){
+    showStatus('加载失败：'+e.message, 'err');
+  }
+}
+
+// Push updated prices to GitHub
+async function pushPrices(){
+  const token = getToken();
+  if(!token){ showStatus('请先输入 GitHub Token', 'err'); return; }
+  if(!productData){ showStatus('请先点「读取当前数据」', 'err'); return; }
+
+  const btn = document.getElementById('btn-update');
+  btn.disabled = true; btn.textContent = '更新中...';
+  showStatus('正在写入 GitHub...', 'loading');
+
+  // Collect changed prices
+  const changes = {};
+  document.querySelectorAll('.price-input.changed').forEach(inp=>{
+    const t = inp.dataset.ticker;
+    const v = parseFloat(inp.value);
+    if(t && !isNaN(v)) changes[t] = v;
+  });
+
+  if(Object.keys(changes).length === 0){
+    showStatus('没有修改任何价格', 'err');
+    btn.disabled=false; btn.textContent='⬆ 更新到看板';
+    return;
+  }
+
+  // Update productData
+  productData.products.forEach(p=>{
+    if(p.ticker && changes[p.ticker] !== undefined){
+      p.close = changes[p.ticker];
+    }
+  });
+
+  const now = new Date();
+  const hkt = new Date(now.getTime() + 8*3600000);
+  productData.priceUpdatedAt = hkt.toISOString().slice(0,16).replace('T',' ') + ' HKT';
+  productData.updatedAt = hkt.toISOString().slice(0,10);
+
+  try{
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(productData, null, 2))));
+    const r = await fetch(
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`,
+      {
+        method:'PUT',
+        headers:{
+          'Authorization':'token '+token,
+          'Accept':'application/vnd.github.v3+json',
+          'Content-Type':'application/json',
+        },
+        body: JSON.stringify({
+          message: '收盘价更新 ' + productData.priceUpdatedAt,
+          content: content,
+          sha: fileSHA,
+        })
+      }
+    );
+    if(!r.ok){
+      const err = await r.json();
+      throw new Error(err.message||'HTTP '+r.status);
+    }
+    const result = await r.json();
+    fileSHA = result.content.sha;
+
+    // Clear changed markers
+    document.querySelectorAll('.price-input.changed').forEach(inp=>inp.classList.remove('changed'));
+    document.getElementById('last-sync').textContent = '上次更新：' + productData.priceUpdatedAt;
+    showStatus(`✓ 已更新 ${Object.keys(changes).length} 个标的收盘价`, 'ok');
+    document.getElementById('last-updated').textContent = '更新时间：' + productData.priceUpdatedAt;
+  }catch(e){
+    showStatus('写入失败：'+e.message, 'err');
+  }
+
+  btn.disabled=false; btn.textContent='⬆ 更新到看板';
+}
+
+// Init
+buildRows();
+const savedToken = getToken();
+if(savedToken) document.getElementById('token-input').value = savedToken.slice(0,8)+'...';
+</script>
+</body>
+</html>
