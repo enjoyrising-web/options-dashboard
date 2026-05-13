@@ -112,7 +112,7 @@ const TICKERS = {
 let productData = null;
 let fileSHA = '';
 
-function getToken(){ return localStorage.getItem('gh_token')||'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'; }
+function getToken(){ return localStorage.getItem('gh_token')||''; }
 function saveToken(){
   const t = document.getElementById('token-input').value.trim();
   if(t){ localStorage.setItem('gh_token', t); showStatus('Token 已保存', 'ok'); }
