@@ -1274,7 +1274,7 @@
       "uns": null,
       "close": 124.92,
       "profitHKD": null,
-      "inventory": 2000,
+      "inventory": 3000,
       "ccy": "USD",
       "ticker": "INTC"
     },
@@ -3149,11 +3149,19 @@
       "ccy": "HKD"
     },
     "INTC": {
-      "qty": 2000,
+      "qty": 3000,
       "lots": [
         {
           "price": 116.49,
           "qty": 2000,
+          "type": "fifo",
+          "date": "2026-05-09",
+          "txType": "买入",
+          "ccy": "USD"
+        },
+        {
+          "price": 116.49,
+          "qty": 1000,
           "type": "fifo",
           "date": "2026-05-09",
           "txType": "买入",
