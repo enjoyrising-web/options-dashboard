@@ -174,13 +174,22 @@ body{font-family:-apple-system,'PingFang SC',sans-serif;background:#f5f5f7;color
       <label class="form-label">备注</label>
       <input type="text" id="trade-note" placeholder="可选">
     </div>
+    <div id="order-hint" style="display:none;font-size:12px;color:#1a7a4a;padding:6px 16px;background:#edf7f1;margin:0"></div>
     <div class="form-row" id="row-remaining" style="display:none">
+      <label class="form-label">上次剩余股数</label>
+      <input type="number" id="trade-prev-remaining" placeholder="通知单上次剩余" oninput="calcRemaining()">
+    </div>
+    <div class="form-row" id="row-deduction" style="display:none">
+      <label class="form-label">本次扣减股数</label>
+      <input type="number" id="trade-deduction" placeholder="通知单本次扣减" oninput="calcRemaining()">
+    </div>
+    <div class="form-row" id="row-calc-remaining" style="display:none">
       <label class="form-label">剩余未接股数</label>
-      <input type="number" id="trade-remaining" placeholder="接股后的剩余数量">
+      <input type="number" id="trade-remaining" placeholder="自动计算" style="background:#f5f5f5">
     </div>
   </div>
 
-  <button class="btn-primary" onclick="submitTrade()">✓ 确认录入交易</button>
+  <button class="btn-primary" id="btn-trade-submit" onclick="submitTrade()">✓ 确认录入交易</button>
   <div class="note">接股按批次计价；买入按FIFO计价</div>
 </div>
 
@@ -353,20 +362,52 @@ function updateOrderSelect(){
   if(!productData||!ticker){sel.innerHTML='<option>--</option>';return;}
   const prods=productData.products.filter(p=>p.ticker===ticker&&p.status==='存续中');
   sel.innerHTML='<option value="">-- 选择订单（可选）--</option>'+
-    prods.map(p=>`<option value="${p.product}">${p.product}</option>`).join('');
+    prods.map(p=>`<option value="${p.product}" data-knockin="${p.knockin||''}" data-uns="${p.uns||''}">${p.product}${p.knockin?' 敲入@'+p.knockin:''}</option>`).join('');
+  sel.onchange=onOrderSelect;
+}
+
+function onOrderSelect(){
+  const sel=document.getElementById('trade-order');
+  const opt=sel.options[sel.selectedIndex];
+  // Show strike price hint
+  const knockin=opt.dataset.knockin;
+  const uns=opt.dataset.uns;
+  const hint=document.getElementById('order-hint');
+  if(knockin||uns){
+    hint.textContent=(knockin?'敲入价：'+knockin+'　':'')+(uns?'当前未接股数：'+Number(uns).toLocaleString():'');
+    hint.style.display='block';
+    // Pre-fill uns as prev_remaining
+    if(uns) document.getElementById('trade-prev-remaining').value=uns;
+  } else {
+    hint.style.display='none';
+  }
+}
+
+function calcRemaining(){
+  const prev=parseFloat(document.getElementById('trade-prev-remaining').value)||0;
+  const ded=parseFloat(document.getElementById('trade-deduction').value)||0;
+  if(prev>0){
+    document.getElementById('trade-remaining').value=prev-ded;
+  }
 }
 
 function onTradeTypeChange(){
   const typ=document.getElementById('trade-type').value;
   document.getElementById('row-order').style.display=
     ['接股','行权卖出'].includes(typ)?'flex':'none';
-  document.getElementById('row-remaining').style.display=
-    typ==='接股'?'flex':'none';
+  const isJG=typ==='接股';
+  document.getElementById('row-remaining').style.display=isJG?'flex':'none';
+  document.getElementById('row-deduction').style.display=isJG?'flex':'none';
+  document.getElementById('row-calc-remaining').style.display=isJG?'flex':'none';
+  if(!isJG) document.getElementById('order-hint').style.display='none';
 }
 
 // ── Submit trade ──────────────────────────────────────────────
 async function submitTrade(){
   if(!productData){showStatus('请先读取当前数据','err');return;}
+  const submitBtn=document.getElementById('btn-trade-submit');
+  submitBtn.disabled=true; submitBtn.textContent='录入中...';
+  showStatus('处理中...','loading');
   const typ    = document.getElementById('trade-type').value;
   const ticker = document.getElementById('trade-ticker').value;
   const order  = document.getElementById('trade-order').value;
@@ -392,27 +433,31 @@ async function submitTrade(){
   };
   txnData.push(newTx);
 
-  // 2. Update inventory
+  // 2. Update inventory - normalize ticker (remove dots, use consistent key)
   let inv = productData.inventory || {};
-  if(!inv[ticker]) inv[ticker]={qty:0,lots:[],realized:0.0,ccy};
+  // Normalize: '700.HK' -> '700HK', '3800.HK' -> '3800HK', '9984.T' -> '9984JT' etc.
+  const normTicker = ticker.replace('.HK','HK').replace('.T','JT').replace('.','').toUpperCase();
+  // Find existing key (case-insensitive match)
+  const existingKey = Object.keys(inv).find(k=>k.toUpperCase()===normTicker) || normTicker;
+  if(!inv[existingKey]) inv[existingKey]={qty:0,lots:[],realized:0.0,ccy};
 
   if(['接股','买入'].includes(typ)){
-    inv[ticker].lots.push({
+    inv[existingKey].lots.push({
       price, qty, type:typ==='接股'?'batch':'fifo',
       date, txType:typ, ccy
     });
-    inv[ticker].qty += qty;
+    inv[existingKey].qty += qty;
   } else if(['卖出','行权卖出'].includes(typ)){
     // FIFO consume
     let remaining=qty;
-    while(remaining>0&&inv[ticker].lots.length>0){
-      const lot=inv[ticker].lots[0];
+    while(remaining>0&&inv[existingKey].lots.length>0){
+      const lot=inv[existingKey].lots[0];
       const consume=Math.min(lot.qty,remaining);
-      if(price&&lot.price) inv[ticker].realized+=(price-lot.price)*consume;
+      if(price&&lot.price) inv[existingKey].realized+=(price-lot.price)*consume;
       lot.qty-=consume;
-      inv[ticker].qty-=consume;
+      inv[existingKey].qty-=consume;
       remaining-=consume;
-      if(lot.qty===0) inv[ticker].lots.shift();
+      if(lot.qty===0) inv[existingKey].lots.shift();
     }
   }
   productData.inventory=inv;
@@ -435,6 +480,7 @@ async function submitTrade(){
   productData.updatedAt=hkt.toISOString().slice(0,10);
 
   await pushBothFiles('录入交易: '+typ+' '+ticker+' '+qty+'股@'+price);
+  submitBtn.disabled=false; submitBtn.textContent='✓ 确认录入交易';
 }
 
 // ── Knockout ──────────────────────────────────────────────────
