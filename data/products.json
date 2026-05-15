@@ -1274,7 +1274,7 @@
       "uns": null,
       "close": 124.92,
       "profitHKD": null,
-      "inventory": 380,
+      "inventory": 1000,
       "ccy": "USD",
       "ticker": "INTC"
     },
@@ -3147,6 +3147,21 @@
         }
       ],
       "ccy": "HKD"
+    },
+    "INTC": {
+      "qty": 1000,
+      "lots": [
+        {
+          "price": 111.1,
+          "qty": 1000,
+          "type": "fifo",
+          "date": "2026-05-08",
+          "txType": "买入",
+          "ccy": "USD"
+        }
+      ],
+      "realized": 0,
+      "ccy": "USD"
     }
   },
   "realizedPnlFromTxn": {
