@@ -917,5 +917,18 @@
     "amount": 83499.78,
     "lotType": "批次计价",
     "note": ""
+  },
+  {
+    "ticker": "3800.HK",
+    "underlying": "协鑫",
+    "date": "2026-05-07",
+    "type": "接股",
+    "ccy": "HKD",
+    "price": 0.981,
+    "qty": 160000,
+    "amount": 157131.13,
+    "lotType": "批次计价",
+    "note": "3800HK(23)",
+    "remaining": 4020000
   }
 ]
