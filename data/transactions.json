@@ -991,5 +991,18 @@
     "lotType": "FIFO",
     "note": "",
     "remaining": null
+  },
+  {
+    "ticker": "INTC",
+    "underlying": "Intel",
+    "date": "2026-05-09",
+    "type": "买入",
+    "ccy": "USD",
+    "price": 116.49,
+    "qty": 1000,
+    "amount": 233360.92,
+    "lotType": "FIFO",
+    "note": "",
+    "remaining": null
   }
 ]
