@@ -11,14 +11,14 @@
       "product": "9984 JT(5)",
       "obs": "2026.01.14",
       "status": "敲出",
-      "strike": 4244.0,
+      "strike": 4244,
       "knockin": 3068.8364,
       "knockout": 4456.2,
       "discount": 0.7231,
       "daily": 20,
       "maxShares": 9680,
       "uns": 0,
-      "close": 6191.0,
+      "close": 6191,
       "profitHKD": 28858.68,
       "inventory": 30,
       "ccy": "JPY",
@@ -37,7 +37,7 @@
       "daily": 50,
       "maxShares": 24200,
       "uns": 0,
-      "close": 6191.0,
+      "close": 6191,
       "profitHKD": 107946.52,
       "inventory": null,
       "ccy": "JPY",
@@ -49,9 +49,9 @@
       "product": "AMD UQ(1)",
       "obs": "2024.11.14",
       "status": "敲出",
-      "strike": 140.0,
+      "strike": 140,
       "knockin": 113.694,
-      "knockout": 147.0,
+      "knockout": 147,
       "discount": 0.8121,
       "daily": 8,
       "maxShares": 4000,
@@ -467,7 +467,7 @@
       "product": "9660HK(1)",
       "obs": "2025.10.13",
       "status": "敲出",
-      "strike": 9.0,
+      "strike": 9,
       "knockin": 7.1865,
       "knockout": 9.45,
       "discount": 0.7985,
@@ -695,7 +695,7 @@
       "product": "700HK(9)",
       "obs": "2026.02.03",
       "status": "存续中",
-      "strike": 581.0,
+      "strike": 581,
       "knockin": 506.5158,
       "knockout": 610.05,
       "discount": 0.8718,
@@ -714,7 +714,7 @@
       "product": "700HK(10)",
       "obs": "2026.02.13",
       "status": "敲出",
-      "strike": 527.0,
+      "strike": 527,
       "knockin": 459.1224,
       "knockout": 553.35,
       "discount": 0.8712,
@@ -752,7 +752,7 @@
       "product": "700HK(12)",
       "obs": "2026.04.22",
       "status": "存续中",
-      "strike": 504.0,
+      "strike": 504,
       "knockin": 437.472,
       "knockout": 529.2,
       "discount": 0.868,
@@ -790,7 +790,7 @@
       "product": "700HK(F-1)",
       "obs": "2026.04.22",
       "status": "敲出",
-      "strike": 504.0,
+      "strike": 504,
       "knockin": 590.688,
       "knockout": 473.76,
       "discount": 1.172,
@@ -809,7 +809,7 @@
       "product": "700HK(F-2)",
       "obs": "2026.04.30",
       "status": "存续中",
-      "strike": 469.0,
+      "strike": 469,
       "knockin": 547.6044,
       "knockout": 440.86,
       "discount": 1.1676,
@@ -885,7 +885,7 @@
       "product": "TSM(3)",
       "obs": "2026.02.12",
       "status": "敲出",
-      "strike": 378.0,
+      "strike": 378,
       "knockin": 300.4344,
       "knockout": 396.9,
       "discount": 0.7948,
@@ -969,7 +969,7 @@
       "maxShares": 5000,
       "uns": 4800,
       "close": 98.78,
-      "profitHKD": 0.0,
+      "profitHKD": 0,
       "inventory": null,
       "ccy": "USD",
       "ticker": "PDD"
@@ -1007,7 +1007,7 @@
       "maxShares": 1000,
       "uns": 1000,
       "close": 293.32,
-      "profitHKD": 0.0,
+      "profitHKD": 0,
       "inventory": null,
       "ccy": "USD",
       "ticker": "AAPL"
@@ -1322,9 +1322,9 @@
       "product": "9984 JT(3)",
       "obs": "2025.02.17",
       "status": "敲出",
-      "strike": 9700.0,
+      "strike": 9700,
       "knockin": 7514.59,
-      "knockout": 10185.0,
+      "knockout": 10185,
       "discount": 0.7747,
       "daily": 20,
       "maxShares": 9720,
@@ -1417,7 +1417,7 @@
       "product": "9626HK(4)",
       "obs": "2025.02.17",
       "status": "敲出",
-      "strike": 163.0,
+      "strike": 163,
       "knockin": 114.1978,
       "knockout": 171.15,
       "discount": 0.7006,
@@ -1425,7 +1425,7 @@
       "maxShares": 39680,
       "uns": 0,
       "close": null,
-      "profitHKD": 90425.0,
+      "profitHKD": 90425,
       "inventory": null,
       "ccy": "HKD",
       "ticker": "9626.HK"
@@ -1455,7 +1455,7 @@
       "product": "9626HK(6)",
       "obs": "2025.03.21",
       "status": "敲出",
-      "strike": 157.0,
+      "strike": 157,
       "knockin": 117.3418,
       "knockout": 164.85,
       "discount": 0.7474,
@@ -1474,7 +1474,7 @@
       "product": "700HK(6)",
       "obs": "2023.3.20",
       "status": "敲出",
-      "strike": 331.0,
+      "strike": 331,
       "knockin": 268.772,
       "knockout": 347.55,
       "discount": 0.812,
@@ -1778,7 +1778,7 @@
       "product": "2601HK(1)",
       "obs": "2022.8.10",
       "status": "敲出",
-      "strike": 16.0,
+      "strike": 16,
       "knockin": 13.4208,
       "knockout": 16.8,
       "discount": 0.8388,
@@ -2236,7 +2236,7 @@
       "ccy": "JPY",
       "ticker": "6981.T",
       "profitHKD": null,
-      "close": 5948.0,
+      "close": 5948,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2271,7 +2271,7 @@
       "type": "累计期权",
       "obs": "2026.05.12",
       "status": "敲出",
-      "strike": 131.0,
+      "strike": 131,
       "knockin": 87.8093,
       "knockout": 137.55,
       "discount": 0.6703,
@@ -2291,7 +2291,7 @@
       "type": "反累计期权",
       "obs": "2026.05.12",
       "status": "存续中",
-      "strike": 131.0,
+      "strike": 131,
       "knockin": 216.6478,
       "knockout": 123.14,
       "discount": 1.6538,
@@ -2465,7 +2465,7 @@
         "koPct": 100,
         "koType": "每月",
         "firstKO": "1月后",
-        "interest": 7635.0,
+        "interest": 7635,
         "interestHKD": 59764.49,
         "datesReceived": "26.3.5 4.8",
         "status": "敲出",
@@ -2487,7 +2487,7 @@
         "koPct": 100,
         "koType": "每月",
         "firstKO": "1月后",
-        "interest": 39375.0,
+        "interest": 39375,
         "datesReceived": "26.3.31  26.4.29",
         "status": "存续中",
         "knockoutDate": null
@@ -2531,7 +2531,7 @@
       "underlying": "台积电",
       "date": "2025-12-02",
       "type": "派息",
-      "amount": 373.0,
+      "amount": 373,
       "note": "",
       "ccy": "USD"
     },
@@ -2750,7 +2750,7 @@
           "ccy": "USD"
         },
         {
-          "price": 97.0,
+          "price": 97,
           "qty": 1000,
           "type": "fifo",
           "date": "2026-03-20",
@@ -2817,7 +2817,7 @@
     },
     "INTEL": {
       "qty": 1780,
-      "realized": 0.0,
+      "realized": 0,
       "lots": [
         {
           "price": 41.7916,
@@ -2910,7 +2910,7 @@
     },
     "9988HK": {
       "qty": 3255,
-      "realized": 0.0,
+      "realized": 0,
       "lots": [
         {
           "price": 113.0266,
@@ -2947,7 +2947,7 @@
     },
     "9984JT": {
       "qty": 30,
-      "realized": 0.0,
+      "realized": 0,
       "lots": [
         {
           "price": 3126.61,
@@ -3025,7 +3025,7 @@
     },
     "3690HK": {
       "qty": 7200,
-      "realized": 0.0,
+      "realized": 0,
       "lots": [
         {
           "price": 100.7499,
@@ -3056,7 +3056,7 @@
     },
     "9863HK": {
       "qty": 4350,
-      "realized": 0.0,
+      "realized": 0,
       "lots": [
         {
           "price": 53.9858,
@@ -3085,7 +3085,7 @@
     },
     "0175HK": {
       "qty": 0,
-      "realized": 21846.0,
+      "realized": 21846,
       "lots": [],
       "ccy": "HKD"
     },
@@ -3097,7 +3097,7 @@
     },
     "6762JT": {
       "qty": 1000,
-      "realized": 0.0,
+      "realized": 0,
       "lots": [
         {
           "price": 2904.8,
@@ -3112,7 +3112,7 @@
     },
     "6981JT": {
       "qty": 1000,
-      "realized": 0.0,
+      "realized": 0,
       "lots": [
         {
           "price": 4876.5,
@@ -3127,7 +3127,7 @@
     },
     "9660HK": {
       "qty": 8100,
-      "realized": 0.0,
+      "realized": 0,
       "lots": [
         {
           "price": 7.0013,
@@ -3138,6 +3138,21 @@
           "ccy": "HKD"
         }
       ],
+      "ccy": "HKD"
+    },
+    "9999HK": {
+      "qty": 405,
+      "lots": [
+        {
+          "price": 155.1215,
+          "qty": 405,
+          "type": "batch",
+          "date": "2026-05-08",
+          "txType": "接股",
+          "ccy": "HKD"
+        }
+      ],
+      "realized": 0,
       "ccy": "HKD"
     }
   },
@@ -3153,9 +3168,9 @@
           "qty": 0,
           "sell_px": null,
           "cost_px": null,
-          "sell_amt": 373.0,
+          "sell_amt": 373,
           "cost_amt": 0,
-          "pnl_orig": 373.0,
+          "pnl_orig": 373,
           "pnl_hkd": 2922.36,
           "ccy": "USD",
           "note": ""
@@ -3233,7 +3248,7 @@
           "sell_px": 126.9878,
           "cost_px": 99.91,
           "sell_amt": 12698.78,
-          "cost_amt": 9991.0,
+          "cost_amt": 9991,
           "pnl_orig": 2707.78,
           "pnl_hkd": 21214.78,
           "ccy": "USD",
@@ -3286,7 +3301,7 @@
           "sell_px": 1.2573,
           "cost_px": 0.8378,
           "sell_amt": 119443.5,
-          "cost_amt": 79591.0,
+          "cost_amt": 79591,
           "pnl_orig": 39852.5,
           "pnl_hkd": 39852.5,
           "ccy": "HKD",
@@ -3306,7 +3321,7 @@
           "sell_px": 102.629,
           "cost_px": 144.51,
           "sell_amt": 20525.8,
-          "cost_amt": 28902.0,
+          "cost_amt": 28902,
           "pnl_orig": -8376.2,
           "pnl_hkd": -65625.43,
           "ccy": "USD",
@@ -3355,8 +3370,8 @@
       ]
     },
     "0175HK": {
-      "orig": 21846.0,
-      "hkd": 21846.0,
+      "orig": 21846,
+      "hkd": 21846,
       "ccy": "HKD",
       "trades": [
         {
@@ -3365,10 +3380,10 @@
           "qty": 5000,
           "sell_px": 22.9,
           "cost_px": 18.5308,
-          "sell_amt": 114500.0,
-          "cost_amt": 92654.0,
-          "pnl_orig": 21846.0,
-          "pnl_hkd": 21846.0,
+          "sell_amt": 114500,
+          "cost_amt": 92654,
+          "pnl_orig": 21846,
+          "pnl_hkd": 21846,
           "ccy": "HKD",
           "note": ""
         }
@@ -3385,7 +3400,7 @@
           "qty": 480,
           "sell_px": 69.75,
           "cost_px": 64.2828,
-          "sell_amt": 33480.0,
+          "sell_amt": 33480,
           "cost_amt": 30855.74,
           "pnl_orig": 2624.26,
           "pnl_hkd": 2624.26,
@@ -3398,7 +3413,7 @@
           "qty": 1500,
           "sell_px": 70.05,
           "cost_px": 64.2828,
-          "sell_amt": 105075.0,
+          "sell_amt": 105075,
           "cost_amt": 96424.2,
           "pnl_orig": 8650.8,
           "pnl_hkd": 8650.8,
