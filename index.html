@@ -661,7 +661,7 @@ function renderInventory(ticker){
       <td><span class="${lot.type==='batch'?'lot-type-batch':'lot-type-fifo'}">${lot.type==='batch'?'批次计价':'FIFO'}</span></td>
       <td class="tr">${fmt(lot.qty)}</td>
       <td class="tr">${fmt(lot.price,4)}</td>
-      <td class="tr">${fmt(lot.price*lot.qty,2)}</td>
+      <td class="tr">${lot.amount!=null?fmt(lot.amount,2):fmt(lot.price*lot.qty,2)}</td>
       <td class="tr">${close?fmt(close,4):'—'}</td>
       <td class="tr">${lotMv?fmt(lotMv,2):'—'}</td>
       <td class="tr">${lotPnlHKD!=null?`<span class="${lotPnlHKD>=0?'pnl-positive':'pnl-negative'}">${lotPnlHKD>=0?'+':''}${fmt(lotPnlHKD,0)}</span>`:'—'}</td>

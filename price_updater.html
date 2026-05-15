@@ -441,10 +441,12 @@ async function submitTrade(){
   const existingKey = Object.keys(inv).find(k=>k.toUpperCase()===normTicker) || normTicker;
   if(!inv[existingKey]) inv[existingKey]={qty:0,lots:[],realized:0.0,ccy};
 
+  const tradeAmount = parseFloat(document.getElementById('trade-amount').value)||null;
   if(['接股','买入'].includes(typ)){
     inv[existingKey].lots.push({
       price, qty, type:typ==='接股'?'batch':'fifo',
-      date, txType:typ, ccy
+      date, txType:typ, ccy,
+      amount: tradeAmount  // actual total including fees
     });
     inv[existingKey].qty += qty;
   } else if(['卖出','行权卖出'].includes(typ)){
