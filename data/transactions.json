@@ -967,5 +967,18 @@
     "lotType": "批次计价",
     "note": "9999HK(1)",
     "remaining": 17190
+  },
+  {
+    "ticker": "9988.HK",
+    "underlying": "阿里巴巴",
+    "date": "2026-05-08",
+    "type": "接股",
+    "ccy": "HKD",
+    "price": 128.7337,
+    "qty": 605,
+    "amount": 77977.63,
+    "lotType": "批次计价",
+    "note": "9988HK(4)",
+    "remaining": 21010
   }
 ]
