@@ -590,7 +590,7 @@
     "date": "2026-03-20",
     "type": "BUY",
     "ccy": "USD",
-    "price": 97,
+    "price": 97.0,
     "qty": 1000,
     "amount": -97158.6,
     "lotType": "FIFO",
@@ -644,7 +644,7 @@
     "ccy": "JPY",
     "price": 2904.8,
     "qty": 1000,
-    "amount": -2912716,
+    "amount": -2912716.0,
     "lotType": "FIFO",
     "remaining": null,
     "note": ""
@@ -657,7 +657,7 @@
     "ccy": "JPY",
     "price": 4876.5,
     "qty": 1000,
-    "amount": -4889788,
+    "amount": -4889788.0,
     "lotType": "FIFO",
     "remaining": null,
     "note": ""
@@ -865,7 +865,7 @@
     "ccy": "HKD",
     "price": 100.7499,
     "qty": 1440,
-    "amount": -145239,
+    "amount": -145239.0,
     "lotType": "批次计价",
     "remaining": 12320,
     "note": ""
@@ -884,7 +884,7 @@
     "underlying": "台积电",
     "date": "2025-12-02",
     "type": "派息",
-    "amount": 373,
+    "amount": 373.0,
     "note": "",
     "ccy": "USD"
   },
@@ -907,54 +907,27 @@
     "ccy": "USD"
   },
   {
-    "ticker": "175.HK",
-    "underlying": "吉利",
-    "date": "2026-05-07",
-    "type": "接股",
-    "ccy": "HKD",
-    "price": 18.5308,
-    "qty": 4500,
-    "amount": 83499.78,
-    "lotType": "批次计价",
-    "note": ""
-  },
-  {
-    "ticker": "3800.HK",
+    "ticker": "3800HK",
     "underlying": "协鑫",
     "date": "2026-05-07",
     "type": "接股",
     "ccy": "HKD",
     "price": 0.981,
     "qty": 160000,
-    "amount": 157131.13,
+    "amount": 156960.0,
     "lotType": "批次计价",
-    "note": "3800HK(23)",
-    "remaining": 4020000
+    "note": "3800HK(23)"
   },
   {
-    "ticker": "3800.HK",
-    "underlying": "协鑫",
-    "date": "2026-05-07",
-    "type": "接股",
-    "ccy": "HKD",
-    "price": 0.981,
-    "qty": 160000,
-    "amount": 157131.13,
-    "lotType": "批次计价",
-    "note": "3800HK(23)",
-    "remaining": 4020000
-  },
-  {
-    "ticker": "3800.HK",
+    "ticker": "3800HK",
     "underlying": "协鑫",
     "date": "2026-05-07",
     "type": "接股",
     "ccy": "HKD",
     "price": 0.9588,
     "qty": 105000,
-    "amount": 100784.09,
+    "amount": 100674.0,
     "lotType": "批次计价",
-    "note": "3800HK(19)",
-    "remaining": 1890000
+    "note": "3800HK(19)"
   }
 ]
