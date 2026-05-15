@@ -310,9 +310,14 @@ let activeTicker = null;
 // ── Load data ─────────────────────────────────────────────────
 async function loadData(){
   try{
+    // 直接从 GitHub API 读取，绕过 Vercel CDN 缓存
+    const OWNER = 'enjoyrising-web';
+    const REPO  = 'options-dashboard';
+    const headers = {'Accept':'application/vnd.github.v3.raw'};
+
     const [pRes, tRes] = await Promise.all([
-      fetch('./data/products.json?v='+Date.now(), {cache: 'no-store'}),
-      fetch('./data/transactions.json?v='+Date.now()).catch(()=>null)
+      fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/products.json`, {headers, cache:'no-store'}),
+      fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/transactions.json`, {headers, cache:'no-store'}).catch(()=>null)
     ]);
     const pJson = await pRes.json();
     DATA = pJson.products || [];
@@ -330,7 +335,10 @@ async function loadData(){
       if(lastClose[p.product]) p._storedClose=parseFloat(lastClose[p.product]);
       p.close = p._storedClose || p.close || null;
     });
-    if(tRes){ const tj=await tRes.json(); TXN=tj||[]; window._allTxns=tj||[]; }
+    if(tRes && tRes.ok){ 
+      try{ const tj=await tRes.json(); TXN=tj||[]; window._allTxns=tj||[]; }
+      catch(e){ TXN=[]; window._allTxns=[]; }
+    }
     const priceTime = pJson.priceUpdatedAt ? ' · 收盘价 ' + pJson.priceUpdatedAt : '';
     document.getElementById('updated-at').textContent='数据截至 '+(pJson.updatedAt||'') + priceTime + '  · 点击行查看详情';
     renderAll();
