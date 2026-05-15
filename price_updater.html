@@ -174,6 +174,10 @@ body{font-family:-apple-system,'PingFang SC',sans-serif;background:#f5f5f7;color
       <label class="form-label">备注</label>
       <input type="text" id="trade-note" placeholder="可选">
     </div>
+    <div class="form-row" id="row-remaining" style="display:none">
+      <label class="form-label">剩余未接股数</label>
+      <input type="number" id="trade-remaining" placeholder="接股后的剩余数量">
+    </div>
   </div>
 
   <button class="btn-primary" onclick="submitTrade()">✓ 确认录入交易</button>
@@ -356,6 +360,8 @@ function onTradeTypeChange(){
   const typ=document.getElementById('trade-type').value;
   document.getElementById('row-order').style.display=
     ['接股','行权卖出'].includes(typ)?'flex':'none';
+  document.getElementById('row-remaining').style.display=
+    typ==='接股'?'flex':'none';
 }
 
 // ── Submit trade ──────────────────────────────────────────────
@@ -381,7 +387,8 @@ async function submitTrade(){
     ticker, underlying: productData.products.find(p=>p.ticker===ticker)?.underlying||'',
     date, type:typ, ccy, price, qty: ['卖出','行权卖出'].includes(typ)?-qty:qty,
     amount: parseFloat(document.getElementById('trade-amount').value)||null, lotType: ['接股'].includes(typ)?'批次计价':'FIFO',
-    note: order?(order+' '+note).trim():note
+    note: order?(order+' '+note).trim():note,
+    remaining: parseInt(document.getElementById('trade-remaining').value)||null
   };
   txnData.push(newTx);
 
