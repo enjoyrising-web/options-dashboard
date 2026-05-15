@@ -990,5 +990,17 @@
     "amount": 233360.92,
     "lotType": "FIFO",
     "note": "市场买入"
+  },
+  {
+    "ticker": "9999HK",
+    "underlying": "网易",
+    "date": "2026-05-07",
+    "type": "接股",
+    "ccy": "HKD",
+    "price": 155.1215,
+    "qty": 405,
+    "amount": 62907.05,
+    "lotType": "批次计价",
+    "note": ""
   }
 ]

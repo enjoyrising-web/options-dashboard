@@ -2581,7 +2581,8 @@
           "type": "fifo",
           "date": "2026-03-05",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 62225.87
         },
         {
           "price": 359.21,
@@ -2589,7 +2590,8 @@
           "type": "fifo",
           "date": "2026-03-05",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 35979.73
         },
         {
           "price": 336.43,
@@ -2597,7 +2599,8 @@
           "type": "fifo",
           "date": "2026-03-10",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 101094.02
         },
         {
           "price": 336.77,
@@ -2605,7 +2608,8 @@
           "type": "fifo",
           "date": "2026-03-10",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 202392.37
         },
         {
           "price": 300.4344,
@@ -2613,7 +2617,8 @@
           "type": "batch",
           "date": "2026-03-13",
           "txType": "接股",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 9013.03
         },
         {
           "price": 300.4344,
@@ -2621,7 +2626,8 @@
           "type": "batch",
           "date": "2026-03-27",
           "txType": "接股",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 9013.03
         },
         {
           "price": 300.4344,
@@ -2629,7 +2635,8 @@
           "type": "batch",
           "date": "2026-04-10",
           "txType": "接股",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 8111.73
         },
         {
           "price": 379.364,
@@ -2637,7 +2644,8 @@
           "type": "fifo",
           "date": "2026-04-15",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 189992.13
         },
         {
           "price": 300.4344,
@@ -2645,7 +2653,8 @@
           "type": "batch",
           "date": "2026-04-24",
           "txType": "接股",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 9013.03
         }
       ],
       "ccy": "USD"
@@ -2668,7 +2677,8 @@
           "type": "fifo",
           "date": "2026-03-05",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 65895.06
         },
         {
           "price": 262.345,
@@ -2676,7 +2686,8 @@
           "type": "fifo",
           "date": "2026-03-05",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 23649.65
         },
         {
           "price": 257.8,
@@ -2684,7 +2695,8 @@
           "type": "fifo",
           "date": "2026-03-10",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 103288.6
         },
         {
           "price": 270.39,
@@ -2692,7 +2704,8 @@
           "type": "fifo",
           "date": "2026-04-21",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 54667.45
         },
         {
           "price": 235.8882,
@@ -2700,7 +2713,8 @@
           "type": "batch",
           "date": "2026-05-05",
           "txType": "接股",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 4717.76
         },
         {
           "price": 235.8882,
@@ -2708,7 +2722,8 @@
           "type": "batch",
           "date": "2026-05-06",
           "txType": "接股",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 4717.76
         }
       ],
       "ccy": "USD"
@@ -2731,7 +2746,8 @@
           "type": "fifo",
           "date": "2026-03-05",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 204169.23
         },
         {
           "price": 100.23,
@@ -2739,7 +2755,8 @@
           "type": "fifo",
           "date": "2026-03-06",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 100393.87
         },
         {
           "price": 102.77,
@@ -2747,7 +2764,8 @@
           "type": "fifo",
           "date": "2026-03-14",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 205876.06
         },
         {
           "price": 97.0,
@@ -2755,7 +2773,8 @@
           "type": "fifo",
           "date": "2026-03-20",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 97158.6
         },
         {
           "price": 84.2013,
@@ -2763,7 +2782,8 @@
           "type": "batch",
           "date": "2026-04-30",
           "txType": "接股",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 8420.13
         }
       ],
       "ccy": "USD"
@@ -2786,7 +2806,8 @@
           "type": "fifo",
           "date": "2026-03-06",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 99105.67
         },
         {
           "price": 299.41,
@@ -2794,7 +2815,8 @@
           "type": "fifo",
           "date": "2026-03-10",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 98966.84
         },
         {
           "price": 338.55,
@@ -2802,7 +2824,8 @@
           "type": "fifo",
           "date": "2026-04-21",
           "txType": "BUY",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 3516.3
         },
         {
           "price": 285.6346,
@@ -2810,7 +2833,8 @@
           "type": "batch",
           "date": "2026-05-01",
           "txType": "接股",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 11425.38
         }
       ],
       "ccy": "USD"
@@ -2825,14 +2849,16 @@
           "type": "batch",
           "date": "2026-04-10",
           "txType": "接股",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 16716.64
         },
         {
           "price": 75.5478,
           "qty": 380,
           "type": "batch",
           "date": "2026-05-11",
-          "txType": "接股"
+          "txType": "接股",
+          "amount": 28708.16
         },
         {
           "price": 111.08,
@@ -2840,7 +2866,8 @@
           "type": "fifo",
           "date": "2026-05-07",
           "txType": "买入",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 111261.62
         },
         {
           "price": 111.1,
@@ -2848,7 +2875,8 @@
           "type": "fifo",
           "date": "2026-05-08",
           "txType": "买入",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 111281.65
         },
         {
           "price": 116.49,
@@ -2856,7 +2884,8 @@
           "type": "fifo",
           "date": "2026-05-09",
           "txType": "买入",
-          "ccy": "USD"
+          "ccy": "USD",
+          "amount": 233360.92
         }
       ],
       "ccy": "USD"
@@ -2879,7 +2908,8 @@
           "type": "fifo",
           "date": "2026-04-16",
           "txType": "BUY",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 1865890.22
         },
         {
           "price": 0.9588,
@@ -2887,7 +2917,8 @@
           "type": "batch",
           "date": "2026-04-23",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 248606.06
         },
         {
           "price": 0.981,
@@ -2895,7 +2926,8 @@
           "type": "batch",
           "date": "2026-04-23",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 422294.34
         },
         {
           "price": 0.8378,
@@ -2903,7 +2935,8 @@
           "type": "batch",
           "date": "2026-04-30",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 100660.26
         },
         {
           "price": 0.981,
@@ -2911,7 +2944,8 @@
           "type": "batch",
           "date": "2026-05-07",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 157131.13
         },
         {
           "price": 0.9588,
@@ -2919,7 +2953,8 @@
           "type": "batch",
           "date": "2026-05-07",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 100784.09
         }
       ],
       "ccy": "HKD"
@@ -2934,7 +2969,8 @@
           "type": "batch",
           "date": "2026-04-16",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 67332.58
         },
         {
           "price": 128.7337,
@@ -2942,7 +2978,8 @@
           "type": "batch",
           "date": "2026-04-24",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 297702.94
         },
         {
           "price": 113.0266,
@@ -2950,7 +2987,8 @@
           "type": "batch",
           "date": "2026-04-30",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 39609.45
         }
       ],
       "ccy": "HKD"
@@ -2971,7 +3009,8 @@
           "type": "batch",
           "date": "2026-04-21",
           "txType": "接股",
-          "ccy": "JPY"
+          "ccy": "JPY",
+          "amount": 93798.36
         }
       ],
       "ccy": "JPY"
@@ -2994,7 +3033,8 @@
           "type": "batch",
           "date": "2026-04-23",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 129766.7
         },
         {
           "price": 494.4,
@@ -3002,7 +3042,8 @@
           "type": "fifo",
           "date": "2026-04-24",
           "txType": "BUY",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 991586.31
         },
         {
           "price": 479.4,
@@ -3010,7 +3051,8 @@
           "type": "fifo",
           "date": "2026-04-27",
           "txType": "BUY",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 109576.93
         },
         {
           "price": 506.516,
@@ -3018,7 +3060,8 @@
           "type": "batch",
           "date": "2026-04-29",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 425947.41
         },
         {
           "price": 467.4,
@@ -3026,7 +3069,8 @@
           "type": "fifo",
           "date": "2026-05-06",
           "txType": "BUY",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 47558.56
         },
         {
           "price": 432.0034,
@@ -3034,7 +3078,8 @@
           "type": "batch",
           "date": "2026-05-07",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 116778.26
         }
       ],
       "ccy": "HKD"
@@ -3049,7 +3094,8 @@
           "type": "batch",
           "date": "2026-04-22",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 274339.48
         },
         {
           "price": 82.9821,
@@ -3057,7 +3103,8 @@
           "type": "batch",
           "date": "2026-04-28",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 252546.81
         },
         {
           "price": 100.7499,
@@ -3065,7 +3112,8 @@
           "type": "batch",
           "date": "2026-05-06",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 145239.0
         }
       ],
       "ccy": "HKD"
@@ -3080,7 +3128,8 @@
           "type": "batch",
           "date": "2026-04-22",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 89174.67
         },
         {
           "price": 53.9858,
@@ -3088,7 +3137,8 @@
           "type": "batch",
           "date": "2026-05-06",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 145920.8
         }
       ],
       "ccy": "HKD"
@@ -3121,7 +3171,8 @@
           "type": "fifo",
           "date": "2026-04-30",
           "txType": "BUY",
-          "ccy": "JPY"
+          "ccy": "JPY",
+          "amount": 2912716.0
         }
       ],
       "ccy": "JPY"
@@ -3136,7 +3187,8 @@
           "type": "fifo",
           "date": "2026-04-30",
           "txType": "BUY",
-          "ccy": "JPY"
+          "ccy": "JPY",
+          "amount": 4889788.0
         }
       ],
       "ccy": "JPY"
@@ -3151,9 +3203,26 @@
           "type": "batch",
           "date": "2026-05-05",
           "txType": "接股",
-          "ccy": "HKD"
+          "ccy": "HKD",
+          "amount": 56775.93
         }
       ],
+      "ccy": "HKD"
+    },
+    "9999HK": {
+      "qty": 405,
+      "lots": [
+        {
+          "price": 155.1215,
+          "qty": 405,
+          "type": "batch",
+          "date": "2026-05-07",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 62907.05
+        }
+      ],
+      "realized": 0.0,
       "ccy": "HKD"
     }
   },
