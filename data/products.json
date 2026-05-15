@@ -704,7 +704,7 @@
       "uns": 5760,
       "close": 456.4,
       "profitHKD": 10802.54,
-      "inventory": 9490,
+      "inventory": 270,
       "ccy": "HKD",
       "ticker": "700.HK"
     },
@@ -3130,6 +3130,21 @@
       ],
       "realized": 0,
       "ccy": "USD"
+    },
+    "700.HK": {
+      "qty": 270,
+      "lots": [
+        {
+          "price": 432.0034,
+          "qty": 270,
+          "type": "batch",
+          "date": "2026-05-07",
+          "txType": "接股",
+          "ccy": "HKD"
+        }
+      ],
+      "realized": 0,
+      "ccy": "HKD"
     }
   },
   "realizedPnlFromTxn": {
