@@ -1,7 +1,7 @@
 import json
 import requests
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 TICKER_MAP = {
     '700.HK':  '0700.HK',
@@ -33,7 +33,26 @@ TICKER_MAP = {
 }
 
 def fetch_prev_close(yahoo_ticker):
-    url = "https://query1.finance.yahoo.com/v8/finance/chart/" + yahoo_ticker + "?interval=1d&range=5d"
+    """
+    取昨日正式收盘价：
+    用 v8/finance/chart 的日线历史数据，取最近已完成交易日的收盘价。
+    range=5d 返回最近5个交易日，timestamps 对应每天开盘时间。
+    过滤掉今天的数据，取最后一个完整交易日的 close。
+    """
+    # 用 period1/period2 明确指定日期范围，避免取到今天盘中数据
+    now_utc = datetime.now(timezone.utc)
+    # period2 = 今天0点UTC（不含今天）
+    period2 = int(now_utc.replace(hour=0, minute=0, second=0, microsecond=0).timestamp())
+    # period1 = 7天前
+    period1 = period2 - 7 * 86400
+
+    url = (
+        "https://query1.finance.yahoo.com/v8/finance/chart/"
+        + yahoo_ticker
+        + "?interval=1d"
+        + "&period1=" + str(period1)
+        + "&period2=" + str(period2)
+    )
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
         'Accept': 'application/json',
@@ -46,30 +65,17 @@ def fetch_prev_close(yahoo_ticker):
 
         data = r.json()
         result = data['chart']['result'][0]
-
-        # Use previousClose from meta - always yesterday's close regardless of market hours
-        meta = result.get('meta', {})
-        prev_close = meta.get('previousClose') or meta.get('chartPreviousClose')
-
-        if prev_close:
-            price = round(float(prev_close), 4)
-            print("OK " + yahoo_ticker + ": " + str(price) + " (previousClose)")
-            return price
-
-        # Fallback: get last close before today
-        timestamps = result.get('timestamp', [])
         closes = result['indicators']['quote'][0]['close']
-        now_utc = datetime.now(timezone.utc)
-        today_start = now_utc.replace(hour=0, minute=0, second=0, microsecond=0).timestamp()
 
-        prev_closes = [cl for ts, cl in zip(timestamps, closes) if cl is not None and ts < today_start]
-        if prev_closes:
-            price = round(prev_closes[-1], 4)
-            print("OK " + yahoo_ticker + ": " + str(price) + " (historical close)")
-            return price
+        # 取最后一个非空收盘价（period2=今天0点，所以全是昨天或更早的数据）
+        valid = [c for c in closes if c is not None]
+        if not valid:
+            print("FAIL " + yahoo_ticker + ": no close data")
+            return None
 
-        print("FAIL " + yahoo_ticker + ": no valid close found")
-        return None
+        price = round(valid[-1], 4)
+        print("OK " + yahoo_ticker + ": " + str(price))
+        return price
 
     except Exception as e:
         print("FAIL " + yahoo_ticker + ": " + str(e))
@@ -86,7 +92,7 @@ def main():
         if ticker and p.get('status') == '\u5b58\u7eed\u4e2d':
             active_tickers.add(ticker)
 
-    print("Updating " + str(len(active_tickers)) + " tickers (previousClose)...")
+    print("Updating " + str(len(active_tickers)) + " tickers...")
 
     prices = {}
     for our_ticker in sorted(active_tickers):
