@@ -468,9 +468,21 @@ async function submitTrade(){
     let shown=false;
     productData.products.forEach(p=>{
       if(p.underlying===underlying){
-        if(!shown&&p.status==='存续中'&&inv[ticker]?.qty>0){
-          p.inventory=inv[ticker].qty; shown=true;
-        } else { p.inventory=null; }
+        if(!shown&&p.status==='存续中'&&inv[existingKey]?.qty>0){
+          p.inventory=inv[existingKey].qty; shown=true;
+        } else if(p.status!=='存续中'){ p.inventory=null; }
+      }
+    });
+  }
+
+  // 4. Update uns on matching order
+  const remInput = document.getElementById('trade-remaining').value.trim();
+  const remainingVal = remInput !== '' ? parseInt(remInput) : null;
+  if(typ==='接股' && order && remainingVal !== null && !isNaN(remainingVal)){
+    productData.products.forEach(p=>{
+      if(p.product===order){
+        p.uns = remainingVal;
+        if(remainingVal === 0) p.status = '敲出';
       }
     });
   }
