@@ -18,21 +18,21 @@ TICKER_MAP = {
     '9626.HK': '9626.HK',
     '2269.HK': '2269.HK',
     '1347.HK': '1347.HK',
-    'AMD':   'AMD',
-    'TSM':   'TSM',
-    'GOOGL': 'GOOGL',
-    'GOOG':  'GOOG',
-    'AAPL':  'AAPL',
-    'PLTR':  'PLTR',
-    'INTC':  'INTC',
-    'PDD':   'PDD',
-    'MU':    'MU',
+    'AMD':    'AMD',
+    'TSM':    'TSM',
+    'GOOGL':  'GOOGL',
+    'GOOG':   'GOOG',
+    'AAPL':   'AAPL',
+    'PLTR':   'PLTR',
+    'INTC':   'INTC',
+    'PDD':    'PDD',
+    'MU':     'MU',
     '9984.T': '9984.T',
     '6762.T': '6762.T',
     '6981.T': '6981.T',
 }
 
-def fetch_close(yahoo_ticker):
+def fetch_prev_close(yahoo_ticker):
     url = "https://query1.finance.yahoo.com/v8/finance/chart/" + yahoo_ticker + "?interval=1d&range=5d"
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
@@ -43,15 +43,34 @@ def fetch_close(yahoo_ticker):
         if r.status_code != 200:
             print("FAIL " + yahoo_ticker + ": HTTP " + str(r.status_code))
             return None
+
         data = r.json()
         result = data['chart']['result'][0]
+
+        # Use previousClose from meta - always yesterday's close regardless of market hours
+        meta = result.get('meta', {})
+        prev_close = meta.get('previousClose') or meta.get('chartPreviousClose')
+
+        if prev_close:
+            price = round(float(prev_close), 4)
+            print("OK " + yahoo_ticker + ": " + str(price) + " (previousClose)")
+            return price
+
+        # Fallback: get last close before today
+        timestamps = result.get('timestamp', [])
         closes = result['indicators']['quote'][0]['close']
-        close = [c for c in closes if c is not None]
-        if not close:
-            return None
-        price = round(close[-1], 4)
-        print("OK " + yahoo_ticker + ": " + str(price))
-        return price
+        now_utc = datetime.now(timezone.utc)
+        today_start = now_utc.replace(hour=0, minute=0, second=0, microsecond=0).timestamp()
+
+        prev_closes = [cl for ts, cl in zip(timestamps, closes) if cl is not None and ts < today_start]
+        if prev_closes:
+            price = round(prev_closes[-1], 4)
+            print("OK " + yahoo_ticker + ": " + str(price) + " (historical close)")
+            return price
+
+        print("FAIL " + yahoo_ticker + ": no valid close found")
+        return None
+
     except Exception as e:
         print("FAIL " + yahoo_ticker + ": " + str(e))
         return None
@@ -61,19 +80,18 @@ def main():
         data = json.load(f)
 
     products = data['products']
-
     active_tickers = set()
     for p in products:
         ticker = p.get('ticker', '')
         if ticker and p.get('status') == '\u5b58\u7eed\u4e2d':
             active_tickers.add(ticker)
 
-    print("Updating " + str(len(active_tickers)) + " tickers...")
+    print("Updating " + str(len(active_tickers)) + " tickers (previousClose)...")
 
     prices = {}
     for our_ticker in sorted(active_tickers):
         yahoo_ticker = TICKER_MAP.get(our_ticker, our_ticker)
-        price = fetch_close(yahoo_ticker)
+        price = fetch_prev_close(yahoo_ticker)
         if price:
             prices[our_ticker] = price
         time.sleep(0.5)
