@@ -7,7 +7,7 @@
   "products": [
     {
       "underlying": "软银",
-      "type": "累计",
+      "type": "累计",h
       "product": "9984 JT(5)",
       "obs": "2026.01.14",
       "status": "敲出",
@@ -3131,7 +3131,7 @@
           "date": "2026-04-30",
           "txType": "接股",
           "ccy": "HKD",
-          "amount": 39609.45
+          "amount": 6224.34
         },
         {
           "price": 128.8886,
