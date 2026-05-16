@@ -1065,5 +1065,18 @@
     "lotType": "FIFO",
     "note": "",
     "remaining": null
+  },
+  {
+    "ticker": "9988.HK",
+    "underlying": "阿里巴巴",
+    "date": "2026-05-11",
+    "type": "卖出",
+    "ccy": "HKD",
+    "price": 134.9,
+    "qty": -3200,
+    "amount": 430463.31,
+    "lotType": "FIFO",
+    "note": "",
+    "remaining": null
   }
 ]
