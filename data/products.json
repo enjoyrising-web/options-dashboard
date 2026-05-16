@@ -684,8 +684,8 @@
       "maxShares": 247000,
       "uns": 228000,
       "close": 22.56,
-      "profitHKD": null,
-      "inventory": null,
+      "profitHKD": 16242.04,
+      "inventory": 500,
       "ccy": "HKD",
       "ticker": "175.HK"
     },
@@ -3311,17 +3311,17 @@
       "ccy": "USD"
     },
     "0175HK": {
-      "qty": 4500,
-      "realized": 21846,
+      "qty": 500,
+      "realized": 38088.04,
       "lots": [
         {
           "price": 18.5555,
-          "qty": 4500,
+          "qty": 500,
           "type": "batch",
           "date": "2026-05-07",
           "txType": "接股",
           "ccy": "HKD",
-          "amount": 83499.78
+          "amount": 9277.75
         }
       ],
       "ccy": "HKD"
@@ -3427,12 +3427,6 @@
       ],
       "realized": 0,
       "ccy": "USD"
-    },
-    "175HK": {
-      "qty": 0,
-      "lots": [],
-      "realized": 0,
-      "ccy": "HKD"
     }
   },
   "realizedPnlFromTxn": {
@@ -3649,8 +3643,8 @@
       ]
     },
     "0175HK": {
-      "orig": 21846,
-      "hkd": 21846,
+      "orig": 38088.04,
+      "hkd": 38088.04,
       "ccy": "HKD",
       "trades": [
         {
@@ -3663,6 +3657,19 @@
           "cost_amt": 92654,
           "pnl_orig": 21846,
           "pnl_hkd": 21846,
+          "ccy": "HKD",
+          "note": ""
+        },
+        {
+          "date": "2026-05-11",
+          "type": "SELL",
+          "qty": 4000,
+          "sell_px": 22.68,
+          "cost_px": 18.5555,
+          "sell_amt": 90464.07,
+          "cost_amt": 74222.03,
+          "pnl_orig": 16242.04,
+          "pnl_hkd": 16242.04,
           "ccy": "HKD",
           "note": ""
         }
@@ -3702,5 +3709,5 @@
       ]
     }
   },
-  "totalNewPnlHKD": 191238.54
+  "totalNewPnlHKD": 207480.58
 }
