@@ -405,6 +405,9 @@ function onTradeTypeChange(){
 // ── Submit trade ──────────────────────────────────────────────
 async function submitTrade(){
   if(!productData){showStatus('请先读取当前数据','err');return;}
+  // Force blur on all inputs to ensure values are committed
+  ['trade-qty','trade-price','trade-amount','trade-prev-remaining','trade-deduction','trade-remaining','trade-note']
+    .forEach(id=>{ const el=document.getElementById(id); if(el) el.blur(); });
   const submitBtn=document.getElementById('btn-trade-submit');
   submitBtn.disabled=true; submitBtn.textContent='录入中...';
   showStatus('处理中...','loading');
