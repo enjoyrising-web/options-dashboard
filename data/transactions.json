@@ -1053,5 +1053,18 @@
     "lotType": "FIFO",
     "note": "",
     "remaining": null
+  },
+  {
+    "ticker": "GOOX",
+    "underlying": "2倍做多谷歌",
+    "date": "2026-05-09",
+    "type": "买入",
+    "ccy": "USD",
+    "price": 104.815,
+    "qty": 1000,
+    "amount": 104986.39,
+    "lotType": "FIFO",
+    "note": "",
+    "remaining": null
   }
 ]
