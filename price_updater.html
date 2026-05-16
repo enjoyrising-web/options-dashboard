@@ -408,6 +408,8 @@ async function submitTrade(){
   // Force blur on all inputs to ensure values are committed
   ['trade-qty','trade-price','trade-amount','trade-prev-remaining','trade-deduction','trade-remaining','trade-note']
     .forEach(id=>{ const el=document.getElementById(id); if(el) el.blur(); });
+  // 等待浏览器完成 blur/change 事件处理
+  await new Promise(r=>setTimeout(r,50));
   const submitBtn=document.getElementById('btn-trade-submit');
   submitBtn.disabled=true; submitBtn.textContent='录入中...';
   showStatus('处理中...','loading');
@@ -459,6 +461,10 @@ async function submitTrade(){
       const lot=inv[existingKey].lots[0];
       const consume=Math.min(lot.qty,remaining);
       if(price&&lot.price) inv[existingKey].realized+=(price-lot.price)*consume;
+      // 按比例分摊 amount
+      if(lot.amount!=null){
+        lot.amount=parseFloat((lot.amount*(lot.qty-consume)/lot.qty).toFixed(2));
+      }
       lot.qty-=consume;
       inv[existingKey].qty-=consume;
       remaining-=consume;
@@ -594,10 +600,14 @@ async function pushBothFiles(msg){
       await pushFile(TXN_FILE,txnData,txnSHA,msg);
     }
     showStatus('✓ '+msg+' 已保存','ok');
-    // reload SHA
-    const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`,
-      {headers:{'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json'}});
-    if(r.ok){const j=await r.json();fileSHA=j.sha;}
+    // 重新获取两个文件最新 SHA，避免连续提交冲突
+    const headers={'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json'};
+    const [rP, rT] = await Promise.all([
+      fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`,{headers}),
+      fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${TXN_FILE}`,{headers})
+    ]);
+    if(rP.ok){const j=await rP.json();fileSHA=j.sha;}
+    if(rT.ok){const j=await rT.json();txnSHA=j.sha;}
   }catch(e){showStatus('写入失败：'+e.message,'err');}
 }
 
