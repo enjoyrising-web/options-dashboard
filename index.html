@@ -260,11 +260,32 @@ tr.clickable{cursor:pointer}
       <thead><tr>
         <th>日期</th><th>类型</th><th>计价方式</th>
         <th class="tr">数量</th><th class="tr">单价</th><th class="tr">金额</th>
-        <th class="tr">昨日收盘</th><th class="tr">市值/卖出价</th><th class="tr">浮动/已实现盈亏</th>
+        <th class="tr">昨日收盘</th><th class="tr">市值</th><th class="tr">浮动盈亏</th>
         <th>备注</th>
       </tr></thead>
       <tbody id="inv-body"></tbody>
     </table>
+  </div>
+  <!-- 卖出记录折叠区块 -->
+  <div id="inv-sells-wrap" style="padding:0 20px 8px;display:none">
+    <div id="inv-sells-toggle" onclick="toggleSells()" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--muted);padding:6px 0;user-select:none">
+      <span id="inv-sells-arrow" style="font-size:10px">▶</span>
+      <span id="inv-sells-label">卖出记录</span>
+    </div>
+    <div id="inv-sells-body" style="display:none;margin-top:6px">
+      <table style="width:100%;border-collapse:collapse;font-size:13px">
+        <thead><tr style="color:var(--muted);font-size:11px">
+          <th style="text-align:left;padding:4px 8px 4px 0">日期</th>
+          <th style="text-align:left;padding:4px 8px">类型</th>
+          <th style="text-align:right;padding:4px 8px">数量</th>
+          <th style="text-align:right;padding:4px 8px">卖出价</th>
+          <th style="text-align:right;padding:4px 8px">卖出金额</th>
+          <th style="text-align:right;padding:4px 8px">已实现盈亏</th>
+          <th style="text-align:left;padding:4px 0 4px 8px">备注</th>
+        </tr></thead>
+        <tbody id="inv-sells-rows"></tbody>
+      </table>
+    </div>
   </div>
   <!-- Dividends for this ticker -->
   <div id="inv-dividends" style="padding:0 20px 20px"></div>
@@ -669,27 +690,86 @@ function renderInventory(ticker){
     </tr>`;
   });
 
-  // Sell / 行权卖出 rows (realized)
-  const sellRows = allTxns.filter(t=>sellTypes.includes(t.type)).map(t=>{
-    // Find cost from FIFO - use realized pnl estimate
-    const sellAmt = t.amount ? Math.abs(t.amount) : (t.price||0)*Math.abs(t.qty);
+  // Sell rows: 合并 transactions.json + realizedPnlFromTxn（去重，以日期+数量为key）
+  const txSellRows = allTxns.filter(t=>sellTypes.includes(t.type));
+  const pnlDetail = window._pnlDetail || {};
+  const pnlTrades = (pnlDetail[activeTicker]?.trades || []).filter(t=>sellTypes.includes(t.type));
+  // 用 date+qty 去重，txSellRows 优先（来自 transactions.json）
+  const txKeys = new Set(txSellRows.map(t=>`${t.date}_${Math.abs(t.qty)}`));
+  const extraSells = pnlTrades.filter(t=>!txKeys.has(`${t.date}_${Math.abs(t.qty)}`));
+  const allSells = [
+    ...txSellRows.map(t=>({
+      date: t.date, type: t.type,
+      qty: Math.abs(t.qty),
+      sell_px: t.price||null,
+      sell_amt: t.amount ? Math.abs(t.amount) : (t.price||0)*Math.abs(t.qty),
+      pnl_hkd: null, note: t.note||''
+    })),
+    ...extraSells.map(t=>({
+      date: t.date, type: t.type||'SELL',
+      qty: Math.abs(t.qty),
+      sell_px: t.sell_px||null,
+      sell_amt: t.sell_amt||0,
+      pnl_hkd: t.pnl_hkd!=null ? t.pnl_hkd*fxRate : null,
+      note: t.note||''
+    }))
+  ].sort((a,b)=>a.date.localeCompare(b.date));
+
+  const sellRows = allSells.map(t=>{
+    const pnlHtml = t.pnl_hkd!=null
+      ? `<span class="${t.pnl_hkd>=0?'pnl-positive':'pnl-negative'}">${t.pnl_hkd>=0?'+':''}${fmt(t.pnl_hkd,0)}</span>`
+      : '—';
     return `<tr style="background:var(--red-bg)">
       <td>${t.date}</td>
       <td style="color:var(--red);font-weight:500">${t.type}</td>
       <td><span class="lot-type-fifo">FIFO</span></td>
-      <td class="tr" style="color:var(--red)">${fmt(Math.abs(t.qty))}</td>
-      <td class="tr">${t.price?fmt(t.price,4):'—'}</td>
-      <td class="tr">${fmt(sellAmt,2)}</td>
+      <td class="tr" style="color:var(--red)">${fmt(t.qty)}</td>
+      <td class="tr">${t.sell_px?fmt(t.sell_px,4):'—'}</td>
+      <td class="tr">${fmt(t.sell_amt,2)}</td>
       <td class="tr">—</td>
-      <td class="tr">—</td>
-      <td class="tr">—</td>
+      <td class="tr">${fmt(t.sell_amt,2)}</td>
+      <td class="tr">${pnlHtml}</td>
       <td style="font-size:11px;color:var(--muted)">${t.note||'已卖出'}</td>
     </tr>`;
   });
 
-  const allRows = [...lotRows, ...sellRows];
+  const allRows = [...lotRows];
   document.getElementById('inv-body').innerHTML = allRows.join('') ||
     '<tr><td colspan="10" class="empty">无交易记录</td></tr>';
+
+  // 卖出记录折叠区
+  const sellsWrap = document.getElementById('inv-sells-wrap');
+  const sellsRowsEl = document.getElementById('inv-sells-rows');
+  const sellsLabel = document.getElementById('inv-sells-label');
+  if(allSells.length > 0){
+    sellsWrap.style.display = '';
+    sellsLabel.textContent = `卖出记录（${allSells.length} 笔）`;
+    sellsRowsEl.innerHTML = allSells.map(t=>{
+      const pnlHtml = t.pnl_hkd != null
+        ? `<span class="${t.pnl_hkd>=0?'pnl-positive':'pnl-negative'}">${t.pnl_hkd>=0?'+':''}${fmt(t.pnl_hkd,0)}</span>`
+        : '—';
+      return `<tr style="border-top:0.5px solid var(--border)">
+        <td style="padding:5px 8px 5px 0;color:var(--muted);font-size:12px">${t.date}</td>
+        <td style="padding:5px 8px;color:var(--red);font-weight:500;font-size:12px">${t.type}</td>
+        <td style="padding:5px 8px;text-align:right;font-family:'IBM Plex Mono',monospace;color:var(--red)">${fmt(t.qty)}</td>
+        <td style="padding:5px 8px;text-align:right;font-family:'IBM Plex Mono',monospace">${t.sell_px?fmt(t.sell_px,4):'—'}</td>
+        <td style="padding:5px 8px;text-align:right;font-family:'IBM Plex Mono',monospace">${fmt(t.sell_amt,2)}</td>
+        <td style="padding:5px 8px;text-align:right">${pnlHtml}</td>
+        <td style="padding:5px 0 5px 8px;font-size:11px;color:var(--muted)">${t.note||''}</td>
+      </tr>`;
+    }).join('');
+  } else {
+    sellsWrap.style.display = 'none';
+  }
+}
+
+// ── Toggle sell records ───────────────────────────────────────
+function toggleSells(){
+  const body  = document.getElementById('inv-sells-body');
+  const arrow = document.getElementById('inv-sells-arrow');
+  const open  = body.style.display === 'none';
+  body.style.display  = open ? '' : 'none';
+  arrow.textContent   = open ? '▼' : '▶';
 }
 
 // ── Stats ─────────────────────────────────────────────────────
