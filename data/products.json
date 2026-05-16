@@ -571,7 +571,7 @@
       "uns": 22000,
       "close": 133.3,
       "profitHKD": 8167.78,
-      "inventory": 3255,
+      "inventory": 660,
       "ccy": "HKD",
       "ticker": "9988.HK"
     },
@@ -2969,30 +2969,12 @@
       "ccy": "HKD"
     },
     "9988HK": {
-      "qty": 3860,
-      "realized": 0,
+      "qty": 660,
+      "realized": 33711.479000000014,
       "lots": [
         {
           "price": 113.0266,
-          "qty": 595,
-          "type": "batch",
-          "date": "2026-04-16",
-          "txType": "接股",
-          "ccy": "HKD",
-          "amount": 67332.58
-        },
-        {
-          "price": 128.7337,
-          "qty": 2310,
-          "type": "batch",
-          "date": "2026-04-24",
-          "txType": "接股",
-          "ccy": "HKD",
-          "amount": 297702.94
-        },
-        {
-          "price": 113.0266,
-          "qty": 350,
+          "qty": 55,
           "type": "batch",
           "date": "2026-04-30",
           "txType": "接股",
