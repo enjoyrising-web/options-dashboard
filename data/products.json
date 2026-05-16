@@ -3707,7 +3707,27 @@
           "note": ""
         }
       ]
+    },
+    "9988HK": {
+      "orig": 32494.78,
+      "hkd": 32494.78,
+      "ccy": "HKD",
+      "trades": [
+        {
+          "date": "2026-05-11",
+          "type": "SELL",
+          "qty": 3200,
+          "sell_px": 134.9,
+          "cost_px": 124.3652,
+          "sell_amt": 430463.31,
+          "cost_amt": 397968.53,
+          "pnl_orig": 32494.78,
+          "pnl_hkd": 32494.78,
+          "ccy": "HKD",
+          "note": ""
+        }
+      ]
     }
   },
-  "totalNewPnlHKD": 207480.58
+  "totalNewPnlHKD": 239975.36
 }
