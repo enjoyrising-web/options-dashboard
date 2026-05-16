@@ -3427,6 +3427,12 @@
       ],
       "realized": 0,
       "ccy": "USD"
+    },
+    "175HK": {
+      "qty": 0,
+      "lots": [],
+      "realized": 0,
+      "ccy": "HKD"
     }
   },
   "realizedPnlFromTxn": {
