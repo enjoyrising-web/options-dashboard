@@ -1002,5 +1002,31 @@
     "amount": 62907.05,
     "lotType": "批次计价",
     "note": ""
+  },
+  {
+    "ticker": "700HK",
+    "underlying": "腾讯",
+    "date": "2026-05-07",
+    "type": "接股",
+    "ccy": "HKD",
+    "price": 437.472,
+    "qty": 90,
+    "amount": 39418.26,
+    "lotType": "批次计价",
+    "remaining": 4760,
+    "note": "700HK(12)"
+  },
+  {
+    "ticker": "TSM",
+    "underlying": "台积电",
+    "date": "2026-05-07",
+    "type": "接股",
+    "ccy": "USD",
+    "price": 316.3891,
+    "qty": 38,
+    "amount": 12022.79,
+    "lotType": "批次计价",
+    "remaining": 0,
+    "note": "TSM(5) 敲出"
   }
 ]
