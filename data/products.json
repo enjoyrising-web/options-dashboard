@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-16",
+  "updatedAt": "2026-05-17",
   "fx": {
     "USDHKD": 7.83475,
     "JPYHKD": 0.05
@@ -3427,6 +3427,12 @@
       ],
       "realized": 0,
       "ccy": "USD"
+    },
+    "175HK": {
+      "qty": 0,
+      "lots": [],
+      "realized": 0,
+      "ccy": "HKD"
     }
   },
   "realizedPnlFromTxn": {
