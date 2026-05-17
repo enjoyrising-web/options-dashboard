@@ -378,10 +378,10 @@
       "discount": 0.8399,
       "daily": 80,
       "maxShares": 39360,
-      "uns": 29120,
+      "uns": 28240,
       "close": 84.05,
       "profitHKD": -1720.63,
-      "inventory": 7200,
+      "inventory": 8080,
       "ccy": "HKD",
       "ticker": "3690.HK"
     },
@@ -644,10 +644,10 @@
       "discount": 0.828,
       "daily": 110,
       "maxShares": 54120,
-      "uns": 40040,
+      "uns": 39050,
       "close": 73.35,
       "profitHKD": 37200.42,
-      "inventory": null,
+      "inventory": 990,
       "ccy": "HKD",
       "ticker": "981.HK"
     },
@@ -704,7 +704,7 @@
       "uns": 5760,
       "close": 471.4,
       "profitHKD": 16281.59,
-      "inventory": 9850,
+      "inventory": 15450,
       "ccy": "HKD",
       "ticker": "700.HK"
     },
@@ -910,10 +910,10 @@
       "discount": null,
       "daily": 2,
       "maxShares": 1000,
-      "uns": 1000,
+      "uns": 980,
       "close": 411.68,
       "profitHKD": 38604.93,
-      "inventory": 1835,
+      "inventory": 1855,
       "ccy": "USD",
       "ticker": "TSM"
     },
@@ -1157,10 +1157,10 @@
       "discount": null,
       "daily": 10,
       "maxShares": 5000,
-      "uns": 5000,
+      "uns": 4900,
       "close": 137.8,
       "profitHKD": -65625.43,
-      "inventory": 0,
+      "inventory": 100,
       "ccy": "USD",
       "ticker": "PLTR"
     },
@@ -2243,7 +2243,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 1000
+      "inventory": 1500
     },
     {
       "underlying": "苹果",
@@ -2576,6 +2576,44 @@
       "profitHKD": null,
       "ccy": "USD",
       "ticker": "MULL"
+    },
+    {
+      "underlying": "POET",
+      "product": "POET UR",
+      "type": "市场买入",
+      "obs": "",
+      "status": "存续中",
+      "strike": null,
+      "knockin": null,
+      "knockout": null,
+      "discount": null,
+      "daily": null,
+      "maxShares": null,
+      "uns": null,
+      "inventory": null,
+      "close": null,
+      "profitHKD": null,
+      "ccy": "USD",
+      "ticker": "POET"
+    },
+    {
+      "underlying": "摩丁",
+      "product": "MOD UN",
+      "type": "市场买入",
+      "obs": "",
+      "status": "存续中",
+      "strike": null,
+      "knockin": null,
+      "knockout": null,
+      "discount": null,
+      "daily": null,
+      "maxShares": null,
+      "uns": null,
+      "inventory": null,
+      "close": null,
+      "profitHKD": null,
+      "ccy": "USD",
+      "ticker": "MOD"
     }
   ],
   "fcn": {
@@ -2716,7 +2754,7 @@
   ],
   "inventory": {
     "TSM": {
-      "qty": 1835,
+      "qty": 1855,
       "realized": 3619.38,
       "lots": [
         {
@@ -2816,6 +2854,15 @@
           "txType": "接股",
           "ccy": "USD",
           "amount": 12022.79
+        },
+        {
+          "price": 321.055,
+          "qty": 20,
+          "type": "batch",
+          "date": "2026-05-12",
+          "txType": "接股",
+          "ccy": "USD",
+          "amount": 6421.1
         }
       ],
       "ccy": "USD"
@@ -3146,9 +3193,19 @@
       "ccy": "HKD"
     },
     "PLTR": {
-      "qty": 0,
+      "qty": 100,
       "realized": -8376.2,
-      "lots": [],
+      "lots": [
+        {
+          "price": 107.9795,
+          "qty": 100,
+          "type": "batch",
+          "date": "2026-05-12",
+          "txType": "接股",
+          "ccy": "USD",
+          "amount": 10797.95
+        }
+      ],
       "ccy": "USD"
     },
     "9984JT": {
@@ -3168,7 +3225,7 @@
       "ccy": "JPY"
     },
     "700HK": {
-      "qty": 9850,
+      "qty": 15450,
       "realized": 16281.59,
       "lots": [
         {
@@ -3241,12 +3298,21 @@
           "txType": "接股",
           "ccy": "HKD",
           "amount": 39418.26
+        },
+        {
+          "price": 459.2905,
+          "qty": 5600,
+          "type": "fifo",
+          "date": "2026-05-12",
+          "txType": "买入",
+          "ccy": "HKD",
+          "amount": 2572026.93
         }
       ],
       "ccy": "HKD"
     },
     "3690HK": {
-      "qty": 7200,
+      "qty": 8080,
       "realized": 0,
       "lots": [
         {
@@ -3275,6 +3341,15 @@
           "txType": "接股",
           "ccy": "HKD",
           "amount": 145239
+        },
+        {
+          "price": 83.075,
+          "qty": 880,
+          "type": "batch",
+          "date": "2026-05-13",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 73106.0
         }
       ],
       "ccy": "HKD"
@@ -3317,9 +3392,19 @@
       "ccy": "HKD"
     },
     "0981HK": {
-      "qty": 0,
+      "qty": 990,
       "realized": 11275.06,
-      "lots": [],
+      "lots": [
+        {
+          "price": 64.2828,
+          "qty": 990,
+          "type": "batch",
+          "date": "2026-05-13",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 63722.81
+        }
+      ],
       "ccy": "HKD"
     },
     "6762JT": {
@@ -3339,7 +3424,7 @@
       "ccy": "JPY"
     },
     "6981JT": {
-      "qty": 1000,
+      "qty": 1500,
       "realized": 0,
       "lots": [
         {
@@ -3350,6 +3435,15 @@
           "txType": "BUY",
           "ccy": "JPY",
           "amount": 4889788
+        },
+        {
+          "price": 6290.696,
+          "qty": 500,
+          "type": "fifo",
+          "date": "2026-05-12",
+          "txType": "买入",
+          "ccy": "JPY",
+          "amount": 3145348
         }
       ],
       "ccy": "JPY"
