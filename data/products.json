@@ -2457,9 +2457,9 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 14000,
+      "inventory": 0,
       "close": null,
-      "profitHKD": 118163.97,
+      "profitHKD": 194303.49,
       "ccy": "HKD",
       "ticker": "7747.HK"
     },
@@ -3435,19 +3435,9 @@
       "ccy": "USD"
     },
     "7747HK": {
-      "qty": 14000,
-      "lots": [
-        {
-          "price": 72.3663,
-          "qty": 14000,
-          "type": "fifo",
-          "date": "2026-03-16",
-          "txType": "买入",
-          "ccy": "HKD",
-          "amount": 1014878.32
-        }
-      ],
-      "realized": 121805.61,
+      "qty": 0,
+      "lots": [],
+      "realized": 201583.21000000008,
       "ccy": "HKD"
     }
   },
@@ -3764,8 +3754,8 @@
       ]
     },
     "7747HK": {
-      "orig": 118163.97,
-      "hkd": 118163.97,
+      "orig": 194303.49,
+      "hkd": 194303.49,
       "ccy": "HKD",
       "trades": [
         {
@@ -3793,9 +3783,22 @@
           "pnl_hkd": 17201.81,
           "ccy": "HKD",
           "note": ""
+        },
+        {
+          "date": "2026-03-17",
+          "type": "卖出",
+          "qty": 14000,
+          "sell_px": 78.0647,
+          "cost_px": 72.4913,
+          "sell_amt": 1091017.84,
+          "cost_amt": 1014878.32,
+          "pnl_orig": 76139.52,
+          "pnl_hkd": 76139.52,
+          "ccy": "HKD",
+          "note": ""
         }
       ]
     }
   },
-  "totalNewPnlHKD": 360060.24
+  "totalNewPnlHKD": 436199.76
 }
