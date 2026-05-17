@@ -457,9 +457,15 @@ async function submitTrade(){
   } else if(['卖出','行权卖出'].includes(typ)){
     // FIFO consume
     let remaining=qty;
+    let totalCostAmt=0;
+    const sellAmt=parseFloat(document.getElementById('trade-amount').value)||price*qty;
     while(remaining>0&&inv[existingKey].lots.length>0){
       const lot=inv[existingKey].lots[0];
       const consume=Math.min(lot.qty,remaining);
+      const lotCost=lot.amount!=null
+        ? parseFloat((lot.amount*consume/lot.qty).toFixed(2))
+        : parseFloat((lot.price*consume).toFixed(2));
+      totalCostAmt+=lotCost;
       if(price&&lot.price) inv[existingKey].realized+=(price-lot.price)*consume;
       // 按比例分摊 amount
       if(lot.amount!=null){
@@ -470,6 +476,34 @@ async function submitTrade(){
       remaining-=consume;
       if(lot.qty===0) inv[existingKey].lots.shift();
     }
+    // 更新 realizedPnlFromTxn
+    const pnl=parseFloat((sellAmt-totalCostAmt).toFixed(2));
+    const fx=ccy==='USD'?productData.fx?.USDHKD||1:ccy==='JPY'?productData.fx?.JPYHKD||1:1;
+    const pnlHKD=parseFloat((pnl*fx).toFixed(2));
+    if(!productData.realizedPnlFromTxn) productData.realizedPnlFromTxn={};
+    if(!productData.realizedPnlFromTxn[existingKey])
+      productData.realizedPnlFromTxn[existingKey]={orig:0,hkd:0,ccy,trades:[]};
+    productData.realizedPnlFromTxn[existingKey].trades.push({
+      date, type:typ, qty, sell_px:price,
+      cost_px:parseFloat((totalCostAmt/qty).toFixed(4)),
+      sell_amt:sellAmt, cost_amt:parseFloat(totalCostAmt.toFixed(2)),
+      pnl_orig:pnl, pnl_hkd:pnlHKD, ccy, note:''
+    });
+    productData.realizedPnlFromTxn[existingKey].orig=
+      parseFloat((productData.realizedPnlFromTxn[existingKey].orig+pnl).toFixed(2));
+    productData.realizedPnlFromTxn[existingKey].hkd=
+      parseFloat((productData.realizedPnlFromTxn[existingKey].hkd+pnlHKD).toFixed(2));
+    // 更新 profitHKD（找对应 order 或同 underlying 第一个存续中）
+    const targetOrder=order||null;
+    let updated=false;
+    productData.products.forEach(p=>{
+      if(!updated&&p.ticker===ticker&&(targetOrder?p.product===targetOrder:p.status==='存续中')){
+        p.profitHKD=parseFloat(((p.profitHKD||0)+pnlHKD).toFixed(2));
+        updated=true;
+      }
+    });
+    // 更新 totalNewPnlHKD
+    productData.totalNewPnlHKD=parseFloat(((productData.totalNewPnlHKD||0)+pnlHKD).toFixed(2));
   }
   productData.inventory=inv;
 
