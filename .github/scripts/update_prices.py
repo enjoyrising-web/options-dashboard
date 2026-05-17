@@ -18,32 +18,34 @@ TICKER_MAP = {
     '9626.HK': '9626.HK',
     '2269.HK': '2269.HK',
     '1347.HK': '1347.HK',
-    'AMD':    'AMD',
-    'TSM':    'TSM',
-    'GOOGL':  'GOOGL',
-    'GOOG':   'GOOG',
-    'AAPL':   'AAPL',
-    'PLTR':   'PLTR',
-    'INTC':   'INTC',
-    'PDD':    'PDD',
-    'MU':     'MU',
-    '9984.T': '9984.T',
-    '6762.T': '6762.T',
-    '6981.T': '6981.T',
+    'AMD':     'AMD',
+    'TSM':     'TSM',
+    'GOOGL':   'GOOGL',
+    'GOOG':    'GOOG',
+    'AAPL':    'AAPL',
+    'PLTR':    'PLTR',
+    'INTC':    'INTC',
+    'INTEL':   'INTC',
+    'PDD':     'PDD',
+    'MU':      'MU',
+    '9984.T':  '9984.T',
+    '6762.T':  '6762.T',
+    '6981.T':  '6981.T',
+    # 新增标的
+    '7747.HK': '7747.HK',
+    '7709.HK': '7709.HK',
+    '7707.HK': '7707.HK',
+    '3076.HK': '3076.HK',
+    '3119.HK': '3119.HK',
+    'EWY':     'EWY',
+    'BRK-B':   'BRK-B',
+    'GOOX':    'GOOX',
+    'MULL':    'MULL',
 }
 
 def fetch_prev_close(yahoo_ticker):
-    """
-    取昨日正式收盘价：
-    用 v8/finance/chart 的日线历史数据，取最近已完成交易日的收盘价。
-    range=5d 返回最近5个交易日，timestamps 对应每天开盘时间。
-    过滤掉今天的数据，取最后一个完整交易日的 close。
-    """
-    # 用 period1/period2 明确指定日期范围，避免取到今天盘中数据
     now_utc = datetime.now(timezone.utc)
-    # period2 = 今天0点UTC（不含今天）
     period2 = int(now_utc.replace(hour=0, minute=0, second=0, microsecond=0).timestamp())
-    # period1 = 7天前
     period1 = period2 - 7 * 86400
 
     url = (
@@ -67,7 +69,6 @@ def fetch_prev_close(yahoo_ticker):
         result = data['chart']['result'][0]
         closes = result['indicators']['quote'][0]['close']
 
-        # 取最后一个非空收盘价（period2=今天0点，所以全是昨天或更早的数据）
         valid = [c for c in closes if c is not None]
         if not valid:
             print("FAIL " + yahoo_ticker + ": no close data")
@@ -89,7 +90,7 @@ def main():
     active_tickers = set()
     for p in products:
         ticker = p.get('ticker', '')
-        if ticker and p.get('status') == '\u5b58\u7eed\u4e2d':
+        if ticker and p.get('status') == '存续中':
             active_tickers.add(ticker)
 
     print("Updating " + str(len(active_tickers)) + " tickers...")
