@@ -2457,9 +2457,9 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 11000,
+      "inventory": 0,
       "close": null,
-      "profitHKD": null,
+      "profitHKD": 100962.16,
       "ccy": "HKD",
       "ticker": "7747.HK"
     },
@@ -3752,7 +3752,27 @@
           "note": ""
         }
       ]
+    },
+    "7747HK": {
+      "orig": 100962.16,
+      "hkd": 100962.16,
+      "ccy": "HKD",
+      "trades": [
+        {
+          "date": "2026-03-02",
+          "type": "SELL",
+          "qty": 11000,
+          "sell_px": 100.5718,
+          "cost_px": 91.2197,
+          "sell_amt": 1104378.71,
+          "cost_amt": 1003416.55,
+          "pnl_orig": 100962.16,
+          "pnl_hkd": 100962.16,
+          "ccy": "HKD",
+          "note": ""
+        }
+      ]
     }
   },
-  "totalNewPnlHKD": 241896.27
+  "totalNewPnlHKD": 342858.43
 }
