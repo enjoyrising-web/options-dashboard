@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-16",
+  "updatedAt": "2026-05-17",
   "fx": {
     "USDHKD": 7.83475,
     "JPYHKD": 0.05
@@ -2438,7 +2438,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": null,
+      "inventory": 1000,
       "close": null,
       "profitHKD": null,
       "ccy": "USD",
@@ -3413,6 +3413,22 @@
           "txType": "买入",
           "ccy": "USD",
           "amount": 104986.39
+        }
+      ],
+      "realized": 0,
+      "ccy": "USD"
+    },
+    "BRK-B": {
+      "qty": 1000,
+      "lots": [
+        {
+          "price": 483.67,
+          "qty": 1000,
+          "type": "fifo",
+          "date": "2026-03-05",
+          "txType": "买入",
+          "ccy": "USD",
+          "amount": 484460.8
         }
       ],
       "realized": 0,
