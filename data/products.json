@@ -2457,7 +2457,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 8000,
+      "inventory": 16000,
       "close": null,
       "profitHKD": 100962.16,
       "ccy": "HKD",
@@ -3435,7 +3435,7 @@
       "ccy": "USD"
     },
     "7747HK": {
-      "qty": 8000,
+      "qty": 16000,
       "lots": [
         {
           "price": 60.8,
@@ -3445,6 +3445,15 @@
           "txType": "买入",
           "ccy": "HKD",
           "amount": 487240.32
+        },
+        {
+          "price": 72.2,
+          "qty": 8000,
+          "type": "fifo",
+          "date": "2026-03-10",
+          "txType": "买入",
+          "ccy": "HKD",
+          "amount": 578597.9
         }
       ],
       "realized": 104603.79999999994,
