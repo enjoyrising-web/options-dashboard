@@ -2438,9 +2438,9 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 1000,
+      "inventory": 0,
       "close": null,
-      "profitHKD": null,
+      "profitHKD": -73702.2,
       "ccy": "USD",
       "ticker": "BRK-B"
     },
@@ -2459,7 +2459,7 @@
       "uns": null,
       "inventory": 0,
       "close": null,
-      "profitHKD": 283678.11,
+      "profitHKD": 576790.62,
       "ccy": "HKD",
       "ticker": "7747.HK"
     },
@@ -2476,9 +2476,9 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": null,
+      "inventory": 26000,
       "close": null,
-      "profitHKD": null,
+      "profitHKD": 692554.74,
       "ccy": "HKD",
       "ticker": "7709.HK"
     },
@@ -3493,25 +3493,15 @@
       "ccy": "USD"
     },
     "BRK-B": {
-      "qty": 1000,
-      "lots": [
-        {
-          "price": 483.67,
-          "qty": 1000,
-          "type": "fifo",
-          "date": "2026-03-05",
-          "txType": "买入",
-          "ccy": "USD",
-          "amount": 484460.8
-        }
-      ],
-      "realized": 0,
+      "qty": 0,
+      "lots": [],
+      "realized": -9407.09,
       "ccy": "USD"
     },
     "7747HK": {
       "qty": 0,
       "lots": [],
-      "realized": 287319.75,
+      "realized": 580432.26,
       "ccy": "HKD"
     },
     "7707HK": {
@@ -3599,6 +3589,31 @@
       ],
       "realized": 0.0,
       "ccy": "USD"
+    },
+    "7709HK": {
+      "qty": 26000,
+      "lots": [
+        {
+          "price": 38.8956,
+          "qty": 6000,
+          "type": "fifo",
+          "date": "2026-04-15",
+          "txType": "买入",
+          "ccy": "HKD",
+          "amount": 233373.72
+        },
+        {
+          "price": 104.0282,
+          "qty": 20000,
+          "type": "fifo",
+          "date": "2026-05-13",
+          "txType": "买入",
+          "ccy": "HKD",
+          "amount": 2080563.29
+        }
+      ],
+      "realized": 692554.74,
+      "ccy": "HKD"
     }
   },
   "realizedPnlFromTxn": {
@@ -3914,8 +3929,8 @@
       ]
     },
     "7747HK": {
-      "orig": 283678.11,
-      "hkd": 283678.11,
+      "orig": 576790.62,
+      "hkd": 576790.62,
       "ccy": "HKD",
       "trades": [
         {
@@ -4006,6 +4021,19 @@
           "cost_amt": 1252609.27,
           "pnl_orig": 171917.39,
           "pnl_hkd": 171917.39,
+          "ccy": "HKD",
+          "note": ""
+        },
+        {
+          "date": "2026-05-08",
+          "type": "SELL",
+          "qty": 10000,
+          "sell_px": 127.6775,
+          "cost_px": 98.1457,
+          "sell_amt": 1274569.19,
+          "cost_amt": 981456.68,
+          "pnl_orig": 293112.51,
+          "pnl_hkd": 293112.51,
           "ccy": "HKD",
           "note": ""
         }
@@ -4273,7 +4301,47 @@
           "note": ""
         }
       ]
+    },
+    "7709HK": {
+      "orig": 692554.74,
+      "hkd": 692554.74,
+      "ccy": "HKD",
+      "trades": [
+        {
+          "date": "2026-05-08",
+          "type": "SELL",
+          "qty": 20000,
+          "sell_px": 73.6506,
+          "cost_px": 38.8956,
+          "sell_amt": 1470467.15,
+          "cost_amt": 777912.41,
+          "pnl_orig": 692554.74,
+          "pnl_hkd": 692554.74,
+          "ccy": "HKD",
+          "note": ""
+        }
+      ]
+    },
+    "BRK-B": {
+      "orig": -9407.09,
+      "hkd": -73702.2,
+      "ccy": "USD",
+      "trades": [
+        {
+          "date": "2026-05-08",
+          "type": "SELL",
+          "qty": 1000,
+          "sell_px": 475.8424,
+          "cost_px": 484.4608,
+          "sell_amt": 475053.71,
+          "cost_amt": 484460.8,
+          "pnl_orig": -9407.09,
+          "pnl_hkd": -73702.2,
+          "ccy": "USD",
+          "note": ""
+        }
+      ]
     }
   },
-  "totalNewPnlHKD": 770946.72
+  "totalNewPnlHKD": 1682911.78
 }
