@@ -2476,9 +2476,9 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 26000,
+      "inventory": 52000,
       "close": null,
-      "profitHKD": 692554.74,
+      "profitHKD": 955548.82,
       "ccy": "HKD",
       "ticker": "7709.HK"
     },
@@ -3504,22 +3504,6 @@
       "realized": 580432.26,
       "ccy": "HKD"
     },
-    "7707HK": {
-      "qty": 26000,
-      "lots": [
-        {
-          "price": 38.8285,
-          "qty": 26000,
-          "type": "fifo",
-          "date": "2026-04-15",
-          "txType": "买入",
-          "ccy": "HKD",
-          "amount": 1011286.13
-        }
-      ],
-      "realized": 262994.08,
-      "ccy": "HKD"
-    },
     "3076HK": {
       "qty": 70000,
       "lots": [
@@ -3591,8 +3575,17 @@
       "ccy": "USD"
     },
     "7709HK": {
-      "qty": 26000,
+      "qty": 52000,
       "lots": [
+        {
+          "price": 38.8285,
+          "qty": 26000,
+          "type": "fifo",
+          "date": "2026-04-15",
+          "txType": "买入",
+          "ccy": "HKD",
+          "amount": 1011286.13
+        },
         {
           "price": 38.8956,
           "qty": 6000,
@@ -3612,7 +3605,7 @@
           "amount": 2080563.29
         }
       ],
-      "realized": 692554.74,
+      "realized": 955548.82,
       "ccy": "HKD"
     }
   },
@@ -4039,104 +4032,6 @@
         }
       ]
     },
-    "7707HK": {
-      "orig": 262994.08,
-      "hkd": 262994.08,
-      "ccy": "HKD",
-      "trades": [
-        {
-          "date": "2026-03-02",
-          "type": "SELL",
-          "qty": 35000,
-          "sell_px": 38.1,
-          "cost_px": 35.1838,
-          "sell_amt": 1331196.19,
-          "cost_amt": 1231433.81,
-          "pnl_orig": 99762.38,
-          "pnl_hkd": 99762.38,
-          "ccy": "HKD",
-          "note": ""
-        },
-        {
-          "date": "2026-03-12",
-          "type": "SELL",
-          "qty": 73000,
-          "sell_px": 29.0,
-          "cost_px": 28.0307,
-          "sell_amt": 2113246.73,
-          "cost_amt": 2046243.11,
-          "pnl_orig": 67003.62,
-          "pnl_hkd": 67003.62,
-          "ccy": "HKD",
-          "note": ""
-        },
-        {
-          "date": "2026-03-17",
-          "type": "SELL",
-          "qty": 33000,
-          "sell_px": 31.817,
-          "cost_px": 30.4125,
-          "sell_amt": 1048148.05,
-          "cost_amt": 1003610.89,
-          "pnl_orig": 44537.16,
-          "pnl_hkd": 44537.16,
-          "ccy": "HKD",
-          "note": ""
-        },
-        {
-          "date": "2026-03-18",
-          "type": "SELL",
-          "qty": 35000,
-          "sell_px": 32.46,
-          "cost_px": 30.0882,
-          "sell_amt": 1134137.23,
-          "cost_amt": 1053086.22,
-          "pnl_orig": 81051.01,
-          "pnl_hkd": 81051.01,
-          "ccy": "HKD",
-          "note": ""
-        },
-        {
-          "date": "2026-04-01",
-          "type": "SELL",
-          "qty": 40000,
-          "sell_px": 23.38,
-          "cost_px": 32.7442,
-          "sell_amt": 933584.3,
-          "cost_amt": 1309767.34,
-          "pnl_orig": -376183.04,
-          "pnl_hkd": -376183.04,
-          "ccy": "HKD",
-          "note": ""
-        },
-        {
-          "date": "2026-04-02",
-          "type": "SELL",
-          "qty": 50000,
-          "sell_px": 21.14,
-          "cost_px": 28.87,
-          "sell_amt": 1055173.87,
-          "cost_amt": 1443502.14,
-          "pnl_orig": -388328.27,
-          "pnl_hkd": -388328.27,
-          "ccy": "HKD",
-          "note": ""
-        },
-        {
-          "date": "2026-04-08",
-          "type": "SELL",
-          "qty": 100000,
-          "sell_px": 29.5235,
-          "cost_px": 22.121,
-          "sell_amt": 2947251.38,
-          "cost_amt": 2212100.16,
-          "pnl_orig": 735151.22,
-          "pnl_hkd": 735151.22,
-          "ccy": "HKD",
-          "note": ""
-        }
-      ]
-    },
     "3076HK": {
       "orig": 286103.53,
       "hkd": 286103.53,
@@ -4303,10 +4198,101 @@
       ]
     },
     "7709HK": {
-      "orig": 692554.74,
-      "hkd": 692554.74,
+      "orig": 955548.82,
+      "hkd": 955548.82,
       "ccy": "HKD",
       "trades": [
+        {
+          "date": "2026-03-02",
+          "type": "SELL",
+          "qty": 35000,
+          "sell_px": 38.1,
+          "cost_px": 35.1838,
+          "sell_amt": 1331196.19,
+          "cost_amt": 1231433.81,
+          "pnl_orig": 99762.38,
+          "pnl_hkd": 99762.38,
+          "ccy": "HKD",
+          "note": ""
+        },
+        {
+          "date": "2026-03-12",
+          "type": "SELL",
+          "qty": 73000,
+          "sell_px": 29.0,
+          "cost_px": 28.0307,
+          "sell_amt": 2113246.73,
+          "cost_amt": 2046243.11,
+          "pnl_orig": 67003.62,
+          "pnl_hkd": 67003.62,
+          "ccy": "HKD",
+          "note": ""
+        },
+        {
+          "date": "2026-03-17",
+          "type": "SELL",
+          "qty": 33000,
+          "sell_px": 31.817,
+          "cost_px": 30.4125,
+          "sell_amt": 1048148.05,
+          "cost_amt": 1003610.89,
+          "pnl_orig": 44537.16,
+          "pnl_hkd": 44537.16,
+          "ccy": "HKD",
+          "note": ""
+        },
+        {
+          "date": "2026-03-18",
+          "type": "SELL",
+          "qty": 35000,
+          "sell_px": 32.46,
+          "cost_px": 30.0882,
+          "sell_amt": 1134137.23,
+          "cost_amt": 1053086.22,
+          "pnl_orig": 81051.01,
+          "pnl_hkd": 81051.01,
+          "ccy": "HKD",
+          "note": ""
+        },
+        {
+          "date": "2026-04-01",
+          "type": "SELL",
+          "qty": 40000,
+          "sell_px": 23.38,
+          "cost_px": 32.7442,
+          "sell_amt": 933584.3,
+          "cost_amt": 1309767.34,
+          "pnl_orig": -376183.04,
+          "pnl_hkd": -376183.04,
+          "ccy": "HKD",
+          "note": ""
+        },
+        {
+          "date": "2026-04-02",
+          "type": "SELL",
+          "qty": 50000,
+          "sell_px": 21.14,
+          "cost_px": 28.87,
+          "sell_amt": 1055173.87,
+          "cost_amt": 1443502.14,
+          "pnl_orig": -388328.27,
+          "pnl_hkd": -388328.27,
+          "ccy": "HKD",
+          "note": ""
+        },
+        {
+          "date": "2026-04-08",
+          "type": "SELL",
+          "qty": 100000,
+          "sell_px": 29.5235,
+          "cost_px": 22.121,
+          "sell_amt": 2947251.38,
+          "cost_amt": 2212100.16,
+          "pnl_orig": 735151.22,
+          "pnl_hkd": 735151.22,
+          "ccy": "HKD",
+          "note": ""
+        },
         {
           "date": "2026-05-08",
           "type": "SELL",
