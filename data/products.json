@@ -701,10 +701,10 @@
       "discount": 0.8718,
       "daily": 15,
       "maxShares": 7380,
-      "uns": 5760,
+      "uns": 5490,
       "close": 471.4,
       "profitHKD": 16281.59,
-      "inventory": 15450,
+      "inventory": 15720,
       "ccy": "HKD",
       "ticker": "700.HK"
     },
@@ -1083,8 +1083,8 @@
       "maxShares": 1000,
       "uns": 1000,
       "close": 397.05,
-      "profitHKD": 17081.59,
-      "inventory": 1020,
+      "profitHKD": 54477.79,
+      "inventory": 960,
       "ccy": "USD",
       "ticker": "GOOG"
     },
@@ -1159,8 +1159,8 @@
       "maxShares": 5000,
       "uns": 4800,
       "close": 137.8,
-      "profitHKD": -65625.43,
-      "inventory": 100,
+      "profitHKD": -45389.6,
+      "inventory": 0,
       "ccy": "USD",
       "ticker": "PLTR"
     },
@@ -2298,9 +2298,9 @@
       "daily": -4,
       "maxShares": 1000,
       "uns": 0,
-      "inventory": 4704,
+      "inventory": 4324,
       "close": null,
-      "profitHKD": 62751.25,
+      "profitHKD": 77742.34,
       "ccy": "USD",
       "ticker": "INTEL",
       "note": "DEC反累计 2X杠杆 1x/2x:-4/-8股 250天 2w/4w 1x资金22万USD"
@@ -2571,9 +2571,9 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 200,
+      "inventory": 0,
       "close": null,
-      "profitHKD": null,
+      "profitHKD": 11398.78,
       "ccy": "USD",
       "ticker": "MULL"
     },
@@ -2750,6 +2750,17 @@
       "amount": 3817.5,
       "note": "下单日为2026.01.20的GOOGLE.OQ 收息 HKD3817.5 FCN敲出",
       "ccy": "HKD"
+    },
+    {
+      "date": "2026-05-14",
+      "ticker": "AAPL",
+      "qty": 1020,
+      "rate": 0.27,
+      "gross": 275.4,
+      "withholding": 82.62,
+      "net": 192.78,
+      "ccy": "USD",
+      "net_hkd": 1510.38
     }
   ],
   "inventory": {
@@ -2997,12 +3008,12 @@
       "ccy": "USD"
     },
     "GOOG": {
-      "qty": 1020,
-      "realized": 2083.21,
+      "qty": 960,
+      "realized": 6856.33,
       "lots": [
         {
           "price": 304.74,
-          "qty": 310,
+          "qty": 250,
           "type": "fifo",
           "date": "2026-03-05",
           "txType": "BUY",
@@ -3048,17 +3059,17 @@
       "ccy": "USD"
     },
     "INTEL": {
-      "qty": 4704,
-      "realized": 21298.42,
+      "qty": 4324,
+      "realized": 23211.83,
       "lots": [
         {
           "price": 111.2616,
-          "qty": 924,
+          "qty": 544,
           "type": "fifo",
           "date": "2026-05-07",
           "txType": "买入",
           "ccy": "USD",
-          "amount": 102805.74
+          "amount": 60526.32
         },
         {
           "price": 111.2816,
@@ -3193,19 +3204,9 @@
       "ccy": "HKD"
     },
     "PLTR": {
-      "qty": 100,
-      "realized": -8376.2,
-      "lots": [
-        {
-          "price": 107.9795,
-          "qty": 100,
-          "type": "batch",
-          "date": "2026-05-12",
-          "txType": "接股",
-          "ccy": "USD",
-          "amount": 10797.95
-        }
-      ],
+      "qty": 0,
+      "realized": -5793.37,
+      "lots": [],
       "ccy": "USD"
     },
     "9984JT": {
@@ -3225,7 +3226,7 @@
       "ccy": "JPY"
     },
     "700HK": {
-      "qty": 15450,
+      "qty": 15720,
       "realized": 16281.59,
       "lots": [
         {
@@ -3307,6 +3308,15 @@
           "txType": "买入",
           "ccy": "HKD",
           "amount": 2572026.93
+        },
+        {
+          "price": 507.0689,
+          "qty": 270,
+          "type": "batch",
+          "date": "2026-05-14",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 136908.6
         }
       ],
       "ccy": "HKD"
@@ -3461,19 +3471,9 @@
       "ccy": "HKD"
     },
     "MULL": {
-      "qty": 200,
-      "lots": [
-        {
-          "price": 468,
-          "qty": 200,
-          "type": "fifo",
-          "date": "2026-05-09",
-          "txType": "买入",
-          "ccy": "USD",
-          "amount": 93753.04
-        }
-      ],
-      "realized": 0,
+      "qty": 0,
+      "lots": [],
+      "realized": 1454.9,
       "ccy": "USD"
     },
     "GOOX": {
@@ -3714,8 +3714,8 @@
       ]
     },
     "GOOG": {
-      "orig": 2180.23,
-      "hkd": 17081.59,
+      "orig": 6953.35,
+      "hkd": 54477.79,
       "ccy": "USD",
       "trades": [
         {
@@ -3743,6 +3743,19 @@
           "pnl_hkd": 16321.46,
           "ccy": "USD",
           "note": ""
+        },
+        {
+          "date": "2026-05-12",
+          "type": "SELL",
+          "qty": 60,
+          "sell_px": 384.93,
+          "cost_px": 304.74,
+          "sell_amt": 23057.52,
+          "cost_amt": 18284.4,
+          "pnl_orig": 4773.12,
+          "pnl_hkd": 37396.2,
+          "ccy": "USD",
+          "note": ""
         }
       ]
     },
@@ -3767,8 +3780,8 @@
       ]
     },
     "PLTR": {
-      "orig": -8376.2,
-      "hkd": -65625.43,
+      "orig": -5793.37,
+      "hkd": -45389.6,
       "ccy": "USD",
       "trades": [
         {
@@ -3781,6 +3794,19 @@
           "cost_amt": 28902,
           "pnl_orig": -8376.2,
           "pnl_hkd": -65625.43,
+          "ccy": "USD",
+          "note": ""
+        },
+        {
+          "date": "2026-05-12",
+          "type": "SELL",
+          "qty": 100,
+          "sell_px": 134.03,
+          "cost_px": 107.9795,
+          "sell_amt": 13380.78,
+          "cost_amt": 10797.95,
+          "pnl_orig": 2582.83,
+          "pnl_hkd": 20235.83,
           "ccy": "USD",
           "note": ""
         }
@@ -4333,8 +4359,8 @@
       ]
     },
     "INTEL": {
-      "orig": 8009.35,
-      "hkd": 62751.25,
+      "orig": 9922.76,
+      "hkd": 77742.34,
       "ccy": "USD",
       "trades": [
         {
@@ -4349,9 +4375,42 @@
           "pnl_hkd": 62751.25,
           "ccy": "USD",
           "note": "反累计行权卖出"
+        },
+        {
+          "date": "2026-05-12",
+          "type": "SELL",
+          "qty": 380,
+          "sell_px": 116.49,
+          "cost_px": 111.2616,
+          "sell_amt": 44192.83,
+          "cost_amt": 42279.42,
+          "pnl_orig": 1913.41,
+          "pnl_hkd": 14991.09,
+          "ccy": "USD",
+          "note": ""
+        }
+      ]
+    },
+    "MULL": {
+      "orig": 1454.9,
+      "hkd": 11398.78,
+      "ccy": "USD",
+      "trades": [
+        {
+          "date": "2026-05-12",
+          "type": "SELL",
+          "qty": 200,
+          "sell_px": 476.83,
+          "cost_px": 468.7652,
+          "sell_amt": 95207.94,
+          "cost_amt": 93753.04,
+          "pnl_orig": 1454.9,
+          "pnl_hkd": 11398.78,
+          "ccy": "USD",
+          "note": ""
         }
       ]
     }
   },
-  "totalNewPnlHKD": 1766877.81
+  "totalNewPnlHKD": 1850899.71
 }
