@@ -979,17 +979,17 @@
       "type": "反累计",
       "product": "PDD(F-1)",
       "obs": "2026.04.15",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 102.36,
       "knockin": 126.9878,
       "knockout": 96.2184,
       "discount": null,
       "daily": 10,
       "maxShares": 5000,
-      "uns": 4800,
+      "uns": 0,
       "close": 98.78,
-      "profitHKD": 21214.78,
-      "inventory": 7000,
+      "profitHKD": 42429.56,
+      "inventory": 6900,
       "ccy": "USD",
       "ticker": "PDD"
     },
@@ -2290,17 +2290,17 @@
       "product": "Intel(F-1)",
       "type": "反累计期权",
       "obs": "2026.05.12",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 131,
       "knockin": 216.6478,
       "knockout": 123.14,
       "discount": 1.6538,
       "daily": -4,
       "maxShares": 1000,
-      "uns": 1000,
-      "inventory": 4780,
+      "uns": 0,
+      "inventory": 4704,
       "close": null,
-      "profitHKD": null,
+      "profitHKD": 62751.25,
       "ccy": "USD",
       "ticker": "INTEL",
       "note": "DEC反累计 2X杠杆 1x/2x:-4/-8股 250天 2w/4w 1x资金22万USD"
@@ -2937,12 +2937,12 @@
       "ccy": "USD"
     },
     "PDD": {
-      "qty": 7000,
-      "realized": 2707.78,
+      "qty": 6900,
+      "realized": 5415.56,
       "lots": [
         {
           "price": 99.91,
-          "qty": 900,
+          "qty": 800,
           "type": "fifo",
           "date": "2026-03-04",
           "txType": "BUY",
@@ -3048,34 +3048,17 @@
       "ccy": "USD"
     },
     "INTEL": {
-      "qty": 4780,
-      "realized": 0,
+      "qty": 4704,
+      "realized": 21298.42,
       "lots": [
         {
-          "price": 41.7916,
-          "qty": 400,
-          "type": "batch",
-          "date": "2026-04-10",
-          "txType": "接股",
-          "ccy": "USD",
-          "amount": 16716.64
-        },
-        {
-          "price": 75.5478,
-          "qty": 380,
-          "type": "batch",
-          "date": "2026-05-11",
-          "txType": "接股",
-          "amount": 28708.16
-        },
-        {
           "price": 111.2616,
-          "qty": 1000,
+          "qty": 924,
           "type": "fifo",
           "date": "2026-05-07",
           "txType": "买入",
           "ccy": "USD",
-          "amount": 111261.62
+          "amount": 102805.74
         },
         {
           "price": 111.2816,
@@ -3094,6 +3077,23 @@
           "txType": "买入",
           "ccy": "USD",
           "amount": 233360.92
+        },
+        {
+          "price": 41.7916,
+          "qty": 400,
+          "type": "batch",
+          "date": "2026-04-10",
+          "txType": "接股",
+          "ccy": "USD",
+          "amount": 16716.64
+        },
+        {
+          "price": 75.5478,
+          "qty": 380,
+          "type": "batch",
+          "date": "2026-05-11",
+          "txType": "接股",
+          "amount": 28708.16
         }
       ],
       "ccy": "USD"
@@ -3681,8 +3681,8 @@
       ]
     },
     "PDD": {
-      "orig": 2707.78,
-      "hkd": 21214.78,
+      "orig": 5415.56,
+      "hkd": 42429.56,
       "ccy": "USD",
       "trades": [
         {
@@ -3697,6 +3697,19 @@
           "pnl_hkd": 21214.78,
           "ccy": "USD",
           "note": ""
+        },
+        {
+          "date": "2026-05-13",
+          "type": "行权卖出",
+          "qty": 100,
+          "sell_px": 126.9878,
+          "cost_px": 99.91,
+          "sell_amt": 12698.78,
+          "cost_amt": 9991.0,
+          "pnl_orig": 2707.78,
+          "pnl_hkd": 21214.78,
+          "ccy": "USD",
+          "note": "反累计行权卖出"
         }
       ]
     },
@@ -4318,7 +4331,27 @@
           "note": ""
         }
       ]
+    },
+    "INTEL": {
+      "orig": 8009.35,
+      "hkd": 62751.25,
+      "ccy": "USD",
+      "trades": [
+        {
+          "date": "2026-05-13",
+          "type": "行权卖出",
+          "qty": 76,
+          "sell_px": 216.6478,
+          "cost_px": 111.2616,
+          "sell_amt": 16465.23,
+          "cost_amt": 8455.88,
+          "pnl_orig": 8009.35,
+          "pnl_hkd": 62751.25,
+          "ccy": "USD",
+          "note": "反累计行权卖出"
+        }
+      ]
     }
   },
-  "totalNewPnlHKD": 1682911.78
+  "totalNewPnlHKD": 1766877.81
 }
