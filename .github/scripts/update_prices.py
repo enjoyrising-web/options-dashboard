@@ -41,6 +41,8 @@ TICKER_MAP = {
     'BRK-B':   'BRK-B',
     'GOOX':    'GOOX',
     'MULL':    'MULL',
+    'POET':    'POET',
+    'MOD':     'MOD',
 }
 
 def fetch_prev_close(yahoo_ticker):
