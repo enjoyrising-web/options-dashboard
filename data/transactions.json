@@ -1144,5 +1144,18 @@
     "lotType": "FIFO",
     "note": "",
     "remaining": null
+  },
+  {
+    "ticker": "7747.HK",
+    "underlying": "CSOP三星",
+    "date": "2026-03-02",
+    "type": "卖出",
+    "ccy": "HKD",
+    "price": 100.5718,
+    "qty": -11000,
+    "amount": 1104378.71,
+    "lotType": "FIFO",
+    "note": "",
+    "remaining": null
   }
 ]
