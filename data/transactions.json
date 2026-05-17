@@ -1092,5 +1092,18 @@
     "lotType": "FIFO",
     "note": "",
     "remaining": null
+  },
+  {
+    "ticker": "175.HK",
+    "underlying": "吉利",
+    "date": "2026-05-11",
+    "type": "卖出",
+    "ccy": "HKD",
+    "price": 22.6,
+    "qty": -500,
+    "amount": 11198.66,
+    "lotType": "FIFO",
+    "note": "",
+    "remaining": null
   }
 ]
