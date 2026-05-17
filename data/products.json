@@ -456,8 +456,8 @@
       "maxShares": 21960,
       "uns": 17190,
       "close": 183.5,
-      "profitHKD": 46105.11,
-      "inventory": 405,
+      "profitHKD": 58387.63,
+      "inventory": 0,
       "ccy": "HKD",
       "ticker": "9999.HK"
     },
@@ -2217,7 +2217,7 @@
       "status": "存续中",
       "ccy": "JPY",
       "ticker": "6762.T",
-      "profitHKD": null,
+      "profitHKD": 2417.2,
       "close": 2958.5,
       "strike": null,
       "knockin": null,
@@ -2225,7 +2225,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 1000
+      "inventory": 0
     },
     {
       "underlying": "村田",
@@ -2590,7 +2590,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": null,
+      "inventory": 10000,
       "close": null,
       "profitHKD": null,
       "ccy": "USD",
@@ -2609,7 +2609,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": null,
+      "inventory": 400,
       "close": null,
       "profitHKD": null,
       "ccy": "USD",
@@ -3408,19 +3408,9 @@
       "ccy": "HKD"
     },
     "6762JT": {
-      "qty": 1000,
-      "realized": 0,
-      "lots": [
-        {
-          "price": 2912.716,
-          "qty": 1000,
-          "type": "fifo",
-          "date": "2026-04-30",
-          "txType": "BUY",
-          "ccy": "JPY",
-          "amount": 2912716
-        }
-      ],
+      "qty": 0,
+      "realized": 48344.0,
+      "lots": [],
       "ccy": "JPY"
     },
     "6981JT": {
@@ -3465,19 +3455,9 @@
       "ccy": "HKD"
     },
     "9999HK": {
-      "qty": 405,
-      "lots": [
-        {
-          "price": 155.326,
-          "qty": 405,
-          "type": "batch",
-          "date": "2026-05-07",
-          "txType": "接股",
-          "ccy": "HKD",
-          "amount": 62907.05
-        }
-      ],
-      "realized": 0,
+      "qty": 0,
+      "lots": [],
+      "realized": 12282.52,
       "ccy": "HKD"
     },
     "MULL": {
@@ -3587,6 +3567,38 @@
       "lots": [],
       "realized": -66348.88,
       "ccy": "HKD"
+    },
+    "MOD": {
+      "qty": 400,
+      "lots": [
+        {
+          "price": 276.942,
+          "qty": 400,
+          "type": "fifo",
+          "date": "2026-05-11",
+          "txType": "买入",
+          "ccy": "USD",
+          "amount": 110776.82
+        }
+      ],
+      "realized": 0.0,
+      "ccy": "USD"
+    },
+    "POET": {
+      "qty": 10000,
+      "lots": [
+        {
+          "price": 11.7993,
+          "qty": 10000,
+          "type": "fifo",
+          "date": "2026-05-11",
+          "txType": "买入",
+          "ccy": "USD",
+          "amount": 117992.6
+        }
+      ],
+      "realized": 0.0,
+      "ccy": "USD"
     }
   },
   "realizedPnlFromTxn": {
@@ -4208,7 +4220,60 @@
           "note": ""
         }
       ]
+    },
+    "9999HK": {
+      "orig": 12282.52,
+      "hkd": 12282.52,
+      "ccy": "HKD",
+      "trades": [
+        {
+          "date": "2026-05-12",
+          "type": "SELL",
+          "qty": 400,
+          "sell_px": 186.4,
+          "cost_px": 155.3261,
+          "sell_amt": 74349.44,
+          "cost_amt": 62130.42,
+          "pnl_orig": 12219.02,
+          "pnl_hkd": 12219.02,
+          "ccy": "HKD",
+          "note": ""
+        },
+        {
+          "date": "2026-05-12",
+          "type": "SELL",
+          "qty": 5,
+          "sell_px": 185.7,
+          "cost_px": 155.326,
+          "sell_amt": 840.13,
+          "cost_amt": 776.63,
+          "pnl_orig": 63.5,
+          "pnl_hkd": 63.5,
+          "ccy": "HKD",
+          "note": ""
+        }
+      ]
+    },
+    "6762JT": {
+      "orig": 48344.0,
+      "hkd": 2417.2,
+      "ccy": "JPY",
+      "trades": [
+        {
+          "date": "2026-05-12",
+          "type": "SELL",
+          "qty": 1000,
+          "sell_px": 2969.15,
+          "cost_px": 2912.716,
+          "sell_amt": 2961060,
+          "cost_amt": 2912716.0,
+          "pnl_orig": 48344.0,
+          "pnl_hkd": 2417.2,
+          "ccy": "JPY",
+          "note": ""
+        }
+      ]
     }
   },
-  "totalNewPnlHKD": 756247.0
+  "totalNewPnlHKD": 770946.72
 }
