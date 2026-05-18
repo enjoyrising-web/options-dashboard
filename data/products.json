@@ -3389,7 +3389,7 @@
     },
     "MU": {
       "qty": 0,
-      "realized": 10691.76,
+      "realized": 16467.27,
       "lots": [],
       "ccy": "USD"
     },
@@ -3831,8 +3831,8 @@
       ]
     },
     "MU": {
-      "orig": 10691.76,
-      "hkd": 83767.27,
+      "orig": 16467.27,
+      "hkd": 129016.95,
       "ccy": "USD",
       "trades": [
         {
@@ -3845,6 +3845,19 @@
           "cost_amt": 19152.84,
           "pnl_orig": 10691.76,
           "pnl_hkd": 83767.27,
+          "ccy": "USD",
+          "note": ""
+        },
+        {
+          "date": "2026-05-12",
+          "type": "SELL",
+          "qty": 200,
+          "sell_px": 736.11,
+          "cost_px": 706.0124,
+          "sell_amt": 146977.99,
+          "cost_amt": 141202.48,
+          "pnl_orig": 5775.51,
+          "pnl_hkd": 45249.68,
           "ccy": "USD",
           "note": ""
         }
@@ -4410,5 +4423,5 @@
       ]
     }
   },
-  "totalNewPnlHKD": 1850899.71
+  "totalNewPnlHKD": 1896149.39
 }
