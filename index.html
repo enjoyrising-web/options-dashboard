@@ -698,19 +698,22 @@ function renderInventory(ticker){
   const txKeys = new Set(txSellRows.map(t=>`${t.date}_${Math.abs(t.qty)}`));
   const extraSells = pnlTrades.filter(t=>!txKeys.has(`${t.date}_${Math.abs(t.qty)}`));
   const allSells = [
-    ...txSellRows.map(t=>({
-      date: t.date, type: t.type,
-      qty: Math.abs(t.qty),
-      sell_px: t.price||null,
-      sell_amt: t.amount ? Math.abs(t.amount) : (t.price||0)*Math.abs(t.qty),
-      pnl_hkd: null, note: t.note||''
-    })),
+    ...txSellRows.map(t=>{
+      const matched = pnlTrades.find(p=>`${p.date}_${Math.abs(p.qty)}`===`${t.date}_${Math.abs(t.qty)}`);
+      return {
+        date: t.date, type: t.type,
+        qty: Math.abs(t.qty),
+        sell_px: t.price||null,
+        sell_amt: t.amount ? Math.abs(t.amount) : (t.price||0)*Math.abs(t.qty),
+        pnl_hkd: matched?.pnl_hkd ?? null, note: t.note||''
+      };
+    }),
     ...extraSells.map(t=>({
       date: t.date, type: t.type||'SELL',
       qty: Math.abs(t.qty),
       sell_px: t.sell_px||null,
       sell_amt: t.sell_amt||0,
-      pnl_hkd: t.pnl_hkd!=null ? t.pnl_hkd*fxRate : null,
+      pnl_hkd: t.pnl_hkd!=null ? t.pnl_hkd : null,
       note: t.note||''
     }))
   ].sort((a,b)=>a.date.localeCompare(b.date));
