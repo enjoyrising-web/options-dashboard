@@ -513,7 +513,7 @@
       "maxShares": 24500,
       "uns": 0,
       "close": 133.3,
-      "profitHKD": null,
+      "profitHKD": 21275.0,
       "inventory": 660,
       "ccy": "HKD",
       "ticker": "9988.HK"
@@ -532,7 +532,7 @@
       "maxShares": 26950,
       "uns": 0,
       "close": 133.3,
-      "profitHKD": null,
+      "profitHKD": 26756.6,
       "inventory": 660,
       "ccy": "HKD",
       "ticker": "9988.HK"
@@ -551,7 +551,7 @@
       "maxShares": 27060,
       "uns": 0,
       "close": 133.3,
-      "profitHKD": null,
+      "profitHKD": 15806.26,
       "inventory": 660,
       "ccy": "HKD",
       "ticker": "9988.HK"
@@ -855,7 +855,7 @@
       "maxShares": 2000,
       "uns": 0,
       "close": 411.68,
-      "profitHKD": null,
+      "profitHKD": 99178.29,
       "inventory": 1835,
       "ccy": "USD",
       "ticker": "TSM"
@@ -874,7 +874,7 @@
       "maxShares": 2000,
       "uns": 0,
       "close": 411.68,
-      "profitHKD": null,
+      "profitHKD": 52724.24,
       "inventory": 1835,
       "ccy": "USD",
       "ticker": "TSM"
@@ -988,7 +988,7 @@
       "maxShares": 5000,
       "uns": 0,
       "close": 98.78,
-      "profitHKD": null,
+      "profitHKD": 42173.52,
       "inventory": 6900,
       "ccy": "USD",
       "ticker": "PDD"
@@ -1121,7 +1121,7 @@
       "maxShares": 1500,
       "uns": 0,
       "close": 746.81,
-      "profitHKD": 129016.95,
+      "profitHKD": 83379.15,
       "inventory": 0,
       "ccy": "USD",
       "ticker": "MU"
@@ -1178,7 +1178,7 @@
       "maxShares": 15000,
       "uns": 0,
       "close": 124.92,
-      "profitHKD": null,
+      "profitHKD": 37549.45,
       "inventory": 4780,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1197,7 +1197,7 @@
       "maxShares": 30000,
       "uns": 0,
       "close": 124.92,
-      "profitHKD": null,
+      "profitHKD": 95959.48,
       "inventory": 4780,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1216,7 +1216,7 @@
       "maxShares": 15000,
       "uns": 0,
       "close": 124.92,
-      "profitHKD": null,
+      "profitHKD": 62798.33,
       "inventory": 4780,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1235,7 +1235,7 @@
       "maxShares": 20000,
       "uns": 0,
       "close": 124.92,
-      "profitHKD": null,
+      "profitHKD": 110446.63,
       "inventory": 4780,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1254,7 +1254,7 @@
       "maxShares": 20000,
       "uns": 0,
       "close": 124.92,
-      "profitHKD": null,
+      "profitHKD": 129208.54,
       "inventory": 4780,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -2360,7 +2360,7 @@
       "uns": 1250,
       "inventory": 7000,
       "close": null,
-      "profitHKD": 42429.56,
+      "profitHKD": null,
       "ccy": "USD",
       "ticker": "PDD",
       "note": "DEC反累计 2X 1x/2x:-5/-10股 250天 2w/4w"
@@ -3729,8 +3729,8 @@
       ]
     },
     "PDD": {
-      "orig": 5415.56,
-      "hkd": 42429.56,
+      "orig": 5382.88,
+      "hkd": 42173.52,
       "ccy": "USD",
       "trades": [
         {
@@ -3738,11 +3738,11 @@
           "type": "行权卖出",
           "qty": 100,
           "sell_px": 126.9878,
-          "cost_px": 99.91,
+          "cost_px": 100.0734,
           "sell_amt": 12698.78,
-          "cost_amt": 9991,
-          "pnl_orig": 2707.78,
-          "pnl_hkd": 21214.78,
+          "cost_amt": 10007.34,
+          "pnl_orig": 2691.44,
+          "pnl_hkd": 21086.76,
           "ccy": "USD",
           "note": ""
         },
@@ -3751,11 +3751,11 @@
           "type": "行权卖出",
           "qty": 100,
           "sell_px": 126.9878,
-          "cost_px": 99.91,
+          "cost_px": 100.0734,
           "sell_amt": 12698.78,
-          "cost_amt": 9991.0,
-          "pnl_orig": 2707.78,
-          "pnl_hkd": 21214.78,
+          "cost_amt": 10007.34,
+          "pnl_orig": 2691.44,
+          "pnl_hkd": 21086.76,
           "ccy": "USD",
           "note": "反累计行权卖出"
         }
