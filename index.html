@@ -379,18 +379,16 @@ const toHKD=p=>{if(p.profitHKD==null)return null;return p.profitHKD};
 // Float PnL: (close - avg_cost) * inventory_qty
 function getFloatPnl(p){
   const close = p.close;
-  if(!close||!p.inventory||p.inventory===0)return null;
-  // Find matching inventory
-  const ticker = Object.keys(INV).find(k=>k.toLowerCase().includes(p.underlying.toLowerCase().slice(0,4))||
-    (p.product.includes(k))||(k.includes(p.product.split('(')[0].replace(/\s/g,''))));
-  if(!ticker||!INV[ticker])return null;
-  const inv=INV[ticker];
-  if(!inv.qty||inv.qty===0)return null;
-  const avgCost=inv.lots.reduce((s,l)=>s+l.price*l.qty,0)/inv.qty;
-  const floatPnl=(close-avgCost)*inv.qty;
-  // Convert to HKD if needed
-  if(p.ccy==='USD')return floatPnl*fxUSD;
-  if(p.ccy==='JPY')return floatPnl*fxJPY;
+  if(!close) return null;
+  // 用 ticker 找库存（不依赖 p.inventory 字段）
+  const tk = (p.ticker||'').replace('.HK','HK').replace('.T','JT').replace(/[^A-Z0-9]/gi,'').toUpperCase();
+  const inv = INV[tk];
+  if(!inv||!inv.qty||inv.qty===0||!inv.lots||!inv.lots.length) return null;
+  const avgCost = inv.lots.reduce((s,l)=>s+(l.amount!=null?l.amount:l.price*l.qty),0) /
+                  inv.lots.reduce((s,l)=>s+l.qty,0);
+  const floatPnl = (close - avgCost) * inv.qty;
+  if(p.ccy==='USD') return floatPnl*fxUSD;
+  if(p.ccy==='JPY') return floatPnl*fxJPY;
   return floatPnl;
 }
 
@@ -573,8 +571,13 @@ function renderOverview(){
     if(!shownInv[p.underlying]&&p.inventory&&p.inventory>0){
       invStr=fmt(p.inventory); shownInv[p.underlying]=true;
     }
-    // Float PnL
-    const fp=getFloatPnl(p);
+    // Float PnL: 只在有实际库存的订单显示（每个 ticker 只显示一次）
+    let fp=null;
+    const fpTk=(p.ticker||'').replace('.HK','HK').replace('.T','JT').replace(/[^A-Z0-9]/gi,'').toUpperCase();
+    if(!shownInv[fpTk+'_fp']){
+      const candidate=getFloatPnl(p);
+      if(candidate!=null){fp=candidate; shownInv[fpTk+'_fp']=true;}
+    }
     const fpStr=fp!=null?`<span class="${fp>=0?'green':'red'}">${fp>=0?'+':''}${fmt(fp,0)}</span>`:'—';
     const unsStr=p.uns>0?fmt(p.uns):(p.uns===0&&p.status==='敲出'?'<span class="muted">清零</span>':'—');
     return `<tr class="clickable" onclick="openDrawer(${idx})">
