@@ -2218,7 +2218,7 @@
       "ccy": "JPY",
       "ticker": "6762.T",
       "profitHKD": 2417.2,
-      "close": 3370.0,
+      "close": 3141.0,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2236,7 +2236,7 @@
       "ccy": "JPY",
       "ticker": "6981.T",
       "profitHKD": null,
-      "close": 7130.0,
+      "close": 6727.0,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -4631,5 +4631,5 @@
     }
   },
   "totalNewPnlHKD": 3385462.2,
-  "priceUpdatedAt": "2026-05-22 08:40 UTC"
+  "priceUpdatedAt": "2026-05-22 17:18 UTC"
 }
