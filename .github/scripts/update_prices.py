@@ -43,6 +43,9 @@ TICKER_MAP = {
     'MULL':    'MULL',
     'POET':    'POET',
     'MOD':     'MOD',
+    'MRVL':    'MRVL',
+    'POEL':    'POEL',
+    'LITE':    'LITE',
 }
 
 def fetch_prev_close(yahoo_ticker):
