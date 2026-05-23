@@ -196,7 +196,7 @@ body{font-family:-apple-system,'PingFang SC',sans-serif;background:#f5f5f7;color
 <!-- ── Tab 3: 敲出 ── -->
 <div class="tab-panel" id="tab-knockout">
   <button class="btn-secondary" onclick="loadPrices()">⬇ 先读取当前数据</button>
-  <div class="note" style="padding:14px 16px;text-align:left">选择已敲出的订单，状态将更新为「敲出」</div>
+  <div class="note" style="padding:14px 16px;text-align:left">选择已敲出的订单，状态将更新为「敲出」。若仍有最后一笔接股待处理，uns 将保留直到接股录入完成后自动清零。</div>
 
   <div class="section">
     <div class="section-title">存续中订单</div>
@@ -513,8 +513,8 @@ async function submitTrade(){
     let shown=false;
     productData.products.forEach(p=>{
       if(p.underlying===underlying){
-        if(!shown&&p.status==='存续中'&&inv[existingKey]?.qty>0){
-          p.inventory=inv[existingKey].qty; shown=true;
+        if(!shown&&p.status==='存续中'){
+          p.inventory=inv[existingKey]?.qty||0; shown=true;
         } else if(p.status!=='存续中'){ p.inventory=null; }
       }
     });
@@ -535,6 +535,18 @@ async function submitTrade(){
   const now=new Date();
   const hkt=new Date(now.getTime()+8*3600000);
   productData.updatedAt=hkt.toISOString().slice(0,10);
+
+  // 如果是接股且订单有 pendingFinal，清零 uns
+  if(typ==='接股'){
+    productData.products.forEach(p=>{
+      if(p.ticker===ticker && p.pendingFinal && p.status==='敲出'){
+        const remainUns = (p.uns||0) - qty;
+        p.uns = Math.max(0, remainUns);
+        if(p.uns===0) delete p.pendingFinal;
+        // 如果所有订单都处理完了才清 pendingFinal
+      }
+    });
+  }
 
   await pushBothFiles('录入交易: '+typ+' '+ticker+' '+qty+'股@'+price);
   submitBtn.disabled=false; submitBtn.textContent='✓ 确认录入交易';
@@ -575,8 +587,13 @@ async function submitKnockout(){
   productData.products.forEach(p=>{
     if(p.product===selectedKOProduct){
       p.status='敲出';
-      p.uns=0;
       p.koDate=koDate;
+      // 不立即清零 uns，等最后一笔接股/卖股后再清零
+      if(p.uns && p.uns > 0){
+        p.pendingFinal=true;  // 标记还有最后一笔待处理
+      } else {
+        p.uns=0;
+      }
     }
   });
 
