@@ -810,7 +810,7 @@
       "type": "反累计",
       "product": "700HK(F-2)",
       "obs": "2026.04.30",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 469,
       "knockin": 547.6044,
       "knockout": 440.86,
@@ -822,7 +822,9 @@
       "profitHKD": 3402.28,
       "inventory": null,
       "ccy": "HKD",
-      "ticker": "700.HK"
+      "ticker": "700.HK",
+      "koDate": "2026-05-21",
+      "pendingFinal": true
     },
     {
       "underlying": "腾讯",
