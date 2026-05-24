@@ -2478,7 +2478,7 @@
       "uns": null,
       "inventory": 47000,
       "close": null,
-      "profitHKD": 997985.75,
+      "profitHKD": 996146.32,
       "ccy": "HKD",
       "ticker": "7709.HK"
     },
@@ -4599,8 +4599,8 @@
       ]
     },
     "7709HK": {
-      "orig": 997985.75,
-      "hkd": 997985.75,
+      "orig": 996146.32,
+      "hkd": 996146.32,
       "ccy": "HKD",
       "trades": [
         {
@@ -4713,10 +4713,10 @@
           "qty": 13000,
           "sell_px": 81.7585,
           "cost_px": 78.6356,
-          "sell_amt": 1064700.0,
+          "sell_amt": 1062860.57,
           "cost_amt": 1022263.07,
-          "pnl_orig": 42436.93,
-          "pnl_hkd": 42436.93,
+          "pnl_orig": 40597.5,
+          "pnl_hkd": 40597.5,
           "ccy": "HKD",
           "note": "不归属任何订单"
         }
@@ -4856,5 +4856,5 @@
       ]
     }
   },
-  "totalNewPnlHKD": 3436482.93
+  "totalNewPnlHKD": 3434643.5
 }
