@@ -2250,7 +2250,7 @@
       "product": "AAPL(2)",
       "type": "累计期权",
       "obs": "2026.05.12",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 292.204,
       "knockin": 257.3148,
       "knockout": 306.8142,
@@ -2263,7 +2263,9 @@
       "profitHKD": null,
       "ccy": "USD",
       "ticker": "AAPL",
-      "note": "2X杠杆 1x/2x:3/6股 250天 2w/4w 1x资金19万USD"
+      "note": "2X杠杆 1x/2x:3/6股 250天 2w/4w 1x资金19万USD",
+      "koDate": "2026-05-23",
+      "pendingFinal": true
     },
     {
       "underlying": "英特尔",
