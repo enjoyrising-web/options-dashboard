@@ -1615,7 +1615,7 @@
       "maxShares": 22500,
       "uns": 0,
       "close": 119.84,
-      "profitHKD": null,
+      "profitHKD": -119587.11,
       "inventory": null,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1634,7 +1634,7 @@
       "maxShares": 25000,
       "uns": 0,
       "close": 119.84,
-      "profitHKD": null,
+      "profitHKD": 91632.83,
       "inventory": null,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1653,7 +1653,7 @@
       "maxShares": 40000,
       "uns": 0,
       "close": 119.84,
-      "profitHKD": null,
+      "profitHKD": 66249.28,
       "inventory": null,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1672,7 +1672,7 @@
       "maxShares": 34860,
       "uns": 0,
       "close": 119.84,
-      "profitHKD": null,
+      "profitHKD": 64315.76,
       "inventory": null,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1691,7 +1691,7 @@
       "maxShares": 27000,
       "uns": 0,
       "close": 119.84,
-      "profitHKD": null,
+      "profitHKD": 42817.5,
       "inventory": null,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1710,7 +1710,7 @@
       "maxShares": 25000,
       "uns": 0,
       "close": 119.84,
-      "profitHKD": null,
+      "profitHKD": 83369.83,
       "inventory": null,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1729,7 +1729,7 @@
       "maxShares": 22500,
       "uns": 0,
       "close": 119.84,
-      "profitHKD": null,
+      "profitHKD": 88690.06,
       "inventory": null,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1748,7 +1748,7 @@
       "maxShares": 30000,
       "uns": 0,
       "close": 119.84,
-      "profitHKD": null,
+      "profitHKD": 43417.17,
       "inventory": null,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -1767,7 +1767,7 @@
       "maxShares": 25000,
       "uns": 0,
       "close": 119.84,
-      "profitHKD": null,
+      "profitHKD": 48446.02,
       "inventory": null,
       "ccy": "USD",
       "ticker": "INTEL"
@@ -4747,8 +4747,8 @@
       ]
     },
     "INTEL": {
-      "orig": 9922.76,
-      "hkd": 77742.34,
+      "orig": 419274.1,
+      "hkd": 487093.68,
       "ccy": "USD",
       "trades": [
         {
@@ -4776,6 +4776,123 @@
           "pnl_hkd": 14991.09,
           "ccy": "USD",
           "note": ""
+        },
+        {
+          "date": "2022.7.26",
+          "type": "历史行权卖出",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": null,
+          "cost_amt": null,
+          "pnl_orig": -119587.11,
+          "pnl_hkd": -119587.11,
+          "ccy": "HKD",
+          "note": "Intel(1) 历史盈亏（无明细）"
+        },
+        {
+          "date": "2022.8.1",
+          "type": "历史行权卖出",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": null,
+          "cost_amt": null,
+          "pnl_orig": 91632.83,
+          "pnl_hkd": 91632.83,
+          "ccy": "HKD",
+          "note": "Intel(2) 历史盈亏（无明细）"
+        },
+        {
+          "date": "2024.12.20",
+          "type": "历史行权卖出",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": null,
+          "cost_amt": null,
+          "pnl_orig": 66249.28,
+          "pnl_hkd": 66249.28,
+          "ccy": "HKD",
+          "note": "Intel(3) 历史盈亏（无明细）"
+        },
+        {
+          "date": "2025.01.08",
+          "type": "历史行权卖出",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": null,
+          "cost_amt": null,
+          "pnl_orig": 64315.76,
+          "pnl_hkd": 64315.76,
+          "ccy": "HKD",
+          "note": "Intel(4) 历史盈亏（无明细）"
+        },
+        {
+          "date": "2025.02.25",
+          "type": "历史行权卖出",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": null,
+          "cost_amt": null,
+          "pnl_orig": 42817.5,
+          "pnl_hkd": 42817.5,
+          "ccy": "HKD",
+          "note": "Intel(5) 历史盈亏（无明细）"
+        },
+        {
+          "date": "2025.03.12",
+          "type": "历史行权卖出",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": null,
+          "cost_amt": null,
+          "pnl_orig": 83369.83,
+          "pnl_hkd": 83369.83,
+          "ccy": "HKD",
+          "note": "Intel(6) 历史盈亏（无明细）"
+        },
+        {
+          "date": "2025.03.23",
+          "type": "历史行权卖出",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": null,
+          "cost_amt": null,
+          "pnl_orig": 88690.06,
+          "pnl_hkd": 88690.06,
+          "ccy": "HKD",
+          "note": "Intel(7) 历史盈亏（无明细）"
+        },
+        {
+          "date": "2025.07.30",
+          "type": "历史行权卖出",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": null,
+          "cost_amt": null,
+          "pnl_orig": 43417.17,
+          "pnl_hkd": 43417.17,
+          "ccy": "HKD",
+          "note": "Intel(8) 历史盈亏（无明细）"
+        },
+        {
+          "date": "2025.05.07",
+          "type": "历史行权卖出",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": null,
+          "cost_amt": null,
+          "pnl_orig": 48446.02,
+          "pnl_hkd": 48446.02,
+          "ccy": "HKD",
+          "note": "Intel(9) 历史盈亏（无明细）"
         }
       ]
     },
@@ -4860,6 +4977,6 @@
       ]
     }
   },
-  "totalNewPnlHKD": 3434643.5,
+  "totalNewPnlHKD": 3843994.84,
   "priceUpdatedAt": "2026-05-26 04:16 UTC"
 }
