@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-23",
+  "updatedAt": "2026-05-26",
   "fx": {
     "USDHKD": 7.83475,
     "JPYHKD": 0.05
@@ -513,7 +513,7 @@
       "maxShares": 24500,
       "uns": 0,
       "close": 133.3,
-      "profitHKD": 21275.0,
+      "profitHKD": 21275,
       "inventory": null,
       "ccy": "HKD",
       "ticker": "9988.HK"
@@ -2370,7 +2370,7 @@
       "product": "AAPL(3)",
       "type": "累计期权",
       "obs": "2026.05.08",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 288.4463,
       "knockin": 253.5155,
       "knockout": 302.8686,
@@ -2383,7 +2383,9 @@
       "profitHKD": null,
       "ccy": "USD",
       "ticker": "AAPL",
-      "note": "2X 1x/2x:3/6股 250天 2w/4w"
+      "note": "2X 1x/2x:3/6股 250天 2w/4w",
+      "koDate": "2026-05-23",
+      "pendingFinal": true
     },
     {
       "underlying": "台积电",
@@ -3465,7 +3467,7 @@
           "date": "2026-05-13",
           "txType": "接股",
           "ccy": "HKD",
-          "amount": 73106.0
+          "amount": 73106
         },
         {
           "price": 100.8603,
@@ -3533,7 +3535,7 @@
     },
     "6762JT": {
       "qty": 0,
-      "realized": 48344.0,
+      "realized": 48344,
       "lots": [],
       "ccy": "JPY"
     },
@@ -3856,7 +3858,7 @@
           "sell_amt": 367485.54,
           "cost_amt": 314215.94,
           "pnl_orig": 53269.6,
-          "pnl_hkd": 417354.0,
+          "pnl_hkd": 417354,
           "ccy": "USD",
           "note": ""
         }
@@ -3887,7 +3889,7 @@
           "sell_px": 297.44,
           "cost_px": 266.1,
           "sell_amt": 17816.83,
-          "cost_amt": 15966.0,
+          "cost_amt": 15966,
           "pnl_orig": 1850.83,
           "pnl_hkd": 14500.79,
           "ccy": "USD",
@@ -4579,7 +4581,7 @@
       ]
     },
     "6762JT": {
-      "orig": 48344.0,
+      "orig": 48344,
       "hkd": 2417.2,
       "ccy": "JPY",
       "trades": [
@@ -4590,8 +4592,8 @@
           "sell_px": 2969.15,
           "cost_px": 2912.716,
           "sell_amt": 2961060,
-          "cost_amt": 2912716.0,
-          "pnl_orig": 48344.0,
+          "cost_amt": 2912716,
+          "pnl_orig": 48344,
           "pnl_hkd": 2417.2,
           "ccy": "JPY",
           "note": ""
@@ -4620,7 +4622,7 @@
           "date": "2026-03-12",
           "type": "SELL",
           "qty": 73000,
-          "sell_px": 29.0,
+          "sell_px": 29,
           "cost_px": 28.0307,
           "sell_amt": 2113246.73,
           "cost_amt": 2046243.11,
