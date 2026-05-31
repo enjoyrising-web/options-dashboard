@@ -777,7 +777,7 @@
       "discount": 0.8716,
       "daily": 10,
       "maxShares": 4940,
-      "uns": 4740,
+      "uns": 4760,
       "close": 427.2,
       "profitHKD": null,
       "inventory": null,
@@ -834,7 +834,7 @@
       "discount": null,
       "daily": 10,
       "maxShares": 4940,
-      "uns": 4740,
+      "uns": 4760,
       "close": 427.2,
       "profitHKD": 3813.37,
       "inventory": null,
@@ -2401,7 +2401,7 @@
       "discount": 0.7979,
       "daily": 2,
       "maxShares": 500,
-      "uns": 460,
+      "uns": 960,
       "inventory": null,
       "close": 418.45,
       "profitHKD": null,
@@ -2421,7 +2421,7 @@
       "discount": 1.6126,
       "daily": -4,
       "maxShares": 1000,
-      "uns": 920,
+      "uns": 1920,
       "inventory": null,
       "close": 114.68,
       "profitHKD": 21278.71,
@@ -2463,7 +2463,7 @@
       "uns": null,
       "inventory": 0,
       "close": 177.15,
-      "profitHKD": 576790.62,
+      "profitHKD": 604312.25,
       "ccy": "HKD",
       "ticker": "7747.HK"
     },
@@ -2482,7 +2482,7 @@
       "uns": null,
       "inventory": 47000,
       "close": 137.65,
-      "profitHKD": 996146.32,
+      "profitHKD": 3575122.8,
       "ccy": "HKD",
       "ticker": "7709.HK"
     },
@@ -2501,7 +2501,7 @@
       "uns": null,
       "inventory": 0,
       "close": 19.42,
-      "profitHKD": 286103.53,
+      "profitHKD": 483932.76,
       "ccy": "HKD",
       "ticker": "3076.HK"
     },
@@ -2713,7 +2713,7 @@
       "uns": null,
       "inventory": 2000,
       "close": 39.17,
-      "profitHKD": null,
+      "profitHKD": 74288.0,
       "ccy": "USD",
       "ticker": "POEL"
     },
@@ -2899,13 +2899,13 @@
         "koPct": 100,
         "koType": "每月",
         "firstKO": "1月后",
-        "interest": 26766.67,
-        "datesReceived": "26.4.22",
+        "interest": 53533.34,
+        "datesReceived": "26.4.22  26.5.21",
         "status": "存续中",
         "knockoutDate": null
       }
     ],
-    "totalInterest": 215975.16
+    "totalInterest": 186794.84
   },
   "dividends": [
     {
