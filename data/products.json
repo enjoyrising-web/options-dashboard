@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-30",
+  "updatedAt": "2026-06-01",
   "fx": {
     "USDHKD": 7.83475,
     "JPYHKD": 0.05
@@ -2218,7 +2218,7 @@
       "ccy": "JPY",
       "ticker": "6762.T",
       "profitHKD": 2417.2,
-      "close": 4108.0,
+      "close": 4104.0,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2236,7 +2236,7 @@
       "ccy": "JPY",
       "ticker": "6981.T",
       "profitHKD": null,
-      "close": 9625.0,
+      "close": 10490.0,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2693,7 +2693,7 @@
       "maxShares": null,
       "uns": null,
       "inventory": 550,
-      "close": 204.83,
+      "close": 205.0,
       "profitHKD": null,
       "ccy": "USD",
       "ticker": "MRVL"
@@ -2749,7 +2749,7 @@
       "daily": 3,
       "maxShares": 753,
       "uns": 1506,
-      "close": null,
+      "close": 312.06,
       "profitHKD": null,
       "inventory": null,
       "ccy": "USD",
@@ -2769,7 +2769,7 @@
       "daily": -12,
       "maxShares": -2976,
       "uns": 5952,
-      "close": null,
+      "close": 427.2,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2789,7 +2789,7 @@
       "daily": -5800,
       "maxShares": -2876800,
       "uns": 2876800,
-      "close": null,
+      "close": 0.83,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2809,7 +2809,7 @@
       "daily": 5800,
       "maxShares": 2876800,
       "uns": 2876800,
-      "close": null,
+      "close": 0.83,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -5445,5 +5445,5 @@
     }
   },
   "totalNewPnlHKD": 6700644.86,
-  "priceUpdatedAt": "2026-05-30 07:49 UTC"
+  "priceUpdatedAt": "2026-06-01 21:53 UTC"
 }
