@@ -2632,7 +2632,7 @@
       "type": "反累计",
       "product": "PDD(F-3)",
       "obs": "2026.05.18",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 94.9478,
       "knockin": 121.4003,
       "knockout": 89.2509,
@@ -2645,7 +2645,9 @@
       "profitHKD": null,
       "ccy": "USD",
       "ticker": "PDD",
-      "note": "反累计 2X 1x/2x:-9/-18股 250天 2w/4w 1x资金27万USD"
+      "note": "反累计 2X 1x/2x:-9/-18股 250天 2w/4w 1x资金27万USD",
+      "koDate": "2026-06-02",
+      "pendingFinal": true
     },
     {
       "underlying": "协鑫科技",
