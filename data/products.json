@@ -1152,7 +1152,7 @@
       "type": "累计",
       "product": "PLTR(2)",
       "obs": "2026.04.27",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 143.15,
       "knockin": 107.9795,
       "knockout": 150.3095,
@@ -1164,7 +1164,9 @@
       "profitHKD": null,
       "inventory": null,
       "ccy": "USD",
-      "ticker": "PLTR"
+      "ticker": "PLTR",
+      "koDate": "2026-06-01",
+      "pendingFinal": true
     },
     {
       "underlying": "Intel",
