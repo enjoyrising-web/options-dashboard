@@ -2316,7 +2316,7 @@
       "product": "700HK(F-4)",
       "type": "反累计期权",
       "obs": "2026.05.15",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 459.6,
       "knockin": 532.8143,
       "knockout": 432.024,
@@ -2329,7 +2329,9 @@
       "profitHKD": null,
       "ccy": "HKD",
       "ticker": "700.HK",
-      "note": "DEC反累计 2X 1x/2x:-10/-20股 247天 2w/4w"
+      "note": "DEC反累计 2X 1x/2x:-10/-20股 247天 2w/4w",
+      "koDate": "2026-06-01",
+      "pendingFinal": true
     },
     {
       "underlying": "英特尔",
