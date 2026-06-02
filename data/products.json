@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-01",
+  "updatedAt": "2026-06-02",
   "fx": {
     "USDHKD": 7.83475,
     "JPYHKD": 0.05
@@ -827,7 +827,7 @@
       "type": "反累计",
       "product": "700HK(F-3)",
       "obs": "2026.05.06",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 466.8,
       "knockin": 543.7286,
       "knockout": 438.792,
@@ -839,7 +839,9 @@
       "profitHKD": 3813.37,
       "inventory": null,
       "ccy": "HKD",
-      "ticker": "700.HK"
+      "ticker": "700.HK",
+      "koDate": "2026-06-01",
+      "pendingFinal": true
     },
     {
       "underlying": "台积电",
@@ -2218,7 +2220,7 @@
       "ccy": "JPY",
       "ticker": "6762.T",
       "profitHKD": 2417.2,
-      "close": 4104.0,
+      "close": 4104,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2236,7 +2238,7 @@
       "ccy": "JPY",
       "ticker": "6981.T",
       "profitHKD": null,
-      "close": 10490.0,
+      "close": 10490,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2693,7 +2695,7 @@
       "maxShares": null,
       "uns": null,
       "inventory": 550,
-      "close": 205.0,
+      "close": 205,
       "profitHKD": null,
       "ccy": "USD",
       "ticker": "MRVL"
@@ -2713,7 +2715,7 @@
       "uns": null,
       "inventory": 2000,
       "close": 39.17,
-      "profitHKD": 74288.0,
+      "profitHKD": 74288,
       "ccy": "USD",
       "ticker": "POEL"
     },
@@ -5405,7 +5407,7 @@
     },
     "POEL": {
       "orig": 9481.86,
-      "hkd": 74288.0,
+      "hkd": 74288,
       "ccy": "USD",
       "trades": [
         {
@@ -5417,7 +5419,7 @@
           "sell_amt": 108919.17,
           "cost_amt": 99437.31,
           "pnl_orig": 9481.86,
-          "pnl_hkd": 74288.0,
+          "pnl_hkd": 74288,
           "ccy": "USD",
           "note": "市场卖出FIFO 不归属任何订单"
         }
@@ -5435,7 +5437,7 @@
           "sell_px": 18.8766,
           "cost_px": 18.5526,
           "sell_amt": 94382.93,
-          "cost_amt": 92763.0,
+          "cost_amt": 92763,
           "pnl_orig": 1619.93,
           "pnl_hkd": 1619.93,
           "ccy": "HKD",
