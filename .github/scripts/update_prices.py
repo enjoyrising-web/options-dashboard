@@ -46,18 +46,11 @@ TICKER_MAP = {
     'MRVL':    'MRVL',
     'POEL':    'POEL',
     'LITE':    'LITE',
-    # 新增日股标的 2026-05-30
-    '6273.T':  '6273.T',  # SMC
-    '6268.T':  '6268.T',  # 纳博特斯克
-    '6506.T':  '6506.T',  # 安川电机
-    '3110.T':  '3110.T',  # 日东纺织
-    '4062.T':  '4062.T',  # 揖斐电
-    '2802.T':  '2802.T',  # 味之素
 }
 
 def fetch_prev_close(yahoo_ticker):
     now_utc = datetime.now(timezone.utc)
-    period2 = int(now_utc.replace(hour=0, minute=0, second=0, microsecond=0).timestamp())
+    period2 = int((now_utc.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)).timestamp())
     period1 = period2 - 7 * 86400
 
     url = (
