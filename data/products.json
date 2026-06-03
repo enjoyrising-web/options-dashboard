@@ -2404,7 +2404,7 @@
       "product": "TSM(6)",
       "type": "累计期权",
       "obs": "2026.05.08",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 414.4804,
       "knockin": 330.7139,
       "knockout": 435.2044,
@@ -2417,7 +2417,9 @@
       "profitHKD": null,
       "ccy": "USD",
       "ticker": "TSM",
-      "note": "2X 1x/2x:2/4股 250天 2w/4w"
+      "note": "2X 1x/2x:2/4股 250天 2w/4w",
+      "koDate": "2026-06-02",
+      "pendingFinal": true
     },
     {
       "underlying": "英特尔",
