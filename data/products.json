@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-02",
+  "updatedAt": "2026-06-03",
   "fx": {
     "USDHKD": 7.83475,
     "JPYHKD": 0.05
@@ -637,7 +637,7 @@
       "type": "累计",
       "product": "0981HK(3)",
       "obs": "2026.01.19",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 77.6362,
       "knockin": 64.2828,
       "knockout": 81.518,
@@ -649,7 +649,9 @@
       "profitHKD": 55251.44,
       "inventory": null,
       "ccy": "HKD",
-      "ticker": "981.HK"
+      "ticker": "981.HK",
+      "koDate": "2026-06-02",
+      "pendingFinal": true
     },
     {
       "underlying": "吉利",
@@ -2222,7 +2224,7 @@
       "ccy": "JPY",
       "ticker": "6762.T",
       "profitHKD": 2417.2,
-      "close": 3849.0,
+      "close": 3849,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2240,7 +2242,7 @@
       "ccy": "JPY",
       "ticker": "6981.T",
       "profitHKD": null,
-      "close": 10230.0,
+      "close": 10230,
       "strike": null,
       "knockin": null,
       "knockout": null,
