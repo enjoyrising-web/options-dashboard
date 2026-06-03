@@ -458,10 +458,11 @@ function setLastClose(product, val, el){
 // ── KPIs ──────────────────────────────────────────────────────
 function renderKPIs(){
   // ── 已实现利润 = 期权利润 + FCN收息 + 派息 ─────────────
-  const optionProfit = window._officialTotal || DATA.reduce((s,p)=>s+(toHKD(p)||0),0);
+  const optionProfit = window._newPnl || DATA.reduce((s,p)=>s+(toHKD(p)||0),0);
   const fcnInterest  = FCN_DATA.totalInterest || 0;
+  // divTotal已包含在totalNewPnlHKD内，不重复计算
   const divTotal     = (window._dividends||[]).reduce((s,d)=>s+(d.amount||0),0);
-  const realized     = optionProfit + fcnInterest + divTotal;
+  const realized     = optionProfit + fcnInterest;
 
   // ── 浮动盈亏 = 库存市值 - 库存成本 ──────────────────────
   let totalFloatHKD = 0;
