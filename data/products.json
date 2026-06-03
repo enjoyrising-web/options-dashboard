@@ -907,7 +907,7 @@
       "type": "累计",
       "product": "TSM(4)",
       "obs": "2026.04.27",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 404.45,
       "knockin": 321.0552,
       "knockout": 424.676,
@@ -919,7 +919,9 @@
       "profitHKD": null,
       "inventory": 1420,
       "ccy": "USD",
-      "ticker": "TSM"
+      "ticker": "TSM",
+      "koDate": "2026-06-02",
+      "pendingFinal": true
     },
     {
       "underlying": "台积电",
