@@ -380,6 +380,8 @@ const toHKD=p=>{if(p.profitHKD==null)return null;return p.profitHKD};
 function getFloatPnl(p){
   const close = p.close;
   if(!close) return null;
+  // 库存字段为0或null时不显示浮动盈亏
+  if(!p.inventory||p.inventory===0) return null;
   // 用 ticker 找库存（不依赖 p.inventory 字段）
   const tk = (p.ticker||'').replace('.HK','HK').replace('.T','JT').replace(/[^A-Z0-9]/gi,'').toUpperCase();
   const inv = INV[tk];
