@@ -2799,7 +2799,7 @@
       "type": "反累计",
       "product": "3800HK(F-4)",
       "obs": "2026.05.26",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 0.83,
       "knockin": 1.076,
       "knockout": 0.7802,
@@ -2812,7 +2812,9 @@
       "inventory": null,
       "ccy": "HKD",
       "ticker": "3800.HK",
-      "note": "反累计 2X daily:-5800/-11600 248天 2w/4w"
+      "note": "反累计 2X daily:-5800/-11600 248天 2w/4w",
+      "koDate": "2026-06-04",
+      "pendingFinal": true
     },
     {
       "underlying": "协鑫科技",
