@@ -786,13 +786,13 @@ function renderStats(){
   // 用realizedPnlFromTxn按ticker汇总，避免重复
   const pnlD = window._pnlDetail || {};
   const TICKER_NAME = {
-    '700HK':'腾讯','3800HK':'协鑫科技','9988HK':'阿里巴巴','3690HK':'美团',
+    '700HK':'腾讯','3800HK':'协鑫科技','9988HK':'阿里巴巴','9626HK':'哔哩哔哩','2269HK':'药明生物','2601HK':'中国太保','1347HK':'华虹半导体','3690HK':'美团',
     '9660HK':'Horizon','9999HK':'网易','0175HK':'吉利','175HK':'吉利',
     '0981HK':'中芯','981HK':'中芯','1093HK':'石药','9626HK':'虎牙',
     '2269HK':'药明生物','1347HK':'华虹','7747HK':'7747HK','7709HK':'7709HK',
     '7707HK':'7707HK','3076HK':'3076HK','3119HK':'3119HK','9863HK':'零跑',
     '883HK':'中海油','2097HK':'蜜雪','9992HK':'泡泡玛特','9896HK':'名创优品',
-    'TSM':'台积电','AAPL':'苹果','GOOG':'谷歌','INTEL':'Intel','PDD':'拼多多',
+    'TSM':'台积电','AAPL':'苹果','GOOG':'谷歌-C','INTEL':'英特尔','PDD':'拼多多',
     'MU':'美光','PLTR':'Palantir','AMD':'AMD','EWY':'EWY','EWYUP':'EWY',
     'BRK-B':'BRK-B','GOOX':'GOOX','MULL':'MULL','POET':'POET','MOD':'MOD',
     'MRVL':'Marvell','POEL':'POEL','LITE':'Lumentum','TSMG':'2xTSM',
@@ -807,8 +807,9 @@ function renderStats(){
   });
   const uList=Object.entries(byU).sort((a,b)=>b[1]-a[1]);
   const maxAbs=Math.max(...uList.map(([,v])=>Math.abs(v)),1);
-  const topWin=[...DATA].filter(p=>p.profitHKD>0).sort((a,b)=>b.profitHKD-a.profitHKD).slice(0,5);
-  const topLoss=[...DATA].filter(p=>p.profitHKD<0).sort((a,b)=>a.profitHKD-b.profitHKD).slice(0,5);
+  const sorted=Object.entries(byU).sort((a,b)=>b[1]-a[1]);
+  const topWin=sorted.filter(([,v])=>v>0).slice(0,5);
+  const topLoss=[...Object.entries(byU)].filter(([,v])=>v<0).sort((a,b)=>a[1]-b[1]).slice(0,5);
   document.getElementById('stats-content').innerHTML=`
     <div class="stat-card" style="grid-column:1/-1"><h3>按标的盈亏汇总（HKD）</h3>
       ${uList.map(([name,v])=>`<div class="bar-row">
@@ -818,10 +819,10 @@ function renderStats(){
       </div>`).join('')}
     </div>
     <div class="stat-card"><h3>盈利 Top 5</h3>
-      ${topWin.map((p,i)=>`<div class="rank-row"><div class="rank-no">${i+1}</div><div class="rank-info"><div class="rank-prod">${p.product}</div><div class="rank-under">${p.underlying}</div></div><span class="rank-val green">+${fmt(p.profitHKD)}</span></div>`).join('')||'<div class="empty">—</div>'}
+      ${topWin.map(([name,v],i)=>`<div class="rank-row"><div class="rank-no">${i+1}</div><div class="rank-info"><div class="rank-prod">${name}</div></div><span class="rank-val green">+${fmtBig(v)}</span></div>`).join('')||'<div class="empty">—</div>'}
     </div>
     <div class="stat-card"><h3>亏损 Top 5</h3>
-      ${topLoss.map((p,i)=>`<div class="rank-row"><div class="rank-no loss">${i+1}</div><div class="rank-info"><div class="rank-prod">${p.product}</div><div class="rank-under">${p.underlying}</div></div><span class="rank-val red">${fmt(p.profitHKD)}</span></div>`).join('')||'<div class="empty">暂无亏损</div>'}
+      ${topLoss.map(([name,v],i)=>`<div class="rank-row"><div class="rank-no loss">${i+1}</div><div class="rank-info"><div class="rank-prod">${name}</div></div><span class="rank-val red">${fmtBig(v)}</span></div>`).join('')||'<div class="empty">暂无亏损</div>'}
     </div>`;
 }
 
