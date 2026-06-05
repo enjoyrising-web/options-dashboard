@@ -783,8 +783,28 @@ function toggleSells(){
 
 // ── Stats ─────────────────────────────────────────────────────
 function renderStats(){
+  // 用realizedPnlFromTxn按ticker汇总，避免重复
+  const pnlD = window._pnlDetail || {};
+  const TICKER_NAME = {
+    '700HK':'腾讯','3800HK':'协鑫科技','9988HK':'阿里巴巴','3690HK':'美团',
+    '9660HK':'Horizon','9999HK':'网易','0175HK':'吉利','175HK':'吉利',
+    '0981HK':'中芯','981HK':'中芯','1093HK':'石药','9626HK':'虎牙',
+    '2269HK':'药明生物','1347HK':'华虹','7747HK':'7747HK','7709HK':'7709HK',
+    '7707HK':'7707HK','3076HK':'3076HK','3119HK':'3119HK','9863HK':'零跑',
+    '883HK':'中海油','2097HK':'蜜雪','9992HK':'泡泡玛特','9896HK':'名创优品',
+    'TSM':'台积电','AAPL':'苹果','GOOG':'谷歌','INTEL':'Intel','PDD':'拼多多',
+    'MU':'美光','PLTR':'Palantir','AMD':'AMD','EWY':'EWY','EWYUP':'EWY',
+    'BRK-B':'BRK-B','GOOX':'GOOX','MULL':'MULL','POET':'POET','MOD':'MOD',
+    'MRVL':'Marvell','POEL':'POEL','LITE':'Lumentum','TSMG':'2xTSM',
+    '9984JT':'软银','6762JT':'TDK','6981JT':'村田','6273JT':'SMC',
+    '6268JT':'纳博','6506JT':'安川','3110JT':'日东纺','4062JT':'揖斐电',
+    '2802JT':'味之素','7220JT':'武藏精密','6976JT':'太阳诱电',
+  };
   const byU={};
-  DATA.forEach(p=>{byU[p.underlying]=(byU[p.underlying]||0)+(toHKD(p)||0);});
+  Object.entries(pnlD).forEach(([k,v])=>{
+    const name = TICKER_NAME[k] || k;
+    byU[name] = (byU[name]||0) + (v.hkd||0);
+  });
   const uList=Object.entries(byU).sort((a,b)=>b[1]-a[1]);
   const maxAbs=Math.max(...uList.map(([,v])=>Math.abs(v)),1);
   const topWin=[...DATA].filter(p=>p.profitHKD>0).sort((a,b)=>b.profitHKD-a.profitHKD).slice(0,5);
