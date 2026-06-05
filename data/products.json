@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-02",
+  "updatedAt": "2026-06-06",
   "fx": {
     "USDHKD": 7.83475,
     "JPYHKD": 0.05
@@ -1076,7 +1076,7 @@
       "type": "累计",
       "product": "GOOG(3)",
       "obs": "2026.05.05",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 383.79,
       "knockin": 326.5678,
       "knockout": 402.9807,
@@ -1088,7 +1088,9 @@
       "profitHKD": null,
       "inventory": 960,
       "ccy": "USD",
-      "ticker": "GOOG"
+      "ticker": "GOOG",
+      "koDate": "2026-06-02",
+      "pendingFinal": true
     },
     {
       "underlying": "谷歌-C",
@@ -2222,7 +2224,7 @@
       "ccy": "JPY",
       "ticker": "6762.T",
       "profitHKD": 2417.2,
-      "close": 3849.0,
+      "close": 3849,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2240,7 +2242,7 @@
       "ccy": "JPY",
       "ticker": "6981.T",
       "profitHKD": null,
-      "close": 10230.0,
+      "close": 10230,
       "strike": null,
       "knockin": null,
       "knockout": null,
