@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-06",
+  "updatedAt": "2026-06-02",
   "fx": {
     "USDHKD": 7.83475,
     "JPYHKD": 0.05
@@ -1089,7 +1089,6 @@
       "inventory": 960,
       "ccy": "USD",
       "ticker": "GOOG",
-      "koDate": "2026-06-02",
       "pendingFinal": true
     },
     {
@@ -1097,7 +1096,7 @@
       "type": "反累计",
       "product": "GOOG(F-1)",
       "obs": "2026.04.20",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 338.55,
       "knockin": 408.9007,
       "knockout": 318.237,
@@ -1109,7 +1108,8 @@
       "profitHKD": 32642.89,
       "inventory": 940,
       "ccy": "USD",
-      "ticker": "GOOG"
+      "ticker": "GOOG",
+      "pendingFinal": true
     },
     {
       "underlying": "美光",
@@ -2224,7 +2224,7 @@
       "ccy": "JPY",
       "ticker": "6762.T",
       "profitHKD": 2417.2,
-      "close": 3849,
+      "close": 3849.0,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2242,7 +2242,7 @@
       "ccy": "JPY",
       "ticker": "6981.T",
       "profitHKD": null,
-      "close": 10230,
+      "close": 10230.0,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2656,7 +2656,7 @@
       "type": "反累计",
       "product": "3800HK(F-3)",
       "obs": "2026.05.22",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 0.81,
       "knockin": 1.0496,
       "knockout": 0.7614,
@@ -2669,7 +2669,8 @@
       "profitHKD": null,
       "ccy": "HKD",
       "ticker": "3800.HK",
-      "note": "反累计 2X 1x/2x:-5000/-10000股 247天 2w/4w 1x资金17万USD"
+      "note": "反累计 2X 1x/2x:-5000/-10000股 247天 2w/4w 1x资金17万USD",
+      "pendingFinal": true
     },
     {
       "underlying": "协鑫科技",
@@ -2793,7 +2794,7 @@
       "type": "反累计",
       "product": "3800HK(F-4)",
       "obs": "2026.05.26",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 0.83,
       "knockin": 1.076,
       "knockout": 0.7802,
@@ -2806,7 +2807,8 @@
       "inventory": null,
       "ccy": "HKD",
       "ticker": "3800.HK",
-      "note": "反累计 2X daily:-5800/-11600 248天 2w/4w"
+      "note": "反累计 2X daily:-5800/-11600 248天 2w/4w",
+      "pendingFinal": true
     },
     {
       "underlying": "协鑫科技",
@@ -2867,6 +2869,26 @@
       "ccy": "USD",
       "ticker": "PDD",
       "note": "反累计 2X 1x/2x:-6/-12股 251天 2w/4w 1x资金16万USD"
+    },
+    {
+      "underlying": "谷歌",
+      "type": "累计",
+      "product": "GOOG(4)",
+      "obs": "2026.06.03",
+      "status": "存续中",
+      "strike": 357.3547,
+      "knockin": 304.0731,
+      "knockout": 375.2224,
+      "discount": 0.8509,
+      "daily": 3,
+      "maxShares": 500,
+      "uns": 1000,
+      "close": null,
+      "profitHKD": null,
+      "inventory": null,
+      "ccy": "USD",
+      "ticker": "GOOG",
+      "note": "累计 2X 1x/2x:3/6股 250天 2w/4w 1x资金15万USD"
     }
   ],
   "fcn": {
