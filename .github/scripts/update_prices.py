@@ -46,6 +46,10 @@ TICKER_MAP = {
     'MRVL':    'MRVL',
     'POEL':    'POEL',
     'LITE':    'LITE',
+    # 新增标的 2026-06-02
+    'TSMG':    'TSMG',   # 2倍做多TSM ETF
+    '2097.HK': '2097.HK',  # 蜜雪
+    '9992.HK': '9992.HK',  # 泡泡玛特
 }
 
 def fetch_prev_close(yahoo_ticker):
