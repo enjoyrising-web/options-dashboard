@@ -44,7 +44,7 @@
       "ticker": "9984.T"
     },
     {
-      "underlying": "AMD UQ",
+      "underlying": "AMD",
       "type": "累计期权",
       "product": "AMD UQ(1)",
       "obs": "2024.11.14",
@@ -60,7 +60,7 @@
       "profitHKD": 31193.71,
       "inventory": null,
       "ccy": "USD",
-      "ticker": ""
+      "ticker": "AMD"
     },
     {
       "underlying": "AMD",
@@ -139,7 +139,7 @@
       "ticker": "AMD"
     },
     {
-      "underlying": "协鑫",
+      "underlying": "协鑫科技",
       "type": "累计",
       "product": "3800HK(1)",
       "obs": "2022.8.1",
@@ -158,7 +158,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "协鑫",
+      "underlying": "协鑫科技",
       "type": "累计",
       "product": "3800HK(19)",
       "obs": "2025.11.19",
@@ -177,7 +177,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "协鑫",
+      "underlying": "协鑫科技",
       "type": "累计",
       "product": "3800HK(20)",
       "obs": "2025.12.12",
@@ -196,7 +196,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "协鑫",
+      "underlying": "协鑫科技",
       "type": "累计",
       "product": "3800HK(21)",
       "obs": "2026.01.12",
@@ -215,7 +215,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "协鑫",
+      "underlying": "协鑫科技",
       "type": "累计",
       "product": "3800HK(22)",
       "obs": "2026.01.30",
@@ -234,7 +234,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "协鑫",
+      "underlying": "协鑫科技",
       "type": "累计",
       "product": "3800HK(23)",
       "obs": "2026.02.26",
@@ -253,7 +253,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "协鑫",
+      "underlying": "协鑫科技",
       "type": "累计",
       "product": "3800HK(24)",
       "obs": "2026.03.18",
@@ -272,7 +272,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "协鑫",
+      "underlying": "协鑫科技",
       "type": "反累计",
       "product": "3800HK(F-1)",
       "obs": "2026.04.16",
@@ -291,7 +291,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "协鑫",
+      "underlying": "协鑫科技",
       "type": "反累计",
       "product": "3800HK(F-2)",
       "obs": "2026.05.05",
@@ -1171,7 +1171,7 @@
       "pendingFinal": true
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计",
       "product": "Intel(10)",
       "obs": "2025.10.30",
@@ -1190,7 +1190,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计",
       "product": "Intel(11)",
       "obs": "2025.12.19",
@@ -1209,7 +1209,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计",
       "product": "Intel(12)",
       "obs": "2026.01.27",
@@ -1228,7 +1228,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计",
       "product": "Intel(13)",
       "obs": "2026.02.12",
@@ -1247,7 +1247,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计",
       "product": "Intel(14)",
       "obs": "2026.04.08",
@@ -1266,7 +1266,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计",
       "product": "Intel(15)",
       "obs": "2026.05.06",
@@ -1285,7 +1285,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "9984 JT",
+      "underlying": "软银",
       "type": "累计期权",
       "product": "9984 JT(1)",
       "obs": "2024.11.18",
@@ -1301,10 +1301,10 @@
       "profitHKD": 45912.36,
       "inventory": null,
       "ccy": "JPY",
-      "ticker": ""
+      "ticker": "9984.T"
     },
     {
-      "underlying": "9984 JT",
+      "underlying": "软银",
       "type": "累计期权",
       "product": "9984 JT(2)",
       "obs": "2024.12.23",
@@ -1320,10 +1320,10 @@
       "profitHKD": 50973.13,
       "inventory": null,
       "ccy": "JPY",
-      "ticker": ""
+      "ticker": "9984.T"
     },
     {
-      "underlying": "9984 JT",
+      "underlying": "软银",
       "type": "累计期权",
       "product": "9984 JT(3)",
       "obs": "2025.02.17",
@@ -1339,10 +1339,10 @@
       "profitHKD": 53507.14,
       "inventory": null,
       "ccy": "JPY",
-      "ticker": ""
+      "ticker": "9984.T"
     },
     {
-      "underlying": "9984 JT",
+      "underlying": "软银",
       "type": "累计期权",
       "product": "9984 JT(4)",
       "obs": "2025.03.10",
@@ -1358,10 +1358,10 @@
       "profitHKD": 99635.19,
       "inventory": null,
       "ccy": "JPY",
-      "ticker": ""
+      "ticker": "9984.T"
     },
     {
-      "underlying": "9626HK",
+      "underlying": "哔哩哔哩",
       "type": "累计期权",
       "product": "9626HK(1)",
       "obs": "2024.12.09",
@@ -1380,7 +1380,7 @@
       "ticker": "9626.HK"
     },
     {
-      "underlying": "9626HK",
+      "underlying": "哔哩哔哩",
       "type": "累计期权",
       "product": "9626HK(2)",
       "obs": "2024.12.22",
@@ -1399,7 +1399,7 @@
       "ticker": "9626.HK"
     },
     {
-      "underlying": "9626HK",
+      "underlying": "哔哩哔哩",
       "type": "累计期权",
       "product": "9626HK(3)",
       "obs": "2025.02.25",
@@ -1418,7 +1418,7 @@
       "ticker": "9626.HK"
     },
     {
-      "underlying": "9626HK",
+      "underlying": "哔哩哔哩",
       "type": "累计期权",
       "product": "9626HK(4)",
       "obs": "2025.02.17",
@@ -1437,7 +1437,7 @@
       "ticker": "9626.HK"
     },
     {
-      "underlying": "9626HK",
+      "underlying": "哔哩哔哩",
       "type": "累计期权",
       "product": "9626HK(5)",
       "obs": "2025.03.13",
@@ -1456,7 +1456,7 @@
       "ticker": "9626.HK"
     },
     {
-      "underlying": "9626HK",
+      "underlying": "哔哩哔哩",
       "type": "累计期权",
       "product": "9626HK(6)",
       "obs": "2025.03.21",
@@ -1475,7 +1475,7 @@
       "ticker": "9626.HK"
     },
     {
-      "underlying": "700HK",
+      "underlying": "腾讯",
       "type": "累计期权",
       "product": "700HK(6)",
       "obs": "2023.3.20",
@@ -1494,7 +1494,7 @@
       "ticker": "700.HK"
     },
     {
-      "underlying": "700HK",
+      "underlying": "腾讯",
       "type": "累计期权",
       "product": "700HK(7)",
       "obs": "2022.5.3",
@@ -1513,7 +1513,7 @@
       "ticker": "700.HK"
     },
     {
-      "underlying": "700HK",
+      "underlying": "腾讯",
       "type": "累计期权",
       "product": "700HK(8)",
       "obs": "2023.06.30",
@@ -1532,7 +1532,7 @@
       "ticker": "700.HK"
     },
     {
-      "underlying": "2269HK",
+      "underlying": "药明生物",
       "type": "累计期权",
       "product": "2269HK(1)",
       "obs": "2024.12.02",
@@ -1551,7 +1551,7 @@
       "ticker": "2269.HK"
     },
     {
-      "underlying": "2269HK",
+      "underlying": "药明生物",
       "type": "累计期权",
       "product": "2269HK(2)",
       "obs": "2025.01.07",
@@ -1570,7 +1570,7 @@
       "ticker": "2269.HK"
     },
     {
-      "underlying": "2269HK",
+      "underlying": "药明生物",
       "type": "累计期权",
       "product": "2269HK(3)",
       "obs": "2025.02.25",
@@ -1589,7 +1589,7 @@
       "ticker": "2269.HK"
     },
     {
-      "underlying": "883HK",
+      "underlying": "中海油",
       "type": "累计期权",
       "product": "883HK(2)",
       "obs": "2025.03.10",
@@ -1608,7 +1608,7 @@
       "ticker": "883.HK"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计期权",
       "product": "Intel(1)",
       "obs": "2022.7.26",
@@ -1627,7 +1627,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计期权",
       "product": "Intel(2)",
       "obs": "2022.8.1",
@@ -1646,7 +1646,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计期权",
       "product": "Intel(3)",
       "obs": "2024.12.20",
@@ -1665,7 +1665,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计期权",
       "product": "Intel(4)",
       "obs": "2025.01.08",
@@ -1684,7 +1684,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计期权",
       "product": "Intel(5)",
       "obs": "2025.02.25",
@@ -1703,7 +1703,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计期权",
       "product": "Intel(6)",
       "obs": "2025.03.12",
@@ -1722,7 +1722,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计期权",
       "product": "Intel(7)",
       "obs": "2025.03.23",
@@ -1741,7 +1741,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计期权",
       "product": "Intel(8)",
       "obs": "2025.07.30",
@@ -1760,7 +1760,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "Intel",
+      "underlying": "英特尔",
       "type": "累计期权",
       "product": "Intel(9)",
       "obs": "2025.05.07",
@@ -1779,7 +1779,7 @@
       "ticker": "INTEL"
     },
     {
-      "underlying": "2601HK",
+      "underlying": "中国太保",
       "type": "累计期权",
       "product": "2601HK(1)",
       "obs": "2022.8.10",
@@ -1798,7 +1798,7 @@
       "ticker": "2601.HK"
     },
     {
-      "underlying": "2601HK",
+      "underlying": "中国太保",
       "type": "累计期权",
       "product": "2601HK(2)",
       "obs": "2022.09.14",
@@ -1817,7 +1817,7 @@
       "ticker": "2601.HK"
     },
     {
-      "underlying": "1347HK",
+      "underlying": "华虹半导体",
       "type": "累计期权",
       "product": "1347HK(1)",
       "obs": "2022.3.25",
@@ -1836,7 +1836,7 @@
       "ticker": "1347.HK"
     },
     {
-      "underlying": "1347HK",
+      "underlying": "华虹半导体",
       "type": "累计期权",
       "product": "1347HK(2)",
       "obs": "2022.8.6",
@@ -1855,7 +1855,7 @@
       "ticker": "1347.HK"
     },
     {
-      "underlying": "1347HK",
+      "underlying": "华虹半导体",
       "type": "累计期权",
       "product": "1347HK(3)",
       "obs": "2022.7.6",
@@ -1874,7 +1874,7 @@
       "ticker": "1347.HK"
     },
     {
-      "underlying": "1347HK",
+      "underlying": "华虹半导体",
       "type": "累计期权",
       "product": "1347HK(4)",
       "obs": "2022.6.23",
@@ -1893,7 +1893,7 @@
       "ticker": "1347.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(2)",
       "obs": "2022.9.1",
@@ -1912,7 +1912,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(3)",
       "obs": "2022.11.22",
@@ -1931,7 +1931,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(4)",
       "obs": "2022.12.5",
@@ -1950,7 +1950,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(5)",
       "obs": "2023.02.17",
@@ -1969,7 +1969,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(6)",
       "obs": "2023.7.6",
@@ -1988,7 +1988,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(7)",
       "obs": "2024.9.5",
@@ -2007,7 +2007,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(8)",
       "obs": "2024.10.9",
@@ -2026,7 +2026,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(9)",
       "obs": "2024.10.29",
@@ -2045,7 +2045,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(10)",
       "obs": "2024.11.04",
@@ -2064,7 +2064,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(11)",
       "obs": "2024.11.07",
@@ -2083,7 +2083,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(12)",
       "obs": "2024.12.09",
@@ -2102,7 +2102,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(13)",
       "obs": "2025.03.21",
@@ -2121,7 +2121,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(14)",
       "obs": "2025.05.07",
@@ -2140,7 +2140,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(15)",
       "obs": "2025.08.04",
@@ -2159,7 +2159,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(16)",
       "obs": "2025.09.25",
@@ -2178,7 +2178,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(17)",
       "obs": "2025.10.13",
@@ -2197,7 +2197,7 @@
       "ticker": "3800.HK"
     },
     {
-      "underlying": "3800HK",
+      "underlying": "协鑫科技",
       "type": "累计期权",
       "product": "3800HK(18)",
       "obs": "2025.10.23",
@@ -2871,7 +2871,7 @@
       "note": "反累计 2X 1x/2x:-6/-12股 251天 2w/4w 1x资金16万USD"
     },
     {
-      "underlying": "谷歌",
+      "underlying": "谷歌-C",
       "type": "累计",
       "product": "GOOG(4)",
       "obs": "2026.06.03",
@@ -4153,12 +4153,6 @@
       "realized": 0,
       "ccy": "JPY"
     },
-    "175HK": {
-      "qty": 0,
-      "lots": [],
-      "realized": 0,
-      "ccy": "HKD"
-    },
     "TSMG": {
       "qty": 5000,
       "lots": [
@@ -4830,8 +4824,8 @@
       ]
     },
     "0175HK": {
-      "orig": 40008.95,
-      "hkd": 40008.95,
+      "orig": 41628.88,
+      "hkd": 41628.88,
       "ccy": "HKD",
       "trades": [
         {
@@ -4872,6 +4866,19 @@
           "pnl_hkd": 1920.91,
           "ccy": "HKD",
           "note": ""
+        },
+        {
+          "date": "2026-05-26",
+          "type": "SELL",
+          "qty": 5000,
+          "sell_px": 18.8766,
+          "cost_px": 18.5526,
+          "sell_amt": 94382.93,
+          "cost_amt": 92763,
+          "pnl_orig": 1619.93,
+          "pnl_hkd": 1619.93,
+          "ccy": "HKD",
+          "note": "市场卖出FIFO 归属0175HK(2)"
         }
       ]
     },
@@ -5777,26 +5784,6 @@
           "pnl_hkd": -145454.25,
           "ccy": "USD",
           "note": "市场卖出FIFO 不归属任何订单"
-        }
-      ]
-    },
-    "175HK": {
-      "orig": 1619.93,
-      "hkd": 1619.93,
-      "ccy": "HKD",
-      "trades": [
-        {
-          "date": "2026-05-26",
-          "type": "SELL",
-          "qty": 5000,
-          "sell_px": 18.8766,
-          "cost_px": 18.5526,
-          "sell_amt": 94382.93,
-          "cost_amt": 92763,
-          "pnl_orig": 1619.93,
-          "pnl_hkd": 1619.93,
-          "ccy": "HKD",
-          "note": "市场卖出FIFO 归属0175HK(2)"
         }
       ]
     },
