@@ -2889,6 +2889,26 @@
       "ccy": "USD",
       "ticker": "GOOG",
       "note": "累计 2X 1x/2x:3/6股 250天 2w/4w 1x资金15万USD"
+    },
+    {
+      "underlying": "中芯国际",
+      "type": "累计",
+      "product": "0981HK(4)",
+      "obs": "2026.06.05",
+      "status": "存续中",
+      "strike": 75.65,
+      "knockin": 56.8661,
+      "knockout": 79.4325,
+      "discount": 0.7517,
+      "daily": 110,
+      "maxShares": 27280,
+      "uns": 54560,
+      "close": null,
+      "profitHKD": null,
+      "inventory": null,
+      "ccy": "HKD",
+      "ticker": "981.HK",
+      "note": "累计 2X 1x/2x:110/220股 248天 2w/4w 1x资金20万HKD"
     }
   ],
   "fcn": {
