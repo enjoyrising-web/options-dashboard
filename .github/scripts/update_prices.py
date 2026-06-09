@@ -50,6 +50,8 @@ TICKER_MAP = {
     'TSMG':    'TSMG',   # 2倍做多TSM ETF
     '2097.HK': '2097.HK',  # 蜜雪
     '9992.HK': '9992.HK',  # 泡泡玛特
+    # 新增标的 2026-06-04
+    'NVTS':    'NVTS',   # 纳微半导体
 }
 
 def fetch_prev_close(yahoo_ticker):
