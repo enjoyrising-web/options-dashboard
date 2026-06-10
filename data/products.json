@@ -172,7 +172,7 @@
       "uns": 1624000,
       "close": 0.78,
       "profitHKD": null,
-      "inventory": 5730300,
+      "inventory": 5680300,
       "ccy": "HKD",
       "ticker": "3800.HK"
     },
@@ -454,10 +454,10 @@
       "discount": 0.8238,
       "daily": 45,
       "maxShares": 21960,
-      "uns": 16290,
+      "uns": 15480,
       "close": 194.4,
       "profitHKD": 29344.74,
-      "inventory": null,
+      "inventory": 405,
       "ccy": "HKD",
       "ticker": "9999.HK"
     },
@@ -568,10 +568,10 @@
       "discount": 0.8122,
       "daily": 55,
       "maxShares": 26840,
-      "uns": 19910,
+      "uns": 18920,
       "close": 113.5,
       "profitHKD": 16668.75,
-      "inventory": 0,
+      "inventory": 10980,
       "ccy": "HKD",
       "ticker": "9988.HK"
     },
@@ -2238,7 +2238,7 @@
       "product": "6981JT",
       "type": "市场买入",
       "obs": "2026.04.30",
-      "status": "结束",
+      "status": "存续中",
       "ccy": "JPY",
       "ticker": "6981.T",
       "profitHKD": null,
@@ -2249,7 +2249,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": null
+      "inventory": 1500
     },
     {
       "underlying": "苹果",
@@ -2286,7 +2286,7 @@
       "daily": 5,
       "maxShares": 1250,
       "uns": 2400,
-      "inventory": 4400,
+      "inventory": 4172,
       "close": 110.27,
       "profitHKD": null,
       "ccy": "USD",
@@ -2340,20 +2340,21 @@
       "product": "Intel(F-2)",
       "type": "反累计期权",
       "obs": "2026.05.15",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 114.67,
       "knockin": 187.3134,
       "knockout": 107.7898,
       "discount": 1.6335,
       "daily": -4,
       "maxShares": 1000,
-      "uns": 1928,
+      "uns": 0,
       "inventory": null,
       "close": 110.27,
-      "profitHKD": 21450.45,
+      "profitHKD": 45284.35,
       "ccy": "USD",
       "ticker": "INTEL",
-      "note": "DEC反累计 2X 1x/2x:-4/-8股 250天 2w/4w"
+      "note": "DEC反累计 2X 1x/2x:-4/-8股 250天 2w/4w",
+      "pendingFinal": false
     },
     {
       "underlying": "拼多多",
@@ -2424,20 +2425,21 @@
       "product": "Intel(F-3)",
       "type": "反累计期权",
       "obs": "2026.05.08",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 111.1,
       "knockin": 179.1599,
       "knockout": 104.434,
       "discount": 1.6126,
       "daily": -4,
       "maxShares": 1000,
-      "uns": 1920,
+      "uns": 0,
       "inventory": null,
       "close": 110.27,
-      "profitHKD": 21278.71,
+      "profitHKD": 40429.52,
       "ccy": "USD",
       "ticker": "INTEL",
-      "note": "DEC反累计 2X 1x/2x:-4/-8股 250天 2w/4w"
+      "note": "DEC反累计 2X 1x/2x:-4/-8股 250天 2w/4w",
+      "pendingFinal": false
     },
     {
       "underlying": "伯克希尔-B",
@@ -2520,7 +2522,7 @@
       "product": "EWY UP",
       "type": "市场买入",
       "obs": "",
-      "status": "存续中",
+      "status": "结束",
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2528,7 +2530,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 560,
+      "inventory": null,
       "close": 185.64,
       "profitHKD": 27628.23,
       "ccy": "USD",
@@ -2577,7 +2579,7 @@
       "product": "MULL",
       "type": "市场买入",
       "obs": "",
-      "status": "存续中",
+      "status": "结束",
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2596,7 +2598,7 @@
       "product": "POET UR",
       "type": "市场买入",
       "obs": "",
-      "status": "存续中",
+      "status": "结束",
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2604,7 +2606,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 0,
+      "inventory": null,
       "close": 12.28,
       "profitHKD": 550742.18,
       "ccy": "USD",
@@ -2663,14 +2665,14 @@
       "discount": 0.7722,
       "daily": -5000,
       "maxShares": -1235000,
-      "uns": 2470000,
+      "uns": 0,
       "inventory": null,
       "close": 0.78,
-      "profitHKD": null,
+      "profitHKD": 6210.18,
       "ccy": "HKD",
       "ticker": "3800.HK",
       "note": "反累计 2X 1x/2x:-5000/-10000股 247天 2w/4w 1x资金17万USD",
-      "pendingFinal": true
+      "pendingFinal": false
     },
     {
       "underlying": "协鑫科技",
@@ -2684,7 +2686,7 @@
       "discount": 0.9524,
       "daily": 5000,
       "maxShares": 1235000,
-      "uns": 2470000,
+      "uns": 2380000,
       "inventory": null,
       "close": 0.78,
       "profitHKD": null,
@@ -2927,6 +2929,42 @@
       "maxShares": null,
       "uns": null,
       "inventory": 2000
+    },
+    {
+      "underlying": "太阳诱电",
+      "product": "6976JT",
+      "type": "市场买入",
+      "obs": "2026.05.29",
+      "status": "存续中",
+      "ccy": "JPY",
+      "ticker": "6976.T",
+      "profitHKD": null,
+      "close": null,
+      "strike": null,
+      "knockin": null,
+      "knockout": null,
+      "daily": null,
+      "maxShares": null,
+      "uns": null,
+      "inventory": 8000
+    },
+    {
+      "underlying": "武藏精密",
+      "product": "7220JT",
+      "type": "市场买入",
+      "obs": "2026.06.01",
+      "status": "存续中",
+      "ccy": "JPY",
+      "ticker": "7220.T",
+      "profitHKD": null,
+      "close": null,
+      "strike": null,
+      "knockin": null,
+      "knockout": null,
+      "daily": null,
+      "maxShares": null,
+      "uns": null,
+      "inventory": 2500
     }
   ],
   "fcn": {
@@ -3443,17 +3481,17 @@
       "ccy": "USD"
     },
     "INTEL": {
-      "qty": 4248,
+      "qty": 4172,
       "realized": 23211.83,
       "lots": [
         {
           "price": 111.2616,
-          "qty": 342,
+          "qty": 266,
           "type": "fifo",
           "date": "2026-05-07",
           "txType": "买入",
           "ccy": "USD",
-          "amount": 38051.473235294114
+          "amount": 29595.59029411764
         },
         {
           "price": 111.2816,
@@ -3512,7 +3550,7 @@
       "ccy": "USD"
     },
     "3800HK": {
-      "qty": 5730300,
+      "qty": 5680300,
       "realized": 39852.5,
       "lots": [
         {
@@ -3525,12 +3563,12 @@
         },
         {
           "price": 0.9831,
-          "qty": 1683300,
+          "qty": 1588300,
           "type": "fifo",
           "date": "2026-04-16",
           "txType": "BUY",
           "ccy": "HKD",
-          "amount": 1654822.4485384615
+          "amount": 1561429.6293076922
         },
         {
           "price": 0.9599,
@@ -3639,12 +3677,21 @@
           "txType": "接股",
           "ccy": "HKD",
           "amount": 120940.69
+        },
+        {
+          "price": 0.6361,
+          "qty": 45000,
+          "type": "batch",
+          "date": "2026-06-05",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 28626.65
         }
       ],
       "ccy": "HKD"
     },
     "9988HK": {
-      "qty": 10045,
+      "qty": 10980,
       "realized": 40626.99,
       "lots": [
         {
@@ -3673,6 +3720,15 @@
           "txType": "接股",
           "ccy": "HKD",
           "amount": 35646.98
+        },
+        {
+          "price": 128.8748,
+          "qty": 935,
+          "type": "batch",
+          "date": "2026-06-05",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 120497.9
         }
       ],
       "ccy": "HKD"
@@ -4007,9 +4063,19 @@
       "ccy": "JPY"
     },
     "6981JT": {
-      "qty": 0,
+      "qty": 1500,
       "realized": 0,
-      "lots": [],
+      "lots": [
+        {
+          "price": 8874.116,
+          "qty": 1500,
+          "type": "fifo",
+          "date": "2026-06-08",
+          "txType": "买入",
+          "ccy": "JPY",
+          "amount": 13311174
+        }
+      ],
       "ccy": "JPY"
     },
     "9660HK": {
@@ -4047,31 +4113,41 @@
       "ccy": "HKD"
     },
     "9999HK": {
-      "qty": 0,
-      "lots": [],
+      "qty": 405,
+      "lots": [
+        {
+          "price": 155.3341,
+          "qty": 405,
+          "type": "batch",
+          "date": "2026-06-05",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 62910.32
+        }
+      ],
       "realized": 12282.52,
       "ccy": "HKD"
     },
     "MULL": {
-      "qty": 700,
+      "qty": 0,
       "lots": [
         {
           "price": 471.8502,
-          "qty": 500,
+          "qty": 0,
           "type": "fifo",
           "date": "2026-05-22",
           "txType": "买入",
           "ccy": "USD",
-          "amount": 235925.11
+          "amount": 0.0
         },
         {
           "price": 493.3053,
-          "qty": 200,
+          "qty": 0,
           "type": "fifo",
           "date": "2026-05-23",
           "txType": "买入",
           "ccy": "USD",
-          "amount": 98661.05
+          "amount": 0.0
         }
       ],
       "realized": 1454.9,
@@ -4102,16 +4178,16 @@
       "ccy": "HKD"
     },
     "EWYUP": {
-      "qty": 560,
+      "qty": 0,
       "lots": [
         {
           "price": 177.5899,
-          "qty": 560,
+          "qty": 0,
           "type": "fifo",
           "date": "2026-05-19",
           "txType": "买入",
           "ccy": "USD",
-          "amount": 99450.33
+          "amount": 0.0
         }
       ],
       "realized": -1854128.02,
@@ -4130,16 +4206,16 @@
       "ccy": "USD"
     },
     "POET": {
-      "qty": 3500,
+      "qty": 0,
       "lots": [
         {
           "price": 14.2331,
-          "qty": 3500,
+          "qty": 0,
           "type": "fifo",
           "date": "2026-06-03",
           "txType": "买入",
           "ccy": "USD",
-          "amount": 49815.81
+          "amount": 0.0
         }
       ],
       "realized": 70294.8,
@@ -4245,16 +4321,16 @@
       "ccy": "JPY"
     },
     "TSMG": {
-      "qty": 5000,
+      "qty": 0,
       "lots": [
         {
           "price": 39.5866,
-          "qty": 5000,
+          "qty": 0,
           "type": "fifo",
           "date": "2026-05-27",
           "txType": "买入",
           "ccy": "USD",
-          "amount": 197933.09
+          "amount": 0.0
         }
       ],
       "realized": 0,
@@ -4293,7 +4369,7 @@
       "ccy": "HKD"
     },
     "7220JT": {
-      "qty": 1500,
+      "qty": 2500,
       "lots": [
         {
           "price": 10094.0987,
@@ -4303,31 +4379,40 @@
           "txType": "买入",
           "ccy": "JPY",
           "amount": 15141148
+        },
+        {
+          "price": 7279.784,
+          "qty": 1000,
+          "type": "fifo",
+          "date": "2026-06-08",
+          "txType": "买入",
+          "ccy": "JPY",
+          "amount": 7279784
         }
       ],
       "realized": 0,
       "ccy": "JPY"
     },
     "6976JT": {
-      "qty": 16000,
+      "qty": 8000,
       "lots": [
         {
           "price": 13769.419,
-          "qty": 1000,
+          "qty": 0,
           "type": "fifo",
           "date": "2026-05-29",
           "txType": "买入",
           "ccy": "JPY",
-          "amount": 13769419
+          "amount": 0.0
         },
         {
           "price": 14855.3709,
-          "qty": 15000,
+          "qty": 8000,
           "type": "fifo",
           "date": "2026-05-29",
           "txType": "买入",
           "ccy": "JPY",
-          "amount": 222830563
+          "amount": 118842966.93333334
         }
       ],
       "realized": 0,
@@ -4812,8 +4897,8 @@
       ]
     },
     "3800HK": {
-      "orig": 66271.22,
-      "hkd": 66271.22,
+      "orig": 72481.4,
+      "hkd": 72481.4,
       "ccy": "HKD",
       "trades": [
         {
@@ -4867,6 +4952,19 @@
           "pnl_hkd": 10109.82,
           "ccy": "HKD",
           "note": "3800HK(F-4)反累计行权卖出 敲出"
+        },
+        {
+          "date": "2026-06-05",
+          "type": "行权卖出",
+          "qty": 95000,
+          "sell_px": 1.0485,
+          "cost_px": 0.9831,
+          "sell_amt": 99603,
+          "cost_amt": 93392.82,
+          "pnl_orig": 6210.18,
+          "pnl_hkd": 6210.18,
+          "ccy": "HKD",
+          "note": "3800HK(F-3)反累计行权卖出 敲出"
         }
       ]
     },
@@ -5447,8 +5545,8 @@
       ]
     },
     "EWYUP": {
-      "orig": 3526.37,
-      "hkd": 27628.23,
+      "orig": 8057.81,
+      "hkd": 63130.93,
       "ccy": "USD",
       "trades": [
         {
@@ -5476,6 +5574,19 @@
           "pnl_hkd": 279704.34,
           "ccy": "USD",
           "note": ""
+        },
+        {
+          "date": "2026-06-06",
+          "type": "SELL",
+          "qty": 560,
+          "sell_px": 185.6817,
+          "cost_px": 177.5899,
+          "sell_amt": 103981.77,
+          "cost_amt": 99450.33,
+          "pnl_orig": 4531.44,
+          "pnl_hkd": 35502.7,
+          "ccy": "USD",
+          "note": "市场卖出FIFO 不归属任何订单"
         }
       ]
     },
@@ -5775,8 +5886,8 @@
       ]
     },
     "INTEL": {
-      "orig": 425804.42,
-      "hkd": 538257.11,
+      "orig": 431290.84,
+      "hkd": 581241.82,
       "ccy": "USD",
       "trades": [
         {
@@ -5986,12 +6097,38 @@
           "pnl_hkd": 2987.0,
           "ccy": "USD",
           "note": "市场卖出FIFO买入批次 不归属任何订单"
+        },
+        {
+          "date": "2026-06-05",
+          "type": "行权卖出",
+          "qty": 36,
+          "sell_px": 179.16,
+          "cost_px": 111.2616,
+          "sell_amt": 6449.76,
+          "cost_amt": 4005.42,
+          "pnl_orig": 2444.34,
+          "pnl_hkd": 19150.81,
+          "ccy": "USD",
+          "note": "Intel(F-3)反累计行权卖出 敲出"
+        },
+        {
+          "date": "2026-06-08",
+          "type": "行权卖出",
+          "qty": 40,
+          "sell_px": 187.3135,
+          "cost_px": 111.2616,
+          "sell_amt": 7492.54,
+          "cost_amt": 4450.46,
+          "pnl_orig": 3042.08,
+          "pnl_hkd": 23833.9,
+          "ccy": "USD",
+          "note": "Intel(F-2)反累计行权卖出 敲出"
         }
       ]
     },
     "MULL": {
-      "orig": 1454.9,
-      "hkd": 11398.78,
+      "orig": 209699.53,
+      "hkd": 1642943.39,
       "ccy": "USD",
       "trades": [
         {
@@ -6006,6 +6143,19 @@
           "pnl_hkd": 11398.78,
           "ccy": "USD",
           "note": ""
+        },
+        {
+          "date": "2026-06-05",
+          "type": "SELL",
+          "qty": 700,
+          "sell_px": 775.4726,
+          "cost_px": 477.9802,
+          "sell_amt": 542830.79,
+          "cost_amt": 334586.16,
+          "pnl_orig": 208244.63,
+          "pnl_hkd": 1631544.61,
+          "ccy": "USD",
+          "note": "市场卖出FIFO 不归属任何订单"
         }
       ]
     },
@@ -6050,8 +6200,8 @@
       ]
     },
     "POET": {
-      "orig": 70294.8,
-      "hkd": 550742.18,
+      "orig": 68907.4,
+      "hkd": 539872.25,
       "ccy": "USD",
       "trades": [
         {
@@ -6066,6 +6216,19 @@
           "pnl_hkd": 550742.18,
           "ccy": "USD",
           "note": ""
+        },
+        {
+          "date": "2026-06-05",
+          "type": "SELL",
+          "qty": 3500,
+          "sell_px": 13.8367,
+          "cost_px": 14.2331,
+          "sell_amt": 48428.41,
+          "cost_amt": 49815.81,
+          "pnl_orig": -1387.4,
+          "pnl_hkd": -10869.93,
+          "ccy": "USD",
+          "note": "市场卖出FIFO 不归属任何订单"
         }
       ]
     },
@@ -6221,8 +6384,48 @@
           "note": "市场卖出FIFO 不归属任何订单"
         }
       ]
+    },
+    "TSMG": {
+      "orig": 16008.72,
+      "hkd": 125424.32,
+      "ccy": "USD",
+      "trades": [
+        {
+          "date": "2026-06-05",
+          "type": "SELL",
+          "qty": 5000,
+          "sell_px": 42.7884,
+          "cost_px": 39.5866,
+          "sell_amt": 213941.81,
+          "cost_amt": 197933.09,
+          "pnl_orig": 16008.72,
+          "pnl_hkd": 125424.32,
+          "ccy": "USD",
+          "note": "市场卖出FIFO 不归属任何订单"
+        }
+      ]
+    },
+    "6976JT": {
+      "orig": 3431842.93,
+      "hkd": 171592.15,
+      "ccy": "JPY",
+      "trades": [
+        {
+          "date": "2026-06-05",
+          "type": "SELL",
+          "qty": 8000,
+          "sell_px": 15148.6072,
+          "cost_px": 14719.6269,
+          "sell_amt": 121188858,
+          "cost_amt": 117757015.07,
+          "pnl_orig": 3431842.93,
+          "pnl_hkd": 171592.15,
+          "ccy": "JPY",
+          "note": "市场卖出FIFO 不归属任何订单"
+        }
+      ]
     }
   },
-  "totalNewPnlHKD": 7448251.41,
+  "totalNewPnlHKD": 9450640.15,
   "priceUpdatedAt": "2026-06-10 12:43 UTC"
 }
