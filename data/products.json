@@ -3043,9 +3043,9 @@
         "koPct": 100,
         "koType": "每月",
         "firstKO": "1月后",
-        "interest": 7635,
-        "interestHKD": 59764.49,
-        "datesReceived": "26.3.5 4.8",
+        "interest": 11452.5,
+        "interestHKD": 89673.65,
+        "datesReceived": "26.3.5 4.8 5.1",
         "status": "敲出",
         "knockoutDate": "2026-05-01"
       },
@@ -3132,14 +3132,6 @@
       "ccy": "USD"
     },
     {
-      "ticker": "GOOG",
-      "date": "2026-05-01",
-      "type": "FCN收息",
-      "amount": 3817.5,
-      "note": "下单日为2026.01.20的GOOGLE.OQ 收息 HKD3817.5 FCN敲出",
-      "ccy": "HKD"
-    },
-    {
       "date": "2026-05-14",
       "ticker": "AAPL",
       "ccy": "USD",
@@ -3149,19 +3141,21 @@
       "note": "1020股@0.27 税30% 净收192.78 USD"
     },
     {
-      "date": "2026-05-21",
-      "product": "3800HK FCN",
-      "amount": 26766.67,
-      "ccy": "HKD",
-      "note": "ELN Fixed Coupon Note 16.06% JPMorgan"
-    },
-    {
       "ticker": "700HK",
       "date": "2026-06-01",
       "type": "派息",
       "amount": 82749.06,
       "note": "700HK 15639股 @HKD5.30/股",
       "ccy": "HKD"
+    },
+    {
+      "ticker": "GOOG",
+      "underlying": "谷歌-C",
+      "date": "2026-06-12",
+      "type": "派息",
+      "amount": 136.14,
+      "note": "GOOG派息 净收136.14 USD",
+      "ccy": "USD"
     }
   ],
   "inventory": {
@@ -4859,8 +4853,8 @@
       ]
     },
     "AAPL": {
-      "orig": 14095.22,
-      "hkd": 110432.56,
+      "orig": 14288.0,
+      "hkd": 111942.94,
       "ccy": "USD",
       "trades": [
         {
@@ -4979,6 +4973,19 @@
           "pnl_hkd": 8412.11,
           "ccy": "USD",
           "note": "AAPL(F-1)反累计行权卖出"
+        },
+        {
+          "date": "2026-05-14",
+          "type": "派息",
+          "qty": 0,
+          "sell_px": null,
+          "cost_px": null,
+          "sell_amt": 192.78,
+          "cost_amt": 0,
+          "pnl_orig": 192.78,
+          "pnl_hkd": 1510.38,
+          "ccy": "USD",
+          "note": "AAPL派息 1020股@0.27 税30%"
         }
       ]
     },
@@ -6812,6 +6819,6 @@
       ]
     }
   },
-  "totalNewPnlHKD": 10007551.94,
+  "totalNewPnlHKD": 10009062.32,
   "priceUpdatedAt": "2026-06-19 22:29 UTC"
 }
