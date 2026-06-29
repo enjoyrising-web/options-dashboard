@@ -3086,7 +3086,7 @@
       "product": "9988HK(F-1)",
       "type": "反累计",
       "obs": "2026.06.23",
-      "status": "存续中",
+      "status": "敲出",
       "ccy": "HKD",
       "ticker": "9988.HK",
       "profitHKD": null,
@@ -3098,7 +3098,9 @@
       "maxShares": -12400,
       "uns": 24800,
       "inventory": null,
-      "note": "反累计 2X 1x/2x:-12400/-24800股 248天 2w/4w 1x资金20万USD 成交价98.95"
+      "note": "反累计 2X 1x/2x:-12400/-24800股 248天 2w/4w 1x资金20万USD 成交价98.95",
+      "koDate": "2026-06-29",
+      "pendingFinal": true
     },
     {
       "underlying": "腾讯",
