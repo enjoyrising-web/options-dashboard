@@ -2475,7 +2475,7 @@
       "maxShares": null,
       "uns": null,
       "inventory": 0,
-      "close": 137.25,
+      "close": 123.0,
       "profitHKD": 604312.25,
       "ccy": "HKD",
       "ticker": "7747.HK"
@@ -2513,7 +2513,7 @@
       "maxShares": null,
       "uns": null,
       "inventory": 50000,
-      "close": 19.97,
+      "close": 19.64,
       "profitHKD": 483932.76,
       "ccy": "HKD",
       "ticker": "3076.HK"
@@ -2551,7 +2551,7 @@
       "maxShares": null,
       "uns": null,
       "inventory": null,
-      "close": 197.75,
+      "close": 191.7,
       "profitHKD": -66348.88,
       "ccy": "HKD",
       "ticker": "3119.HK"
@@ -7037,5 +7037,5 @@
     }
   },
   "totalNewPnlHKD": 10009062.32,
-  "priceUpdatedAt": "2026-07-03 11:44 UTC"
+  "priceUpdatedAt": "2026-07-03 22:30 UTC"
 }
