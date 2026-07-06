@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06",
+  "updatedAt": "2026-07-03",
   "fx": {
     "USDHKD": 7.83475,
     "JPYHKD": 0.05
@@ -151,7 +151,7 @@
       "daily": 3500,
       "maxShares": 1722000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -169,10 +169,10 @@
       "discount": 0.799,
       "daily": 7000,
       "maxShares": 3430000,
-      "uns": 1624000,
-      "close": 0.67,
+      "uns": 1484000,
+      "close": 0.68,
       "profitHKD": null,
-      "inventory": 5978300,
+      "inventory": 8756948,
       "ccy": "HKD",
       "ticker": "3800.HK"
     },
@@ -189,7 +189,7 @@
       "daily": 12000,
       "maxShares": 5880000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -208,7 +208,7 @@
       "daily": 12000,
       "maxShares": 5904000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -227,7 +227,7 @@
       "daily": 12000,
       "maxShares": 5904000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -245,8 +245,8 @@
       "discount": 0.7911,
       "daily": 10000,
       "maxShares": 4940000,
-      "uns": 3640000,
-      "close": 0.67,
+      "uns": 3440000,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -265,7 +265,7 @@
       "daily": 12000,
       "maxShares": 5928000,
       "uns": 4608000,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -284,7 +284,7 @@
       "daily": 5000,
       "maxShares": 5928000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": 39852.5,
       "inventory": null,
       "ccy": "HKD",
@@ -303,7 +303,7 @@
       "daily": 5500,
       "maxShares": 2728000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": 16308.9,
       "inventory": null,
       "ccy": "HKD",
@@ -340,10 +340,10 @@
       "discount": 0.8299,
       "daily": 80,
       "maxShares": 39040,
-      "uns": 9280,
-      "close": 74.95,
+      "uns": 7680,
+      "close": 71.6,
       "profitHKD": -122143.5,
-      "inventory": 13760,
+      "inventory": 31200,
       "ccy": "HKD",
       "ticker": "3690.HK"
     },
@@ -360,7 +360,7 @@
       "daily": 80,
       "maxShares": 39200,
       "uns": 0,
-      "close": 74.95,
+      "close": 71.6,
       "profitHKD": 94572.29,
       "inventory": null,
       "ccy": "HKD",
@@ -378,8 +378,8 @@
       "discount": 0.8399,
       "daily": 80,
       "maxShares": 39360,
-      "uns": 24640,
-      "close": 74.95,
+      "uns": 23200,
+      "close": 71.6,
       "profitHKD": -1720.63,
       "inventory": null,
       "ccy": "HKD",
@@ -397,10 +397,10 @@
       "discount": 0.791,
       "daily": 150,
       "maxShares": 73200,
-      "uns": 17400,
-      "close": 39.22,
+      "uns": 14400,
+      "close": 36.76,
       "profitHKD": -306988.75,
-      "inventory": 4350,
+      "inventory": 13050,
       "ccy": "HKD",
       "ticker": "9863.HK"
     },
@@ -417,7 +417,7 @@
       "daily": 200,
       "maxShares": 98000,
       "uns": 0,
-      "close": 39.22,
+      "close": 36.76,
       "profitHKD": 71077.07,
       "inventory": null,
       "ccy": "HKD",
@@ -457,7 +457,7 @@
       "uns": 0,
       "close": 190.5,
       "profitHKD": 29344.74,
-      "inventory": 180,
+      "inventory": 0,
       "ccy": "HKD",
       "ticker": "9999.HK",
       "pendingFinal": false
@@ -475,7 +475,7 @@
       "daily": 900,
       "maxShares": 441000,
       "uns": 0,
-      "close": 4.49,
+      "close": 4.68,
       "profitHKD": 78951.08,
       "inventory": null,
       "ccy": "HKD",
@@ -494,7 +494,7 @@
       "daily": 900,
       "maxShares": 442800,
       "uns": 277200,
-      "close": 4.49,
+      "close": 4.68,
       "profitHKD": 45176.64,
       "inventory": 56700,
       "ccy": "HKD",
@@ -513,7 +513,7 @@
       "daily": 50,
       "maxShares": 24500,
       "uns": 0,
-      "close": 95.95,
+      "close": 94.1,
       "profitHKD": 21275,
       "inventory": null,
       "ccy": "HKD",
@@ -532,7 +532,7 @@
       "daily": 55,
       "maxShares": 26950,
       "uns": 0,
-      "close": 95.95,
+      "close": 94.1,
       "profitHKD": 26756.6,
       "inventory": null,
       "ccy": "HKD",
@@ -551,7 +551,7 @@
       "daily": 55,
       "maxShares": 27060,
       "uns": 0,
-      "close": 95.95,
+      "close": 94.1,
       "profitHKD": 15806.26,
       "inventory": null,
       "ccy": "HKD",
@@ -569,10 +569,10 @@
       "discount": 0.8122,
       "daily": 55,
       "maxShares": 26840,
-      "uns": 18920,
-      "close": 95.95,
+      "uns": 17820,
+      "close": 94.1,
       "profitHKD": 16668.75,
-      "inventory": 11330,
+      "inventory": 24800,
       "ccy": "HKD",
       "ticker": "9988.HK"
     },
@@ -589,7 +589,7 @@
       "daily": 35,
       "maxShares": 17290,
       "uns": 13440,
-      "close": 95.95,
+      "close": 94.1,
       "profitHKD": 25457.03,
       "inventory": null,
       "ccy": "HKD",
@@ -665,7 +665,7 @@
       "daily": 580,
       "maxShares": 285360,
       "uns": 0,
-      "close": 18.64,
+      "close": 18.3,
       "profitHKD": 67946.38,
       "inventory": null,
       "ccy": "HKD",
@@ -683,10 +683,10 @@
       "discount": 0.7773,
       "daily": 500,
       "maxShares": 247000,
-      "uns": 209000,
-      "close": 18.64,
+      "uns": 199000,
+      "close": 18.3,
       "profitHKD": 39549.53,
-      "inventory": 500,
+      "inventory": 6000,
       "ccy": "HKD",
       "ticker": "175.HK"
     },
@@ -702,10 +702,10 @@
       "discount": 0.8718,
       "daily": 15,
       "maxShares": 7380,
-      "uns": 4920,
-      "close": 452.0,
+      "uns": 4650,
+      "close": 431.2,
       "profitHKD": null,
-      "inventory": 16678,
+      "inventory": 17340,
       "ccy": "HKD",
       "ticker": "700.HK"
     },
@@ -722,7 +722,7 @@
       "daily": 20,
       "maxShares": 9760,
       "uns": 0,
-      "close": 452.0,
+      "close": 431.2,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -740,8 +740,8 @@
       "discount": 0.8563,
       "daily": 30,
       "maxShares": 14820,
-      "uns": 12540,
-      "close": 452.0,
+      "uns": 11940,
+      "close": 431.2,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -759,8 +759,8 @@
       "discount": 0.868,
       "daily": 10,
       "maxShares": 4940,
-      "uns": 4380,
-      "close": 452.0,
+      "uns": 4180,
+      "close": 431.2,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -778,8 +778,8 @@
       "discount": 0.8716,
       "daily": 10,
       "maxShares": 4940,
-      "uns": 4580,
-      "close": 452.0,
+      "uns": 4380,
+      "close": 431.2,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -798,7 +798,7 @@
       "daily": 10,
       "maxShares": 4940,
       "uns": 0,
-      "close": 452.0,
+      "close": 431.2,
       "profitHKD": 16281.59,
       "inventory": null,
       "ccy": "HKD",
@@ -817,7 +817,7 @@
       "daily": 10,
       "maxShares": 4960,
       "uns": 0,
-      "close": 452.0,
+      "close": 431.2,
       "profitHKD": 6804.56,
       "inventory": null,
       "ccy": "HKD",
@@ -836,7 +836,7 @@
       "daily": 10,
       "maxShares": 4940,
       "uns": 0,
-      "close": 452.0,
+      "close": 431.2,
       "profitHKD": 7245.94,
       "inventory": null,
       "ccy": "HKD",
@@ -973,7 +973,7 @@
       "uns": 4220,
       "close": 82.39,
       "profitHKD": null,
-      "inventory": 10404,
+      "inventory": 10350,
       "ccy": "USD",
       "ticker": "PDD"
     },
@@ -1030,7 +1030,7 @@
       "uns": 844,
       "close": 308.63,
       "profitHKD": 31170.58,
-      "inventory": 892,
+      "inventory": 871,
       "ccy": "USD",
       "ticker": "AAPL"
     },
@@ -1084,10 +1084,10 @@
       "discount": null,
       "daily": 2,
       "maxShares": 1000,
-      "uns": 924,
+      "uns": 884,
       "close": 356.18,
       "profitHKD": null,
-      "inventory": 864,
+      "inventory": 844,
       "ccy": "USD",
       "ticker": "GOOG",
       "pendingFinal": true
@@ -1488,7 +1488,7 @@
       "daily": 30,
       "maxShares": 14820,
       "uns": 0,
-      "close": 452.0,
+      "close": 431.2,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -1507,7 +1507,7 @@
       "daily": 30,
       "maxShares": 14880,
       "uns": 0,
-      "close": 452.0,
+      "close": 431.2,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -1526,7 +1526,7 @@
       "daily": 30,
       "maxShares": 14820,
       "uns": 0,
-      "close": 452.0,
+      "close": 431.2,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -1906,7 +1906,7 @@
       "daily": 3000,
       "maxShares": 1476000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -1925,7 +1925,7 @@
       "daily": 3800,
       "maxShares": 1869600,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -1944,7 +1944,7 @@
       "daily": 3800,
       "maxShares": 1869600,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -1963,7 +1963,7 @@
       "daily": 3500,
       "maxShares": 1729000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -1982,7 +1982,7 @@
       "daily": 4000,
       "maxShares": 1968000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2001,7 +2001,7 @@
       "daily": 9000,
       "maxShares": 4410000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2020,7 +2020,7 @@
       "daily": 9000,
       "maxShares": 4410000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2039,7 +2039,7 @@
       "daily": 7000,
       "maxShares": 3444000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2058,7 +2058,7 @@
       "daily": 7000,
       "maxShares": 3430000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2077,7 +2077,7 @@
       "daily": 7000,
       "maxShares": 3430000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2096,7 +2096,7 @@
       "daily": 10000,
       "maxShares": 4900000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2115,7 +2115,7 @@
       "daily": 12000,
       "maxShares": 5880000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2134,7 +2134,7 @@
       "daily": 12000,
       "maxShares": 5904000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2153,7 +2153,7 @@
       "daily": 12000,
       "maxShares": 5856000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2172,7 +2172,7 @@
       "daily": 12000,
       "maxShares": 5856000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2191,7 +2191,7 @@
       "daily": 7000,
       "maxShares": 3430000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2210,7 +2210,7 @@
       "daily": 7000,
       "maxShares": 3416000,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2221,7 +2221,7 @@
       "product": "6762JT",
       "type": "市场买入",
       "obs": "2026.04.30",
-      "status": "结束",
+      "status": "存续中",
       "ccy": "JPY",
       "ticker": "6762.T",
       "profitHKD": 2417.2,
@@ -2232,7 +2232,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": null
+      "inventory": 6000
     },
     {
       "underlying": "村田",
@@ -2243,14 +2243,14 @@
       "ccy": "JPY",
       "ticker": "6981.T",
       "profitHKD": null,
-      "close": 10250.0,
+      "close": 11080.0,
       "strike": null,
       "knockin": null,
       "knockout": null,
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 1500
+      "inventory": 4200
     },
     {
       "underlying": "苹果",
@@ -2279,20 +2279,21 @@
       "product": "Intel(16)",
       "type": "累计期权",
       "obs": "2026.05.12",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 131,
       "knockin": 87.8093,
       "knockout": 137.55,
       "discount": 0.6703,
       "daily": 5,
       "maxShares": 1250,
-      "uns": 2310,
+      "uns": 0,
       "inventory": 400,
       "close": 120.35,
       "profitHKD": null,
       "ccy": "USD",
       "ticker": "INTEL",
-      "note": "2X杠杆 1x/2x:5/10股 250天 2w/4w 1x资金11万USD"
+      "note": "2X杠杆 1x/2x:5/10股 250天 2w/4w 1x资金11万USD",
+      "pendingFinal": false
     },
     {
       "underlying": "英特尔",
@@ -2328,7 +2329,7 @@
       "maxShares": 2470,
       "uns": 0,
       "inventory": null,
-      "close": 452.0,
+      "close": 431.2,
       "profitHKD": 5174.41,
       "ccy": "HKD",
       "ticker": "700.HK",
@@ -2475,7 +2476,7 @@
       "maxShares": null,
       "uns": null,
       "inventory": 0,
-      "close": 147.5,
+      "close": 123.0,
       "profitHKD": 604312.25,
       "ccy": "HKD",
       "ticker": "7747.HK"
@@ -2513,7 +2514,7 @@
       "maxShares": null,
       "uns": null,
       "inventory": 50000,
-      "close": 19.34,
+      "close": 19.64,
       "profitHKD": 483932.76,
       "ccy": "HKD",
       "ticker": "3076.HK"
@@ -2551,7 +2552,7 @@
       "maxShares": null,
       "uns": null,
       "inventory": null,
-      "close": 196.45,
+      "close": 191.7,
       "profitHKD": -66348.88,
       "ccy": "HKD",
       "ticker": "3119.HK"
@@ -2580,7 +2581,7 @@
       "product": "MULL",
       "type": "市场买入",
       "obs": "",
-      "status": "结束",
+      "status": "存续中",
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -2588,7 +2589,7 @@
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": null,
+      "inventory": 60,
       "close": 689.535,
       "profitHKD": 11398.78,
       "ccy": "USD",
@@ -2668,7 +2669,7 @@
       "maxShares": -1235000,
       "uns": 0,
       "inventory": null,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": 6210.18,
       "ccy": "HKD",
       "ticker": "3800.HK",
@@ -2687,9 +2688,9 @@
       "discount": 0.9524,
       "daily": 5000,
       "maxShares": 1235000,
-      "uns": 2380000,
+      "uns": 2280000,
       "inventory": null,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": null,
       "ccy": "HKD",
       "ticker": "3800.HK",
@@ -2764,7 +2765,7 @@
       "discount": 0.8892,
       "daily": 3,
       "maxShares": 753,
-      "uns": 1446,
+      "uns": 1392,
       "close": 308.63,
       "profitHKD": null,
       "inventory": null,
@@ -2784,9 +2785,9 @@
       "discount": 1.1642,
       "daily": -12,
       "maxShares": -2976,
-      "uns": 5712,
-      "close": 452.0,
-      "profitHKD": 816.7,
+      "uns": 5496,
+      "close": 431.2,
+      "profitHKD": 1551.52,
       "inventory": null,
       "ccy": "HKD",
       "ticker": "700.HK",
@@ -2805,7 +2806,7 @@
       "daily": -5800,
       "maxShares": -2876800,
       "uns": 0,
-      "close": 0.67,
+      "close": 0.68,
       "profitHKD": 10109.82,
       "inventory": null,
       "ccy": "HKD",
@@ -2825,8 +2826,8 @@
       "discount": null,
       "daily": 5800,
       "maxShares": 2876800,
-      "uns": 2760800,
-      "close": 0.67,
+      "uns": 2656400,
+      "close": 0.68,
       "profitHKD": null,
       "inventory": null,
       "ccy": "HKD",
@@ -2845,7 +2846,7 @@
       "discount": 0.763,
       "daily": 5,
       "maxShares": 1250,
-      "uns": 2500,
+      "uns": 2400,
       "close": 129.3,
       "profitHKD": null,
       "inventory": null,
@@ -2858,20 +2859,21 @@
       "type": "反累计",
       "product": "PDD(F-4)",
       "obs": "2026.05.28",
-      "status": "存续中",
+      "status": "敲出",
       "strike": 82.5327,
       "knockin": 103.463,
       "knockout": 77.5807,
       "discount": 1.2536,
       "daily": -6,
       "maxShares": -1506,
-      "uns": 2892,
+      "uns": 0,
       "close": 82.39,
-      "profitHKD": 1670.21,
+      "profitHKD": 3173.39,
       "inventory": null,
       "ccy": "USD",
       "ticker": "PDD",
-      "note": "反累计 2X 1x/2x:-6/-12股 251天 2w/4w 1x资金16万USD"
+      "note": "反累计 2X 1x/2x:-6/-12股 251天 2w/4w 1x资金16万USD",
+      "pendingFinal": false
     },
     {
       "underlying": "谷歌-C",
@@ -2885,7 +2887,7 @@
       "discount": 0.8509,
       "daily": 3,
       "maxShares": 500,
-      "uns": 1000,
+      "uns": 960,
       "close": 356.18,
       "profitHKD": null,
       "inventory": null,
@@ -2905,7 +2907,7 @@
       "discount": 0.7517,
       "daily": 110,
       "maxShares": 27280,
-      "uns": 54560,
+      "uns": 52360,
       "close": 80,
       "profitHKD": null,
       "inventory": null,
@@ -2942,14 +2944,14 @@
       "ccy": "JPY",
       "ticker": "6976.T",
       "profitHKD": null,
-      "close": 18385.0,
+      "close": 20560.0,
       "strike": null,
       "knockin": null,
       "knockout": null,
       "daily": null,
       "maxShares": null,
       "uns": null,
-      "inventory": 8000
+      "inventory": 4900
     },
     {
       "underlying": "武藏精密",
@@ -2960,7 +2962,7 @@
       "ccy": "JPY",
       "ticker": "7220.T",
       "profitHKD": null,
-      "close": 3855.0,
+      "close": 4125.0,
       "strike": null,
       "knockin": null,
       "knockout": null,
@@ -3014,7 +3016,7 @@
       "ccy": "HKD",
       "ticker": "3690.HK",
       "profitHKD": null,
-      "close": 74.95,
+      "close": 71.6,
       "strike": 71.525,
       "knockin": 57.5276,
       "knockout": 75.1013,
@@ -3033,7 +3035,7 @@
       "ccy": "HKD",
       "ticker": "3690.HK",
       "profitHKD": null,
-      "close": 74.95,
+      "close": 71.6,
       "strike": 71.5,
       "knockin": 91.0624,
       "knockout": 67.21,
@@ -3075,7 +3077,7 @@
       "ccy": "HKD",
       "ticker": "9988.HK",
       "profitHKD": null,
-      "close": 95.95,
+      "close": 94.1,
       "strike": 98.95,
       "knockin": 80.9807,
       "knockout": 103.8975,
@@ -3094,7 +3096,7 @@
       "ccy": "HKD",
       "ticker": "9988.HK",
       "profitHKD": null,
-      "close": 95.95,
+      "close": 94.1,
       "strike": 98.95,
       "knockin": 125.3993,
       "knockout": 93.013,
@@ -3115,7 +3117,7 @@
       "ccy": "HKD",
       "ticker": "700.HK",
       "profitHKD": null,
-      "close": 452.0,
+      "close": 431.2,
       "strike": 414.8,
       "knockin": 356.1058,
       "knockout": 435.54,
@@ -3191,7 +3193,7 @@
       "ccy": "HKD",
       "ticker": "3800.HK",
       "profitHKD": null,
-      "close": 0.67,
+      "close": 0.68,
       "strike": 0.66,
       "knockin": 0.8678,
       "knockout": 0.6204,
@@ -3210,7 +3212,7 @@
       "ccy": "HKD",
       "ticker": "3800.HK",
       "profitHKD": null,
-      "close": 0.67,
+      "close": 0.68,
       "strike": 0.66,
       "knockin": 0.5095,
       "knockout": 0.693,
@@ -3219,6 +3221,158 @@
       "uns": 4960000,
       "inventory": null,
       "note": "累计 2X 1x/2x:2480000/4960000股 248天 2w/4w 1x资金16万USD 成交价0.66"
+    },
+    {
+      "underlying": "软银",
+      "product": "9984 JT(8)",
+      "type": "累计",
+      "obs": "2026.06.26",
+      "status": "存续中",
+      "ccy": "JPY",
+      "ticker": "9984.T",
+      "profitHKD": null,
+      "close": 6226,
+      "strike": 6154.31,
+      "knockin": 3912.2949,
+      "knockout": 6462.0255,
+      "daily": 40,
+      "maxShares": 9680,
+      "uns": 19360,
+      "inventory": null,
+      "note": "累计 2X 1x/2x:9680/19360股 242天 2w/4w 1x资金23万USD 成交价6154.31"
+    },
+    {
+      "underlying": "美团",
+      "product": "3690HK(F-2)",
+      "type": "反累计",
+      "obs": "2026.06.30",
+      "status": "存续中",
+      "ccy": "HKD",
+      "ticker": "3690.HK",
+      "profitHKD": null,
+      "close": 71.6,
+      "strike": 68.4513,
+      "knockin": 88.9251,
+      "knockout": 64.3442,
+      "daily": -60,
+      "maxShares": -14880,
+      "uns": 29760,
+      "inventory": null,
+      "note": "反累计 2X 1x/2x:-14880/-29760股 248天 2w/4w 1x资金17万USD 成交价68.4513"
+    },
+    {
+      "underlying": "协鑫科技",
+      "product": "3800HK(F-6)",
+      "type": "反累计",
+      "obs": "2026.06.30",
+      "status": "存续中",
+      "ccy": "HKD",
+      "ticker": "3800.HK",
+      "profitHKD": null,
+      "close": 0.68,
+      "strike": 0.67,
+      "knockin": 0.8898,
+      "knockout": 0.6298,
+      "daily": -8000,
+      "maxShares": -1984000,
+      "uns": 3968000,
+      "inventory": null,
+      "note": "反累计 2X 1x/2x:-1984000/-3968000股 248天 2w/4w 1x资金23万USD 成交价0.67"
+    },
+    {
+      "underlying": "腾讯",
+      "product": "700HK(F-6)",
+      "type": "反累计",
+      "obs": "2026.06.30",
+      "status": "存续中",
+      "ccy": "HKD",
+      "ticker": "700.HK",
+      "profitHKD": null,
+      "close": 431.2,
+      "strike": 423.4,
+      "knockin": 515.2778,
+      "knockout": 397.996,
+      "daily": -20,
+      "maxShares": -4960,
+      "uns": 9920,
+      "inventory": null,
+      "note": "反累计 2X 1x/2x:-4960/-9920股 248天 2w/4w 1x资金33万USD 成交价423.4"
+    },
+    {
+      "underlying": "泡泡玛特",
+      "product": "9992HK(1)",
+      "type": "累计",
+      "obs": "2026.07.03",
+      "status": "存续中",
+      "ccy": "HKD",
+      "ticker": "9992.HK",
+      "profitHKD": null,
+      "close": null,
+      "strike": 153.1,
+      "knockin": 120.8265,
+      "knockout": 160.755,
+      "daily": 30,
+      "maxShares": 7440,
+      "uns": 14880,
+      "inventory": null,
+      "note": "累计 2X 1x/2x:7440/14880股 248天 2w/4w 1x资金11万USD 成交价153.1"
+    },
+    {
+      "underlying": "泡泡玛特",
+      "product": "9992HK(F-1)",
+      "type": "反累计",
+      "obs": "2026.07.03",
+      "status": "存续中",
+      "ccy": "HKD",
+      "ticker": "9992.HK",
+      "profitHKD": null,
+      "close": null,
+      "strike": 152.9,
+      "knockin": 197.4551,
+      "knockout": 143.726,
+      "daily": -30,
+      "maxShares": -7470,
+      "uns": 14940,
+      "inventory": null,
+      "note": "反累计 2X 1x/2x:-7470/-14940股 249天 2w/4w 1x资金19万USD 成交价152.9"
+    },
+    {
+      "underlying": "腾讯",
+      "product": "700HK(F-7)",
+      "type": "反累计",
+      "obs": "2026.07.03",
+      "status": "存续中",
+      "ccy": "HKD",
+      "ticker": "700.HK",
+      "profitHKD": null,
+      "close": 431.2,
+      "strike": 430.4,
+      "knockin": 525.9488,
+      "knockout": 404.576,
+      "daily": -14,
+      "maxShares": -3472,
+      "uns": 6944,
+      "inventory": null,
+      "note": "反累计 2X 1x/2x:-3472/-6944股 248天 2w/4w 1x资金23万USD 成交价430.4"
+    },
+    {
+      "underlying": "阿里巴巴",
+      "product": "9988HK(F-2)",
+      "type": "反累计",
+      "obs": "2026.07.03",
+      "status": "存续中",
+      "ccy": "HKD",
+      "ticker": "9988.HK",
+      "profitHKD": null,
+      "close": 94.1,
+      "strike": 94.1,
+      "knockin": 120.7491,
+      "knockout": 88.454,
+      "daily": -48,
+      "maxShares": -11952,
+      "uns": 23904,
+      "inventory": null,
+      "note": "反累计 2X 1x/2x:-11952/-23904股 249天 2w/4w 1x资金18万USD 成交价94.1"
     }
   ],
   "fcn": {
@@ -3303,10 +3457,10 @@
         "koPct": 100,
         "koType": "每月",
         "firstKO": "1月后",
-        "interest": 53533.34,
-        "datesReceived": "26.4.22  26.5.21",
-        "status": "存续中",
-        "knockoutDate": null
+        "interest": 80300.01,
+        "datesReceived": "26.4.22  26.5.21  6.24",
+        "status": "敲出",
+        "knockoutDate": "2026-06-23"
       }
     ],
     "totalInterest": 206482.34
@@ -3492,7 +3646,7 @@
       "ccy": "USD"
     },
     "AAPL": {
-      "qty": 892,
+      "qty": 871,
       "realized": 3698.08,
       "lots": [
         {
@@ -3506,12 +3660,12 @@
         },
         {
           "price": 262.7739,
-          "qty": 70,
+          "qty": 22,
           "type": "fifo",
           "date": "2026-03-05",
           "txType": "BUY",
           "ccy": "USD",
-          "amount": 18394.172222222223
+          "amount": 5781.025555555556
         },
         {
           "price": 258.2215,
@@ -3575,22 +3729,31 @@
           "txType": "接股",
           "ccy": "USD",
           "amount": 8269.58
+        },
+        {
+          "price": 275.6526,
+          "qty": 27,
+          "type": "batch",
+          "date": "2026-06-24",
+          "txType": "接股",
+          "ccy": "USD",
+          "amount": 7442.62
         }
       ],
       "ccy": "USD"
     },
     "PDD": {
-      "qty": 10404,
+      "qty": 10350,
       "realized": 5415.56,
       "lots": [
         {
           "price": 99.91,
-          "qty": 474,
+          "qty": 420,
           "type": "fifo",
           "date": "2026-03-04",
           "txType": "BUY",
           "ccy": "USD",
-          "amount": 47357.340000000004
+          "amount": 41962.200000000004
         },
         {
           "price": 102.0846,
@@ -3677,17 +3840,17 @@
       "ccy": "USD"
     },
     "GOOG": {
-      "qty": 864,
+      "qty": 844,
       "realized": 8939.54,
       "lots": [
         {
           "price": 304.74,
-          "qty": 116,
+          "qty": 56,
           "type": "fifo",
           "date": "2026-03-05",
           "txType": "BUY",
           "ccy": "USD",
-          "amount": 35349.84
+          "amount": 17065.44
         },
         {
           "price": 300.3202,
@@ -3742,6 +3905,24 @@
           "txType": "接股",
           "ccy": "USD",
           "amount": 5878.22
+        },
+        {
+          "price": 326.568,
+          "qty": 20,
+          "type": "batch",
+          "date": "2026-06-17",
+          "txType": "接股",
+          "ccy": "USD",
+          "amount": 6531.36
+        },
+        {
+          "price": 304.073,
+          "qty": 20,
+          "type": "batch",
+          "date": "2026-06-18",
+          "txType": "接股",
+          "ccy": "USD",
+          "amount": 6081.46
         }
       ],
       "ccy": "USD"
@@ -3788,11 +3969,11 @@
         },
         {
           "price": 75.5478,
-          "qty": 305,
+          "qty": 265,
           "type": "batch",
           "date": "2026-05-11",
           "txType": "接股",
-          "amount": 23042.075789473685
+          "amount": 20020.164210526316
         },
         {
           "price": 116.3911,
@@ -3820,12 +4001,21 @@
           "txType": "接股",
           "ccy": "USD",
           "amount": 3951.42
+        },
+        {
+          "price": 87.8092,
+          "qty": 40,
+          "type": "batch",
+          "date": "2026-06-23",
+          "txType": "接股",
+          "ccy": "USD",
+          "amount": 3512.37
         }
       ],
       "ccy": "USD"
     },
     "3800HK": {
-      "qty": 5978300,
+      "qty": 8756948,
       "realized": 39852.5,
       "lots": [
         {
@@ -3979,12 +4169,57 @@
           "txType": "接股",
           "ccy": "HKD",
           "amount": 201292.18
+        },
+        {
+          "price": 0.9821,
+          "qty": 200000,
+          "type": "batch",
+          "date": "2026-06-18",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 196414.73
+        },
+        {
+          "price": 0.9599,
+          "qty": 140000,
+          "type": "batch",
+          "date": "2026-06-18",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 134379.15
+        },
+        {
+          "price": 0.6361,
+          "qty": 50000,
+          "type": "batch",
+          "date": "2026-06-19",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 31803.15
+        },
+        {
+          "price": 0.8569,
+          "qty": 2336448,
+          "type": "batch",
+          "date": "2026-06-23",
+          "txType": "FCN交割",
+          "ccy": "HKD",
+          "amount": 2002179.6
+        },
+        {
+          "price": 0.6573,
+          "qty": 52200,
+          "type": "batch",
+          "date": "2026-06-24",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 34308.54
         }
       ],
       "ccy": "HKD"
     },
     "9988HK": {
-      "qty": 11330,
+      "qty": 24800,
       "realized": 40626.99,
       "lots": [
         {
@@ -4031,6 +4266,24 @@
           "txType": "接股",
           "ccy": "HKD",
           "amount": 39602.91
+        },
+        {
+          "price": 128.8744,
+          "qty": 1100,
+          "type": "batch",
+          "date": "2026-06-19",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 141761.85
+        },
+        {
+          "price": 99.4334,
+          "qty": 12370,
+          "type": "fifo",
+          "date": "2026-06-24",
+          "txType": "买入",
+          "ccy": "HKD",
+          "amount": 1229991.44
         }
       ],
       "ccy": "HKD"
@@ -4038,7 +4291,17 @@
     "PLTR": {
       "qty": 0,
       "realized": -5793.37,
-      "lots": [],
+      "lots": [
+        {
+          "price": 116.6706,
+          "qty": 0,
+          "type": "batch",
+          "date": "2026-06-17",
+          "txType": "接股",
+          "ccy": "USD",
+          "amount": 0.0
+        }
+      ],
       "ccy": "USD"
     },
     "9984JT": {
@@ -4058,17 +4321,17 @@
       "ccy": "JPY"
     },
     "700HK": {
-      "qty": 16678,
+      "qty": 17340,
       "realized": 19683.87,
       "lots": [
         {
           "price": 504.9954,
-          "qty": 3488,
+          "qty": 3380,
           "type": "fifo",
           "date": "2026-04-22",
           "txType": "BUY",
           "ccy": "HKD",
-          "amount": 1761423.9552
+          "amount": 1706884.452
         },
         {
           "price": 432.5557,
@@ -4222,12 +4485,48 @@
           "txType": "接股",
           "ccy": "HKD",
           "amount": 152120.42
+        },
+        {
+          "price": 407.3534,
+          "qty": 100,
+          "type": "batch",
+          "date": "2026-06-18",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 40735.34
+        },
+        {
+          "price": 432.4903,
+          "qty": 300,
+          "type": "batch",
+          "date": "2026-06-18",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 129747.08
+        },
+        {
+          "price": 437.9625,
+          "qty": 100,
+          "type": "batch",
+          "date": "2026-06-18",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 43796.25
+        },
+        {
+          "price": 507.0689,
+          "qty": 270,
+          "type": "batch",
+          "date": "2026-06-24",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 136908.6
         }
       ],
       "ccy": "HKD"
     },
     "3690HK": {
-      "qty": 13760,
+      "qty": 31200,
       "realized": 0,
       "lots": [
         {
@@ -4301,12 +4600,39 @@
           "txType": "接股",
           "ccy": "HKD",
           "amount": 112978.83
+        },
+        {
+          "price": 100.8603,
+          "qty": 1600,
+          "type": "batch",
+          "date": "2026-06-17",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 161376.42
+        },
+        {
+          "price": 71.7517,
+          "qty": 14400,
+          "type": "fifo",
+          "date": "2026-06-22",
+          "txType": "买入",
+          "ccy": "HKD",
+          "amount": 1033223.82
+        },
+        {
+          "price": 83.0729,
+          "qty": 1440,
+          "type": "batch",
+          "date": "2026-06-23",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 119625.02
         }
       ],
       "ccy": "HKD"
     },
     "9863HK": {
-      "qty": 10050,
+      "qty": 13050,
       "realized": 0,
       "lots": [
         {
@@ -4344,6 +4670,15 @@
           "txType": "接股",
           "ccy": "HKD",
           "amount": 145920.8
+        },
+        {
+          "price": 54.0447,
+          "qty": 3000,
+          "type": "batch",
+          "date": "2026-06-17",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 162133.98
         }
       ],
       "ccy": "HKD"
@@ -4355,35 +4690,73 @@
       "ccy": "USD"
     },
     "0175HK": {
-      "qty": 500,
+      "qty": 6000,
       "realized": 40008.95,
       "lots": [
         {
           "price": 18.5514,
-          "qty": 500,
+          "qty": 0,
           "type": "batch",
           "date": "2026-06-04",
           "txType": "接股",
           "ccy": "HKD",
-          "amount": 9275.694444444438
+          "amount": 0.0
+        },
+        {
+          "price": 18.5517,
+          "qty": 6000,
+          "type": "batch",
+          "date": "2026-06-18",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 111310.15
         }
       ],
       "ccy": "HKD"
     },
     "0981HK": {
-      "qty": 0,
+      "qty": 1100,
       "realized": 18623.68,
-      "lots": [],
+      "lots": [
+        {
+          "price": 56.9523,
+          "qty": 1100,
+          "type": "batch",
+          "date": "2026-06-23",
+          "txType": "接股",
+          "ccy": "HKD",
+          "amount": 62647.54
+        }
+      ],
       "ccy": "HKD"
     },
     "6762JT": {
-      "qty": 0,
+      "qty": 6000,
       "realized": 48344,
-      "lots": [],
+      "lots": [
+        {
+          "price": 3930.6568,
+          "qty": 4000,
+          "type": "fifo",
+          "date": "2026-06-18",
+          "txType": "买入",
+          "ccy": "JPY",
+          "amount": 15722627
+        },
+        {
+          "price": 4071.0635,
+          "qty": 2000,
+          "type": "fifo",
+          "date": "2026-06-22",
+          "txType": "买入",
+          "ccy": "JPY",
+          "amount": 8142127
+        }
+      ],
       "ccy": "JPY"
     },
     "6981JT": {
-      "qty": 1500,
+      "qty": 4200,
       "realized": 0,
       "lots": [
         {
@@ -4394,6 +4767,24 @@
           "txType": "买入",
           "ccy": "JPY",
           "amount": 13311174
+        },
+        {
+          "price": 12381.1469,
+          "qty": 1300,
+          "type": "fifo",
+          "date": "2026-06-21",
+          "txType": "买入",
+          "ccy": "JPY",
+          "amount": 16095491
+        },
+        {
+          "price": 11385.9421,
+          "qty": 1400,
+          "type": "fifo",
+          "date": "2026-06-24",
+          "txType": "买入",
+          "ccy": "JPY",
+          "amount": 15940319
         }
       ],
       "ccy": "JPY"
@@ -4442,7 +4833,7 @@
       "ccy": "HKD"
     },
     "9999HK": {
-      "qty": 180,
+      "qty": 0,
       "lots": [
         {
           "price": 155.3341,
@@ -4455,19 +4846,19 @@
         },
         {
           "price": 155.3395,
-          "qty": 180,
+          "qty": 0,
           "type": "batch",
           "date": "2026-06-12",
           "txType": "接股",
           "ccy": "HKD",
-          "amount": 27961.11
+          "amount": 0.0
         }
       ],
       "realized": 12282.52,
       "ccy": "HKD"
     },
     "MULL": {
-      "qty": 0,
+      "qty": 60,
       "lots": [
         {
           "price": 471.8502,
@@ -4495,6 +4886,15 @@
           "txType": "买入",
           "ccy": "USD",
           "amount": 0
+        },
+        {
+          "price": 840.8625,
+          "qty": 60,
+          "type": "fifo",
+          "date": "2026-06-18",
+          "txType": "买入",
+          "ccy": "USD",
+          "amount": 50451.75
         }
       ],
       "realized": 1454.9,
@@ -4788,7 +5188,7 @@
       "ccy": "JPY"
     },
     "6976JT": {
-      "qty": 8000,
+      "qty": 4900,
       "lots": [
         {
           "price": 13769.419,
@@ -4801,12 +5201,21 @@
         },
         {
           "price": 14855.3709,
-          "qty": 8000,
+          "qty": 4000,
           "type": "fifo",
           "date": "2026-05-29",
           "txType": "买入",
           "ccy": "JPY",
-          "amount": 118842966.93333334
+          "amount": 59421483.466666676
+        },
+        {
+          "price": 17254.6689,
+          "qty": 900,
+          "type": "fifo",
+          "date": "2026-06-24",
+          "txType": "买入",
+          "ccy": "JPY",
+          "amount": 15529202
         }
       ],
       "realized": 0,
@@ -5070,8 +5479,8 @@
       ]
     },
     "AAPL": {
-      "orig": 14288,
-      "hkd": 111942.94,
+      "orig": 15892.84,
+      "hkd": 124516.49,
       "ccy": "USD",
       "trades": [
         {
@@ -5203,12 +5612,25 @@
           "pnl_hkd": 1510.38,
           "ccy": "USD",
           "note": "AAPL派息 1020股@0.27 税30%"
+        },
+        {
+          "date": "2026-06-18",
+          "type": "SELL",
+          "qty": 48,
+          "sell_px": 296.2081,
+          "cost_px": 262.7739,
+          "sell_amt": 14217.99,
+          "cost_amt": 12613.15,
+          "pnl_orig": 1604.84,
+          "pnl_hkd": 12573.55,
+          "ccy": "USD",
+          "note": "市场卖出FIFO 不归属任何订单"
         }
       ]
     },
     "PDD": {
-      "orig": 11509.75,
-      "hkd": 90176.01,
+      "orig": 11701.61,
+      "hkd": 91679.19,
       "ccy": "USD",
       "trades": [
         {
@@ -5275,12 +5697,25 @@
           "pnl_hkd": 1670.21,
           "ccy": "USD",
           "note": "PDD(F-4)反累计行权卖出"
+        },
+        {
+          "date": "2026-06-24",
+          "type": "行权卖出",
+          "qty": 54,
+          "sell_px": 103.463,
+          "cost_px": 99.91,
+          "sell_amt": 5587,
+          "cost_amt": 5395.14,
+          "pnl_orig": 191.86,
+          "pnl_hkd": 1503.18,
+          "ccy": "USD",
+          "note": "PDD(F-4)反累计行权卖出 敲出"
         }
       ]
     },
     "GOOG": {
-      "orig": 18082.09,
-      "hkd": 141668.67,
+      "orig": 21446.12,
+      "hkd": 168025.01,
       "ccy": "USD",
       "trades": [
         {
@@ -5412,6 +5847,32 @@
           "pnl_hkd": 16321.43,
           "ccy": "USD",
           "note": "GOOG(F-1)反累计行权卖出"
+        },
+        {
+          "date": "2026-06-18",
+          "type": "SELL",
+          "qty": 40,
+          "sell_px": 361.3503,
+          "cost_px": 304.74,
+          "sell_amt": 14454.01,
+          "cost_amt": 12189.6,
+          "pnl_orig": 2264.41,
+          "pnl_hkd": 17741.09,
+          "ccy": "USD",
+          "note": "市场卖出FIFO 不归属任何订单"
+        },
+        {
+          "date": "2026-06-19",
+          "type": "SELL",
+          "qty": 20,
+          "sell_px": 359.721,
+          "cost_px": 304.74,
+          "sell_amt": 7194.42,
+          "cost_amt": 6094.8,
+          "pnl_orig": 1099.62,
+          "pnl_hkd": 8615.25,
+          "ccy": "USD",
+          "note": "市场卖出FIFO 不归属任何订单"
         }
       ]
     },
@@ -5488,8 +5949,8 @@
       ]
     },
     "PLTR": {
-      "orig": -2013.97,
-      "hkd": -15778.94,
+      "orig": -1125.27,
+      "hkd": -8816.2,
       "ccy": "USD",
       "trades": [
         {
@@ -5543,12 +6004,25 @@
           "pnl_hkd": 11722.2,
           "ccy": "USD",
           "note": "市场卖出FIFO 不归属任何订单"
+        },
+        {
+          "date": "2026-06-18",
+          "type": "SELL",
+          "qty": 50,
+          "sell_px": 134.4446,
+          "cost_px": 116.6706,
+          "sell_amt": 6722.23,
+          "cost_amt": 5833.53,
+          "pnl_orig": 888.7,
+          "pnl_hkd": 6962.74,
+          "ccy": "USD",
+          "note": "市场卖出FIFO 不归属任何订单"
         }
       ]
     },
     "700HK": {
-      "orig": 119072.26,
-      "hkd": 119072.26,
+      "orig": 119807.08,
+      "hkd": 119807.08,
       "ccy": "HKD",
       "trades": [
         {
@@ -5654,6 +6128,19 @@
           "pnl_hkd": 816.7,
           "ccy": "HKD",
           "note": "700HK(F-5)反累计行权卖出"
+        },
+        {
+          "date": "2026-06-24",
+          "type": "行权卖出",
+          "qty": 108,
+          "sell_px": 511.7993,
+          "cost_px": 504.9954,
+          "sell_amt": 55274.32,
+          "cost_amt": 54539.5,
+          "pnl_orig": 734.82,
+          "pnl_hkd": 734.82,
+          "ccy": "HKD",
+          "note": "700HK(F-5)反累计行权卖出"
         }
       ]
     },
@@ -5691,8 +6178,8 @@
       ]
     },
     "0175HK": {
-      "orig": 41583.09,
-      "hkd": 41583.09,
+      "orig": 41543.44,
+      "hkd": 41543.44,
       "ccy": "HKD",
       "trades": [
         {
@@ -5757,6 +6244,19 @@
           "cost_amt": 74205.56,
           "pnl_orig": -45.79,
           "pnl_hkd": -45.79,
+          "ccy": "HKD",
+          "note": "市场卖出FIFO 不归属任何订单"
+        },
+        {
+          "date": "2026-06-18",
+          "type": "SELL",
+          "qty": 500,
+          "sell_px": 18.4721,
+          "cost_px": 18.5514,
+          "sell_amt": 9236.04,
+          "cost_amt": 9275.69,
+          "pnl_orig": -39.65,
+          "pnl_hkd": -39.65,
           "ccy": "HKD",
           "note": "市场卖出FIFO 不归属任何订单"
         }
@@ -6169,8 +6669,8 @@
       ]
     },
     "9999HK": {
-      "orig": 41985.38,
-      "hkd": 41985.38,
+      "orig": 47956.55,
+      "hkd": 47956.55,
       "ccy": "HKD",
       "trades": [
         {
@@ -6248,6 +6748,32 @@
           "cost_amt": 776.67,
           "pnl_orig": 65.46,
           "pnl_hkd": 65.46,
+          "ccy": "HKD",
+          "note": "市场卖出FIFO 不归属任何订单"
+        },
+        {
+          "date": "2026-06-18",
+          "type": "SELL",
+          "qty": 100,
+          "sell_px": 188.7033,
+          "cost_px": 155.3395,
+          "sell_amt": 18870.33,
+          "cost_amt": 15533.95,
+          "pnl_orig": 3336.38,
+          "pnl_hkd": 3336.38,
+          "ccy": "HKD",
+          "note": "市场卖出FIFO 不归属任何订单"
+        },
+        {
+          "date": "2026-06-18",
+          "type": "SELL",
+          "qty": 80,
+          "sell_px": 188.2744,
+          "cost_px": 155.3395,
+          "sell_amt": 15061.95,
+          "cost_amt": 12427.16,
+          "pnl_orig": 2634.79,
+          "pnl_hkd": 2634.79,
           "ccy": "HKD",
           "note": "市场卖出FIFO 不归属任何订单"
         }
@@ -6457,8 +6983,8 @@
       ]
     },
     "INTEL": {
-      "orig": 481322.09,
-      "hkd": 973224.12,
+      "orig": 483709.63,
+      "hkd": 991929.89,
       "ccy": "USD",
       "trades": [
         {
@@ -6705,6 +7231,19 @@
           "cost_amt": 405466.6,
           "pnl_orig": 50031.25,
           "pnl_hkd": 391982.3,
+          "ccy": "USD",
+          "note": "市场卖出FIFO 不归属任何订单"
+        },
+        {
+          "date": "2026-06-24",
+          "type": "SELL",
+          "qty": 40,
+          "sell_px": 135.2362,
+          "cost_px": 75.5478,
+          "sell_amt": 5409.45,
+          "cost_amt": 3021.91,
+          "pnl_orig": 2387.54,
+          "pnl_hkd": 18705.77,
           "ccy": "USD",
           "note": "市场卖出FIFO 不归属任何订单"
         }
@@ -7016,8 +7555,8 @@
       ]
     },
     "6976JT": {
-      "orig": 3431842.93,
-      "hkd": 171592.15,
+      "orig": 21518572.46,
+      "hkd": 1075928.63,
       "ccy": "JPY",
       "trades": [
         {
@@ -7032,10 +7571,36 @@
           "pnl_hkd": 171592.15,
           "ccy": "JPY",
           "note": "市场卖出FIFO 不归属任何订单"
+        },
+        {
+          "date": "2026-06-18",
+          "type": "SELL",
+          "qty": 1200,
+          "sell_px": 20936.1267,
+          "cost_px": 14855.3709,
+          "sell_amt": 25123352,
+          "cost_amt": 17826445.04,
+          "pnl_orig": 7296906.96,
+          "pnl_hkd": 364845.35,
+          "ccy": "JPY",
+          "note": "市场卖出FIFO 不归属任何订单"
+        },
+        {
+          "date": "2026-06-22",
+          "type": "SELL",
+          "qty": 2800,
+          "sell_px": 18708.8789,
+          "cost_px": 14855.3709,
+          "sell_amt": 52384861,
+          "cost_amt": 41595038.43,
+          "pnl_orig": 10789822.57,
+          "pnl_hkd": 539491.13,
+          "ccy": "JPY",
+          "note": "市场卖出FIFO 不归属任何订单"
         }
       ]
     }
   },
-  "totalNewPnlHKD": 10009062.32,
-  "priceUpdatedAt": "2026-07-06 13:02 UTC"
+  "totalNewPnlHKD": 10986166.72,
+  "priceUpdatedAt": "2026-07-03 22:30 UTC"
 }
