@@ -55,6 +55,12 @@ TICKER_MAP = {
     # 新增标的 2026-06-08 (纯库存补建订单)
     '6976.T':  '6976.T',   # 太阳诱电
     '7220.T':  '7220.T',   # 武藏精密
+    # 新增标的 2026-06-12
+    'SNDK':    'SNDK',   # 闪迪 SanDisk
+    # 新增标的 2026-06 下旬
+    '6752.T':  '6752.T',   # 松下 Panasonic
+    '1888.HK': '1888.HK',  # 建滔 Kingboard
+    'WOLF':    'WOLF',   # Wolfspeed
 }
 
 def fetch_prev_close(yahoo_ticker):
