@@ -3015,7 +3015,7 @@
       "product": "3690HK(4)",
       "type": "累计",
       "obs": "2026.06.22",
-      "status": "存续中",
+      "status": "敲出",
       "ccy": "HKD",
       "ticker": "3690.HK",
       "profitHKD": null,
@@ -3027,7 +3027,9 @@
       "maxShares": 14880,
       "uns": 28680,
       "inventory": null,
-      "note": "累计 2X 1x/2x:14880/29760股 247天 2w/4w 成交价71.525"
+      "note": "累计 2X 1x/2x:14880/29760股 247天 2w/4w 成交价71.525",
+      "koDate": "2026-07-20",
+      "pendingFinal": true
     },
     {
       "underlying": "美团",
