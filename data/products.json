@@ -3309,7 +3309,7 @@
       "product": "9992HK(1)",
       "type": "累计",
       "obs": "2026.07.03",
-      "status": "存续中",
+      "status": "敲出",
       "ccy": "HKD",
       "ticker": "9992.HK",
       "profitHKD": null,
@@ -3321,7 +3321,9 @@
       "maxShares": 7440,
       "uns": 14880,
       "inventory": 14940,
-      "note": "累计 2X 1x/2x:7440/14880股 248天 2w/4w 1x资金11万USD 成交价153.1"
+      "note": "累计 2X 1x/2x:7440/14880股 248天 2w/4w 1x资金11万USD 成交价153.1",
+      "koDate": "2026-07-20",
+      "pendingFinal": true
     },
     {
       "underlying": "泡泡玛特",
