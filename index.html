@@ -197,6 +197,7 @@ tr.clickable{cursor:pointer}
   <div class="tab" data-tab="inventory" onclick="switchTab(this)">库存明细</div>
   <div class="tab" data-tab="stats"     onclick="switchTab(this)">统计分析</div>
   <div class="tab" data-tab="fcn"       onclick="switchTab(this)">FCN台账</div>
+  <div class="tab" data-tab="equity" onclick="switchTab(this)">股权投资</div>
 </div>
 
 <!-- Overview -->
@@ -316,6 +317,24 @@ tr.clickable{cursor:pointer}
   </div>
 </div>
 
+<!-- Equity Investments -->
+<div class="panel" id="panel-equity">
+  <div class="fcn-header">
+    <h3>股权投资台账</h3>
+    <div class="fcn-total">已投入资金合计：<strong id="equity-total-val">—</strong> USD</div>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th>状态</th><th>付款日</th><th>投资标的</th><th>付款对手</th>
+        <th class="tr">本金</th><th class="tr">管理费</th><th>币种</th>
+        <th>票据期限</th><th class="tr">表现费</th>
+      </tr></thead>
+      <tbody id="equity-body"></tbody>
+    </table>
+  </div>
+</div>
+
 <!-- Drawer -->
 <div class="drawer-bg" id="drawer-bg" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer"><button class="drawer-close" onclick="closeDrawer()">×</button><div id="drawer-body"></div></div>
@@ -347,6 +366,7 @@ async function loadData(){
     window._pnlDetail = pJson.realizedPnlFromTxn || {};
 
     FCN_DATA = pJson.fcn || {rows:[],totalInterest:0};
+    window._equity = pJson.equityInvestments || [];
     INV  = pJson.inventory || {};
     if(pJson.fx){ fxUSD=pJson.fx.USDHKD||7.8277; fxJPY=pJson.fx.JPYHKD||0.049; }
     document.getElementById('fx-usd').value=fxUSD;
@@ -844,6 +864,23 @@ function renderFCN(){
   </tr>`).join('');
 }
 
+function renderEquity(){
+  const items = window._equity || [];
+  const total = items.reduce((a,e)=>a+(e.principal||0)+(e.mgmtFee||0),0);
+  const el=document.getElementById('equity-total-val'); if(el) el.textContent=fmt(total,0);
+  const body=document.getElementById('equity-body'); if(!body) return;
+  body.innerHTML = items.length ? items.map(e=>`<tr>
+    <td>${e.status==='持有中'?'<span class="badge bact">持有中</span>':'<span class="badge bend">'+(e.status||'—')+'</span>'}</td>
+    <td>${e.date||''}</td><td>${e.target||''}</td><td style="color:var(--muted)">${e.payee||''}</td>
+    <td class="tr">${e.principal!=null?fmt(e.principal,0):'—'}</td>
+    <td class="tr">${e.mgmtFee!=null?fmt(e.mgmtFee,2):'—'}</td>
+    <td><span class="tag">${e.ccy||''}</span></td>
+    <td>${e.term||''}</td>
+    <td class="tr">${e.perfFee||''}</td>
+  </tr>`).join('') : '<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:20px">暂无股权投资</td></tr>';
+}
+
+
 // ── Drawer ─────────────────────────────────────────────────────
 function openDrawer(idx){
   const p=DATA[idx]; if(!p)return;
@@ -885,7 +922,7 @@ function switchTab(el){
 
 // ── Render all ─────────────────────────────────────────────────
 function renderAll(){
-  renderKPIs(); renderOverview(); renderActive(); renderStats(); renderFCN();
+  renderKPIs(); renderOverview(); renderActive(); renderStats(); renderFCN(); renderEquity();
 }
 
 loadData();
