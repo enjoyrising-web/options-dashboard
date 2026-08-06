@@ -28,6 +28,7 @@ TICKER_MAP = {
     'INTEL':   'INTC',
     'PDD':     'PDD',
     'MU':      'MU',
+    'SKHY':    'SKHY',
     '9984.T':  '9984.T',
     '6762.T':  '6762.T',
     '6981.T':  '6981.T',
