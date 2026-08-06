@@ -572,7 +572,7 @@
    "uns": 14740,
    "close": 110.0,
    "profitHKD": 16668.75,
-   "inventory": 23055,
+   "inventory": 21455,
    "ccy": "HKD",
    "ticker": "9988.HK"
   },
@@ -705,7 +705,7 @@
    "uns": 4080,
    "close": 434.6,
    "profitHKD": null,
-   "inventory": 15981,
+   "inventory": 15281,
    "ccy": "HKD",
    "ticker": "700.HK"
   },
@@ -954,7 +954,7 @@
    "uns": 732,
    "close": 403.41,
    "profitHKD": 144182.52,
-   "inventory": 752,
+   "inventory": 732,
    "ccy": "USD",
    "ticker": "TSM"
   },
@@ -2841,7 +2841,7 @@
    "type": "累计",
    "product": "PLTR(3)",
    "obs": "2026.06.02",
-   "status": "存续中",
+   "status": "敲出",
    "strike": 152.9104,
    "knockin": 116.6706,
    "knockout": 160.5559,
@@ -2882,7 +2882,7 @@
    "type": "累计",
    "product": "GOOG(4)",
    "obs": "2026.06.03",
-   "status": "存续中",
+   "status": "敲出",
    "strike": 357.3547,
    "knockin": 304.0731,
    "knockout": 375.2224,
@@ -3414,7 +3414,7 @@
    "daily": null,
    "maxShares": null,
    "uns": null,
-   "inventory": 187000
+   "inventory": 162000
   },
   {
    "underlying": "Wolfspeed",
@@ -3495,7 +3495,7 @@
    "product": "9984 JT(9)",
    "type": "累计",
    "obs": "2026.07.27",
-   "status": "存续中",
+   "status": "敲出",
    "ccy": "JPY",
    "ticker": "9984.T",
    "profitHKD": null,
@@ -3503,11 +3503,11 @@
    "strike": 5471.3729,
    "knockin": 3557.4867,
    "knockout": 5744.9415,
-   "daily": 25,
-   "maxShares": 6200,
-   "uns": 12400,
+   "daily": 40,
+   "maxShares": 9680,
+   "uns": 19360,
    "inventory": null,
-   "note": "累计 2X 天数248 2w/4w 1x/2x资金22万/43万USD ★每天股份按资金反推(daily=25),待核通知单"
+   "note": "累计 2X 天数242 2w/4w 每天40股 1x总9680 uns=19360 成交价5471.3729"
   },
   {
    "underlying": "GCL Technology",
@@ -3758,7 +3758,7 @@
  ],
  "inventory": {
   "TSM": {
-   "qty": 752,
+   "qty": 732,
    "realized": 59323.31,
    "lots": [
     {
@@ -3826,12 +3826,12 @@
     },
     {
      "price": 397.0477,
-     "qty": 479,
+     "qty": 459,
      "type": "fifo",
      "date": "2026-05-19",
      "txType": "BUY",
      "ccy": "USD",
-     "amount": 190185.85788
+     "amount": 182244.90348
     },
     {
      "price": 330.714,
@@ -4689,7 +4689,7 @@
    "ccy": "HKD"
   },
   "9988HK": {
-   "qty": 23055,
+   "qty": 21455,
    "realized": 40626.99,
    "lots": [
     {
@@ -4748,12 +4748,12 @@
     },
     {
      "price": 99.4334,
-     "qty": 5160,
+     "qty": 3560,
      "type": "fifo",
      "date": "2026-06-24",
      "txType": "买入",
      "ccy": "HKD",
-     "amount": 513076.46163298306
+     "amount": 353982.9851576395
     },
     {
      "price": 113.1512,
@@ -4908,7 +4908,7 @@
    "ccy": "JPY"
   },
   "700HK": {
-   "qty": 15981,
+   "qty": 15281,
    "realized": 19683.87,
    "lots": [
     {
@@ -4931,12 +4931,12 @@
     },
     {
      "price": 495.7932,
-     "qty": 1696,
+     "qty": 996,
      "type": "fifo",
      "date": "2026-04-24",
      "txType": "BUY",
      "ccy": "HKD",
-     "amount": 840865.19088
+     "amount": 493809.98238
     },
     {
      "price": 480.7509,
@@ -6251,26 +6251,26 @@
    "ccy": "JPY"
   },
   "1888HK": {
-   "qty": 187000,
+   "qty": 162000,
    "realized": 0,
    "lots": [
     {
      "price": 86.2926,
-     "qty": 6000,
+     "qty": 0,
      "type": "fifo",
      "date": "2026-06-18",
      "txType": "买入",
      "ccy": "HKD",
-     "amount": 517755.51
+     "amount": 0.0
     },
     {
      "price": 94.1977,
-     "qty": 25000,
+     "qty": 6000,
      "type": "fifo",
      "date": "2026-06-22",
      "txType": "买入",
      "ccy": "HKD",
-     "amount": 2354942.48
+     "amount": 565186.1952
     },
     {
      "price": 67.6401,
@@ -6363,8 +6363,8 @@
  },
  "realizedPnlFromTxn": {
   "TSM": {
-   "orig": 102983.16,
-   "hkd": 806847.22,
+   "orig": 103232.4,
+   "hkd": 808799.92,
    "ccy": "USD",
    "trades": [
     {
@@ -6639,6 +6639,19 @@
      "pnl_hkd": 13218.13,
      "ccy": "USD",
      "note": "TSM(F-1)反累计行权卖出"
+    },
+    {
+     "date": "2026-07-25",
+     "type": "SELL",
+     "qty": 20,
+     "sell_px": 410.5,
+     "cost_px": 397.0477,
+     "sell_amt": 8190.19,
+     "cost_amt": 7940.95,
+     "pnl_orig": 249.24,
+     "pnl_hkd": 1952.7,
+     "ccy": "USD",
+     "note": "市场卖出FIFO 不归属任何订单"
     }
    ]
   },
@@ -7497,8 +7510,8 @@
    ]
   },
   "700HK": {
-   "orig": 30268.33,
-   "hkd": 30268.33,
+   "orig": 24687.63,
+   "hkd": 24687.63,
    "ccy": "HKD",
    "trades": [
     {
@@ -7719,6 +7732,19 @@
      "cost_amt": 502197.92,
      "pnl_orig": -30929.97,
      "pnl_hkd": -30929.97,
+     "ccy": "HKD",
+     "note": "市场卖出FIFO 不归属任何订单"
+    },
+    {
+     "date": "2026-08-03",
+     "type": "SELL",
+     "qty": 700,
+     "sell_px": 489.2,
+     "cost_px": 495.7932,
+     "sell_amt": 341474.51,
+     "cost_amt": 347055.21,
+     "pnl_orig": -5580.7,
+     "pnl_hkd": -5580.7,
      "ccy": "HKD",
      "note": "市场卖出FIFO 不归属任何订单"
     }
@@ -8058,8 +8084,8 @@
    ]
   },
   "9988HK": {
-   "orig": 173832.1,
-   "hkd": 183680.36,
+   "orig": 213695.91,
+   "hkd": 223544.17,
    "ccy": "HKD",
    "trades": [
     {
@@ -8163,6 +8189,19 @@
      "cost_amt": 526997.14,
      "pnl_orig": 87655.44,
      "pnl_hkd": 87655.44,
+     "ccy": "HKD",
+     "note": "市场卖出FIFO 不归属任何订单"
+    },
+    {
+     "date": "2026-08-03",
+     "type": "SELL",
+     "qty": 1600,
+     "sell_px": 124.7,
+     "cost_px": 99.4334,
+     "sell_amt": 198957.29,
+     "cost_amt": 159093.48,
+     "pnl_orig": 39863.81,
+     "pnl_hkd": 39863.81,
      "ccy": "HKD",
      "note": "市场卖出FIFO 不归属任何订单"
     }
@@ -9742,9 +9781,29 @@
      "note": "市场卖出FIFO 不归属任何订单"
     }
    ]
+  },
+  "1888HK": {
+   "orig": -1302133.45,
+   "hkd": -1302133.45,
+   "ccy": "HKD",
+   "trades": [
+    {
+     "date": "2026-07-27",
+     "type": "SELL",
+     "qty": 25000,
+     "sell_px": 40.3288,
+     "cost_px": 92.3005,
+     "sell_amt": 1005378.34,
+     "cost_amt": 2307511.79,
+     "pnl_orig": -1302133.45,
+     "pnl_hkd": -1302133.45,
+     "ccy": "HKD",
+     "note": "市场卖出FIFO 不归属任何订单"
+    }
+   ]
   }
  },
- "totalNewPnlHKD": 12701746.09,
+ "totalNewPnlHKD": 11435848.45,
  "priceUpdatedAt": "2026-07-24 22:32 UTC",
  "missingNotices": {
   "说明": "uns与通知单起点不一致=中间丢了通知单。此台账登记待补/已补的通知单。拿到7月通知单后按此补录。",
