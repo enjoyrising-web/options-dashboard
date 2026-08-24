@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-08-20",
+ "updatedAt": "2026-08-22",
  "fx": {
   "USDHKD": 7.83475,
   "JPYHKD": 0.05
@@ -3755,6 +3755,25 @@
    "uns": 500,
    "inventory": 0,
    "note": "累计2X 250天 每天1 1x/2x 250/500 资金17/35万USD 成交价956.71"
+  },
+  {
+   "underlying": "建滔",
+   "product": "1888HK(1)",
+   "type": "累计",
+   "obs": "2026.08.21",
+   "status": "存续中",
+   "ccy": "HKD",
+   "ticker": "1888.HK",
+   "profitHKD": null,
+   "close": 37.72,
+   "strike": 36.6215,
+   "knockin": 23.6062,
+   "knockout": 38.4526,
+   "daily": 300,
+   "maxShares": 74400,
+   "uns": 148800,
+   "inventory": null,
+   "note": "累计2X 248天 2w/4w 每天300/600股 1x/2x 74400/148800 资金22/45万USD 成交价36.6215"
   }
  ],
  "fcn": {
