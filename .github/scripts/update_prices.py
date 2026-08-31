@@ -103,6 +103,44 @@ def fetch_prev_close(yahoo_ticker):
         print("FAIL " + yahoo_ticker + ": " + str(e))
         return None
 
+def detect_knockouts(data):
+    """收盘价更新后自动检测敲出(方案甲:只标status=敲出,uns保留待通知单清零)
+    - ACC(累计,type不含"反"): 收盘价 >= 敲出价 knockout -> 敲出
+    - DEC(反累计,type含"反"):  收盘价 <= 敲出价 knockout -> 敲出
+    只对存续中、且有有效close和knockout的订单判定。
+    """
+    products = data['products']
+    newly = []
+    for p in products:
+        if p.get('status') != '存续中':
+            continue
+        typ = str(p.get('type') or '')
+        if typ == '市场买入':
+            continue
+        close = p.get('close')
+        ko = p.get('knockout')
+        if not isinstance(close, (int, float)) or not isinstance(ko, (int, float)) or not close or not ko:
+            continue
+        is_dec = ('反' in typ)  # 反累计=DEC
+        hit = (close <= ko) if is_dec else (close >= ko)
+        if hit:
+            p['status'] = '敲出'   # 方案甲:uns 保留不动,等券商敲出通知单再清零
+            newly.append({
+                'product': p.get('product'),
+                'type': typ,
+                'ticker': p.get('ticker'),
+                'close': close,
+                'knockout': ko,
+                'date': data.get('updatedAt'),
+            })
+            print("KNOCKOUT " + str(p.get('product')) + " (" + typ + "): close " + str(close) + (" <= " if is_dec else " >= ") + str(ko))
+    # 记入 products.json 顶层的敲出日志(保留最近50条),方便在WorkBuddy查询
+    if newly:
+        log = data.get('autoKnockoutLog', [])
+        log.extend(newly)
+        data['autoKnockoutLog'] = log[-50:]
+    return newly
+
 def main():
     with open('data/products.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -136,6 +174,15 @@ def main():
     now = datetime.now(timezone.utc)
     data['priceUpdatedAt'] = now.strftime('%Y-%m-%d %H:%M UTC')
     data['updatedAt'] = now.strftime('%Y-%m-%d')
+
+    # === 自动敲出检测(抓价之后、写回之前)===
+    ko_hits = detect_knockouts(data)
+    if ko_hits:
+        print("== 本次自动标记敲出 " + str(len(ko_hits)) + " 张:")
+        for h in ko_hits:
+            print("   " + str(h['product']) + " close=" + str(h['close']) + " KO=" + str(h['knockout']))
+    else:
+        print("== 本次无新敲出")
 
     with open('data/products.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
