@@ -198,6 +198,7 @@ tr.clickable{cursor:pointer}
   <div class="tab" data-tab="stats"     onclick="switchTab(this)">统计分析</div>
   <div class="tab" data-tab="fcn"       onclick="switchTab(this)">FCN台账</div>
   <div class="tab" data-tab="equity" onclick="switchTab(this)">股权投资</div>
+        <div class="tab" data-tab="knockout" onclick="switchTab(this)">敲出查询</div>
 </div>
 
 <!-- Overview -->
@@ -321,19 +322,41 @@ tr.clickable{cursor:pointer}
 <div class="panel" id="panel-equity">
   <div class="fcn-header">
     <h3>股权投资台账</h3>
-    <div class="fcn-total">已投入资金合计：<strong id="equity-total-val">—</strong> USD</div>
+    <div class="fcn-total">已投入资金合计（扣退回后净额）：<strong id="equity-total-val">—</strong> USD</div>
   </div>
   <div class="tbl-wrap">
     <table>
       <thead><tr>
         <th>状态</th><th>付款日</th><th>投资标的</th><th>付款对手</th>
-        <th class="tr">本金</th><th class="tr">管理费</th><th>币种</th>
+        <th class="tr">本金</th><th class="tr">管理费</th>
+        <th class="tr">退回</th><th>退回日</th><th class="tr">净投入</th><th>币种</th>
         <th>票据期限</th><th class="tr">表现费</th>
       </tr></thead>
       <tbody id="equity-body"></tbody>
     </table>
   </div>
 </div>
+
+<!-- Knockout query -->
+<div class="panel" id="panel-knockout">
+  <div class="fcn-header">
+    <h3>敲出查询</h3>
+    <div class="fcn-total">按日期查当天敲出的订单</div>
+  </div>
+  <div style="margin:10px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+    <input type="date" id="ko-date" onchange="renderKnockout()" style="padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--ink);font-size:14px">
+    <button onclick="var d=document.getElementById('ko-date');if(d)d.value='';renderKnockout()" style="padding:6px 12px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--ink);cursor:pointer">全部</button>
+    <span id="ko-count" style="color:var(--muted);font-size:13px"></span>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>敲出日</th><th>订单</th><th>类型</th><th>代码</th><th class="tr">收盘</th><th class="tr">敲出价</th><th>来源</th></tr></thead>
+      <tbody id="ko-body"></tbody>
+    </table>
+  </div>
+  <div style="color:var(--muted);font-size:12px;margin-top:10px">敲出日期取自每日收盘自动侦测 + 通知单登记。2026-08-31 之前、及未逐张登记日期的历史手工敲出不在此列。</div>
+</div>
+
 
 <!-- Drawer -->
 <div class="drawer-bg" id="drawer-bg" onclick="closeDrawer()"></div>
@@ -355,10 +378,7 @@ async function loadData(){
     const REPO  = 'options-dashboard';
     const headers = {'Accept':'application/vnd.github.v3.raw'};
 
-    const [pRes, tRes] = await Promise.all([
-      fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/products.json`, {headers, cache:'no-store'}),
-      fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/transactions.json`, {headers, cache:'no-store'}).catch(()=>null)
-    ]);
+    const pRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/products.json`, {headers, cache:'no-store'});
     const pJson = await pRes.json();
     DATA = pJson.products || [];
     window._dividends = pJson.dividends || [];
@@ -367,6 +387,7 @@ async function loadData(){
 
     FCN_DATA = pJson.fcn || {rows:[],totalInterest:0};
     window._equity = pJson.equityInvestments || [];
+    window._koLog = pJson.autoKnockoutLog || [];
     INV  = pJson.inventory || {};
     if(pJson.fx){ fxUSD=pJson.fx.USDHKD||7.8277; fxJPY=pJson.fx.JPYHKD||0.049; }
     document.getElementById('fx-usd').value=fxUSD;
@@ -376,10 +397,8 @@ async function loadData(){
       if(lastClose[p.product]) p._storedClose=parseFloat(lastClose[p.product]);
       p.close = p._storedClose || p.close || null;
     });
-    if(tRes && tRes.ok){ 
-      try{ const tj=await tRes.json(); TXN=tj||[]; window._allTxns=tj||[]; }
-      catch(e){ TXN=[]; window._allTxns=[]; }
-    }
+    // transactions.json 已弃用:交易流水完全由 products.json 的 lots + realizedPnlFromTxn 还原
+    TXN=[]; window._allTxns=[];
     const priceTime = pJson.priceUpdatedAt ? ' · 收盘价 ' + pJson.priceUpdatedAt : '';
     document.getElementById('updated-at').textContent='数据截至 '+(pJson.updatedAt||'') + priceTime + '  · 点击行查看详情';
     renderAll();
@@ -397,13 +416,25 @@ const bclass=s=>s==='敲出'?'bko':s==='存续中'?'bact':s==='结束'?'bend':'b
 const toHKD=p=>{if(p.profitHKD==null)return null;return p.profitHKD};
 
 // Float PnL: (close - avg_cost) * inventory_qty
+function invKeyOf(t){
+  t=(t||'').toUpperCase();
+  if(t.endsWith('.HK')){
+    const n=t.slice(0,-3);
+    const cands=[n+'HK', ('0000'+n).slice(-4)+'HK', n.replace(/^0+/,'')+'HK'];
+    for(const c of cands){ if(INV[c]) return c; }
+    return n+'HK';
+  }
+  if(t.endsWith('.T')) return t.slice(0,-2)+'JT';
+  if(t==='GOOGL') return 'GOOG';
+  return t.replace(/[^A-Z0-9]/g,'');
+}
 function getFloatPnl(p){
   const close = p.close;
   if(!close) return null;
   // 库存字段为0或null时不显示浮动盈亏
   if(!p.inventory||p.inventory===0) return null;
   // 用 ticker 找库存（不依赖 p.inventory 字段）
-  const tk = (p.ticker||'').replace('.HK','HK').replace('.T','JT').replace(/[^A-Z0-9]/gi,'').toUpperCase();
+  const tk = invKeyOf(p.ticker);
   const inv = INV[tk];
   if(!inv||!inv.qty||inv.qty===0||!inv.lots||!inv.lots.length) return null;
   const avgCost = inv.lots.reduce((s,l)=>s+(l.amount!=null?l.amount:l.price*l.qty),0) /
@@ -488,7 +519,7 @@ function renderKPIs(){
   let totalFloatHKD = 0;
   Object.entries(INV).forEach(([ticker,inv])=>{
     if(!inv.qty||!inv.lots.length) return;
-    const mp = DATA.find(d=>d.ticker&&d.ticker.toUpperCase()===ticker.toUpperCase());
+    const mp = DATA.find(d=>d.ticker&&invKeyOf(d.ticker)===ticker);
     const close = mp?.close||null; if(!close) return;
     const avgCost = inv.lots.reduce((s,l)=>s+l.price*l.qty,0)/inv.qty;
     let fp = (close-avgCost)*inv.qty;
@@ -712,7 +743,7 @@ function renderInventory(ticker){
       <td class="tr">${close?fmt(close,4):'—'}</td>
       <td class="tr">${lotMv?fmt(lotMv,2):'—'}</td>
       <td class="tr">${lotPnlHKD!=null?`<span class="${lotPnlHKD>=0?'pnl-positive':'pnl-negative'}">${lotPnlHKD>=0?'+':''}${fmt(lotPnlHKD,0)}</span>`:'—'}</td>
-      <td style="font-size:11px;color:var(--muted)">持仓中</td>
+      <td style="font-size:11px;color:var(--muted)">${lot.qty>0?'持仓中':'已出清'}</td>
     </tr>`;
   });
 
@@ -866,18 +897,33 @@ function renderFCN(){
 
 function renderEquity(){
   const items = window._equity || [];
-  const total = items.reduce((a,e)=>a+(e.principal||0)+(e.mgmtFee||0),0);
+  // 净投入合计 = 本金 - 退回 + 管理费
+  const total = items.reduce((a,e)=>a+((e.principal||0)-(e.refunded||0)+(e.mgmtFee||0)),0);
   const el=document.getElementById('equity-total-val'); if(el) el.textContent=fmt(total,0);
   const body=document.getElementById('equity-body'); if(!body) return;
-  body.innerHTML = items.length ? items.map(e=>`<tr>
-    <td>${e.status==='持有中'?'<span class="badge bact">持有中</span>':'<span class="badge bend">'+(e.status||'—')+'</span>'}</td>
-    <td>${e.date||''}</td><td>${e.target||''}</td><td style="color:var(--muted)">${e.payee||''}</td>
-    <td class="tr">${e.principal!=null?fmt(e.principal,0):'—'}</td>
-    <td class="tr">${e.mgmtFee!=null?fmt(e.mgmtFee,2):'—'}</td>
-    <td><span class="tag">${e.ccy||''}</span></td>
-    <td>${e.term||''}</td>
-    <td class="tr">${e.perfFee||''}</td>
-  </tr>`).join('') : '<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:20px">暂无股权投资</td></tr>';
+  const badge=(st)=>{
+    if(st==='持有中') return '<span class="badge bact">持有中</span>';
+    if(st==='部分退回') return '<span class="badge" style="background:#fdf0e3;color:#b8730f;border:1px solid #eab676">部分退回</span>';
+    if(st==='已退出'||st==='已赎回') return '<span class="badge bend">'+st+'</span>';
+    return '<span class="badge bend">'+(st||'—')+'</span>';
+  };
+  body.innerHTML = items.length ? items.map(e=>{
+    const net = (e.principal||0)-(e.refunded||0);  // 净本金
+    return `<tr>
+      <td>${badge(e.status)}</td>
+      <td>${e.date||''}</td>
+      <td>${e.target||''}</td>
+      <td style="color:var(--muted)">${e.payee||''}</td>
+      <td class="tr">${e.principal!=null?fmt(e.principal,0):'—'}</td>
+      <td class="tr">${e.mgmtFee!=null?fmt(e.mgmtFee,2):'—'}</td>
+      <td class="tr">${e.refunded?('<span style="color:var(--jade,#1f6f5c)">-'+fmt(e.refunded,0)+'</span>'):'—'}</td>
+      <td style="color:var(--muted)">${e.refundDate||'—'}</td>
+      <td class="tr"><strong>${fmt(net,0)}</strong></td>
+      <td><span class="tag">${e.ccy||''}</span></td>
+      <td>${e.term||''}</td>
+      <td class="tr">${e.perfFee||''}</td>
+    </tr>`;
+  }).join('') : '<tr><td colspan="12" style="text-align:center;color:var(--muted);padding:20px">暂无股权投资</td></tr>';
 }
 
 
@@ -921,8 +967,22 @@ function switchTab(el){
 }
 
 // ── Render all ─────────────────────────────────────────────────
+function renderKnockout(){
+  const log = (window._koLog||[]).slice();
+  const el = document.getElementById('ko-date');
+  const d = el ? el.value : '';
+  let rows = d ? log.filter(x=>x.date===d) : log;
+  rows.sort((a,b)=> a.date<b.date?1:(a.date>b.date?-1:0));
+  const cnt=document.getElementById('ko-count');
+  if(cnt) cnt.textContent = d ? (d+' 共 '+rows.length+' 张敲出') : ('全部 '+rows.length+' 条敲出记录');
+  const tb=document.getElementById('ko-body');
+  if(!tb) return;
+  if(!rows.length){ tb.innerHTML='<tr><td colspan="7" style="color:var(--muted);padding:12px">无记录</td></tr>'; return; }
+  tb.innerHTML = rows.map(x=>`<tr><td>${x.date||''}</td><td>${x.product||''}</td><td>${x.type||''}</td><td>${x.ticker||''}</td><td class="tr">${x.close!=null?x.close:'—'}</td><td class="tr">${x.knockout!=null?x.knockout:'—'}</td><td>${x.source||'自动'}</td></tr>`).join('');
+}
+
 function renderAll(){
-  renderKPIs(); renderOverview(); renderActive(); renderStats(); renderFCN(); renderEquity();
+  renderKPIs(); renderOverview(); renderActive(); renderStats(); renderFCN(); renderEquity(); renderKnockout();
 }
 
 loadData();
