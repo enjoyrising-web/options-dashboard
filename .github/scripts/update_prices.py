@@ -146,10 +146,29 @@ def main():
         data = json.load(f)
 
     products = data['products']
+    inv = data.get('inventory', {})
+
+    def inv_key(t):
+        t = (t or '').upper()
+        if t.endswith('.HK'):
+            n = t[:-3]
+            for c in [n + 'HK', n.zfill(4) + 'HK', n.lstrip('0') + 'HK']:
+                if c in inv:
+                    return c
+            return n + 'HK'
+        if t.endswith('.T'):
+            return t[:-2] + 'JT'
+        if t == 'GOOGL':
+            return 'GOOG'
+        return t
+
+    # 仍有持股的库存标的(即使期权订单都已了结,也要继续更新收盘价,浮动盈亏才准)
+    held = set(k for k, v in inv.items() if v.get('qty', 0) > 0)
+
     active_tickers = set()
     for p in products:
         ticker = p.get('ticker', '')
-        if ticker and p.get('status') == '存续中':
+        if ticker and (p.get('status') == '存续中' or inv_key(ticker) in held):
             active_tickers.add(ticker)
 
     print("Updating " + str(len(active_tickers)) + " tickers...")
